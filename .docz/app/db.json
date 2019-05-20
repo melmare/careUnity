@@ -12,7 +12,41 @@
   },
   "props": [
     {
-      "key": "src/App.js",
+      "key": "src/blog/Entry.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Entry",
+          "methods": [],
+          "actualName": "Entry",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "author": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "text": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
       "value": [
         {
           "description": "",
@@ -39,6 +73,30 @@
             "slug": "testcomponent-example",
             "depth": 2,
             "value": "TestComponent Example"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/blog/Entry.mdx",
+      "value": {
+        "name": "Blog-Entry",
+        "id": "05474e34044100395a1c04f67b883516",
+        "filepath": "src/blog/Entry.mdx",
+        "link": "",
+        "slug": "src-blog-entry",
+        "route": "/src-blog-entry",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "blog-entry-example",
+            "depth": 2,
+            "value": "Blog-Entry Example"
+          },
+          {
+            "slug": "props-of-component-entry",
+            "depth": 2,
+            "value": "Props of Component Entry"
           }
         ]
       }

@@ -1,0 +1,47 @@
+{
+  "config": {
+    "title": "Klarcare App",
+    "description": "My awesome app using docz",
+    "menu": [],
+    "version": "0.1.0",
+    "repository": null,
+    "native": false,
+    "codeSandbox": true,
+    "themeConfig": {},
+    "separator": "-"
+  },
+  "props": [
+    {
+      "key": "src/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "key": "src/TestComponent.mdx",
+      "value": {
+        "name": "TestComponent",
+        "id": "aeb8de7df5bc6388d1bf893a539cf6d1",
+        "filepath": "src/TestComponent.mdx",
+        "link": "",
+        "slug": "src-test-component",
+        "route": "/src-test-component",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "testcomponent-example",
+            "depth": 2,
+            "value": "TestComponent Example"
+          }
+        ]
+      }
+    }
+  ]
+}

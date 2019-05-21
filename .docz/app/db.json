@@ -59,25 +59,6 @@
   ],
   "entries": [
     {
-      "key": "src/TestComponent.mdx",
-      "value": {
-        "name": "TestComponent",
-        "id": "aeb8de7df5bc6388d1bf893a539cf6d1",
-        "filepath": "src/TestComponent.mdx",
-        "link": "",
-        "slug": "src-test-component",
-        "route": "/src-test-component",
-        "menu": "",
-        "headings": [
-          {
-            "slug": "testcomponent-example",
-            "depth": 2,
-            "value": "TestComponent Example"
-          }
-        ]
-      }
-    },
-    {
       "key": "src/newspage/Entry.mdx",
       "value": {
         "name": "News-Entry",

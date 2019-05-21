@@ -12,7 +12,41 @@
   },
   "props": [
     {
-      "key": "src/App.js",
+      "key": "src/blog/Entry.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Entry",
+          "methods": [],
+          "actualName": "Entry",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "author": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "text": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
       "value": [
         {
           "description": "",
@@ -25,20 +59,25 @@
   ],
   "entries": [
     {
-      "key": "src/TestComponent.mdx",
+      "key": "src/newspage/Entry.mdx",
       "value": {
-        "name": "TestComponent",
-        "id": "aeb8de7df5bc6388d1bf893a539cf6d1",
-        "filepath": "src/TestComponent.mdx",
+        "name": "News-Entry",
+        "id": "35f6b8bf85bf4e7824c10ff927aa6624",
+        "filepath": "src/newspage/Entry.mdx",
         "link": "",
-        "slug": "src-test-component",
-        "route": "/src-test-component",
+        "slug": "src-newspage-entry",
+        "route": "/src-newspage-entry",
         "menu": "",
         "headings": [
           {
-            "slug": "testcomponent-example",
+            "slug": "news-entry-example",
             "depth": 2,
-            "value": "TestComponent Example"
+            "value": "News-Entry Example"
+          },
+          {
+            "slug": "props-of-component-entry",
+            "depth": 2,
+            "value": "Props of Component Entry"
           }
         ]
       }

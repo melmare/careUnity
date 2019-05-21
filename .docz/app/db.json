@@ -78,20 +78,20 @@
       }
     },
     {
-      "key": "src/blog/Entry.mdx",
+      "key": "src/newspage/Entry.mdx",
       "value": {
-        "name": "Blog-Entry",
-        "id": "05474e34044100395a1c04f67b883516",
-        "filepath": "src/blog/Entry.mdx",
+        "name": "News-Entry",
+        "id": "35f6b8bf85bf4e7824c10ff927aa6624",
+        "filepath": "src/newspage/Entry.mdx",
         "link": "",
-        "slug": "src-blog-entry",
-        "route": "/src-blog-entry",
+        "slug": "src-newspage-entry",
+        "route": "/src-newspage-entry",
         "menu": "",
         "headings": [
           {
-            "slug": "blog-entry-example",
+            "slug": "news-entry-example",
             "depth": 2,
-            "value": "Blog-Entry Example"
+            "value": "News-Entry Example"
           },
           {
             "slug": "props-of-component-entry",

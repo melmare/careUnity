@@ -3,8 +3,8 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-test-component" */ 'src/TestComponent.mdx'
     ),
-  'src/blog/Entry.mdx': () =>
+  'src/newspage/Entry.mdx': () =>
     import(
-      /* webpackPrefetch: true, webpackChunkName: "src-blog-entry" */ 'src/blog/Entry.mdx'
+      /* webpackPrefetch: true, webpackChunkName: "src-newspage-entry" */ 'src/newspage/Entry.mdx'
     ),
 }

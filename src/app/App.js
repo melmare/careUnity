@@ -1,5 +1,5 @@
 import React from 'react';
-import Entry from '../blog/Entry';
+import Entry from '../newspage/Entry';
 import mockEntry from '../mockdata';
 import GlobalStyles from '../components/GlobalStyles';
 

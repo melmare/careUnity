@@ -16,13 +16,7 @@ const InputTextArea = styled.textarea`
   width: 300px;
 `;
 
-export default function Input({
-  name,
-  label,
-  type = 'text',
-  required,
-  placeholder
-}) {
+export default function Input({ name, label, type, required, placeholder }) {
   return (
     <Label>
       {label}
@@ -49,6 +43,6 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  required: PropTypes.string
+  placeholder: PropTypes.string,
+  required: PropTypes.bool
 };

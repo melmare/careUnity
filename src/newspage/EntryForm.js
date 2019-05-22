@@ -11,10 +11,11 @@ const Form = styled.form`
 export default function EntryForm({ onFormSubmit }) {
   function onSubmit(event, handleFormSubmit) {
     event.preventDefault();
+    const form = event.target;
     const newEntry = {
-      title: event.target.title.value,
-      author: event.target.author.value,
-      description: event.target.description.value
+      title: form.title.value,
+      author: form.author.value,
+      description: form.description.value
     };
     handleFormSubmit(newEntry);
   }

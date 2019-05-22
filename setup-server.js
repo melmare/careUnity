@@ -15,7 +15,7 @@ module.exports = function() {
   app.use(express.static(path.join(__dirname, 'build')));
 
   app.listen(process.env.PORT || 4000, err => {
-    err ? console.log(err) : console.log('Server ready');
+    err ? console.log(err) : console.log('Server ready!!!');
   });
 
   app.get('/', function(req, res) {

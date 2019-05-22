@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Entry from '../newspage/Entry';
-import mockEntry from '../mockdata';
 import GlobalStyles from '../components/GlobalStyles';
+import EntryForm from '../newspage/EntryForm';
 
 function App() {
+  const [entry, setEntry] = useState('');
+
+  function handleFormSubmit(newEntry) {
+    setEntry(newEntry);
+  }
   return (
     <>
       <GlobalStyles />
-      <Entry
-        title={mockEntry.title}
-        author={mockEntry.author}
-        text={mockEntry.text}
-      />
+      <EntryForm onFormSubmit={handleFormSubmit} />
+      {entry && (
+        <Entry
+          title={entry.title}
+          author={entry.author}
+          description={entry.description}
+        />
+      )}
     </>
   );
 }

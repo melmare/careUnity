@@ -12,7 +12,7 @@
   },
   "props": [
     {
-      "key": "src/blog/Entry.js",
+      "key": "src/newspage/Entry.js",
       "value": [
         {
           "description": "",

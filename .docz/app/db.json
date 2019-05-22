@@ -12,7 +12,79 @@
   },
   "props": [
     {
-      "key": "src/blog/Entry.js",
+      "key": "src/newspage/Input.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Input",
+          "methods": [],
+          "actualName": "Input",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": "",
+              "defaultValue": {
+                "value": "'text'",
+                "computed": false
+              }
+            },
+            "label": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "required": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/EntryForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "EntryForm",
+          "methods": [],
+          "actualName": "EntryForm",
+          "props": {
+            "onFormSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Entry.js",
       "value": [
         {
           "description": "",
@@ -34,7 +106,7 @@
               "required": true,
               "description": ""
             },
-            "text": {
+            "description": {
               "type": {
                 "name": "string"
               },
@@ -78,6 +150,59 @@
             "slug": "props-of-component-entry",
             "depth": 2,
             "value": "Props of Component Entry"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/newspage/EntryForm.mdx",
+      "value": {
+        "name": "Entry Form",
+        "id": "13d8f2b8dfb29f5950e66455ba958c2c",
+        "filepath": "src/newspage/EntryForm.mdx",
+        "link": "",
+        "slug": "src-newspage-entry-form",
+        "route": "/src-newspage-entry-form",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "example-for-the-form-to-create-a-new-entry",
+            "depth": 2,
+            "value": "Example for the Form to create a new Entry"
+          },
+          {
+            "slug": "props-of-component-entryform",
+            "depth": 2,
+            "value": "Props of Component EntryForm"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/newspage/Input.mdx",
+      "value": {
+        "name": "Input",
+        "id": "3d84a5d62f4167045527c6836d34994a",
+        "filepath": "src/newspage/Input.mdx",
+        "link": "",
+        "slug": "src-newspage-input",
+        "route": "/src-newspage-input",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "example-for-a-input",
+            "depth": 2,
+            "value": "Example for a Input"
+          },
+          {
+            "slug": "example-for-a-input-as-a-textarea",
+            "depth": 2,
+            "value": "Example for a Input as a Textarea"
+          },
+          {
+            "slug": "props-of-component-input",
+            "depth": 2,
+            "value": "Props of Component Input"
           }
         ]
       }

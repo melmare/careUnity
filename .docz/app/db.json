@@ -12,51 +12,6 @@
   },
   "props": [
     {
-      "key": "src/newspage/Entry.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Entry",
-          "methods": [],
-          "actualName": "Entry",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "author": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "description": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
       "key": "src/newspage/Input.js",
       "value": [
         {
@@ -105,13 +60,58 @@
       ]
     },
     {
-      "key": "src/newspage/EntryForm.js",
+      "key": "src/newspage/Entry.js",
       "value": [
         {
           "description": "",
-          "displayName": "EntryForm",
+          "displayName": "Entry",
           "methods": [],
-          "actualName": "EntryForm",
+          "actualName": "Entry",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "author": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "description": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Form.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form",
           "props": {
             "onFormSubmit": {
               "type": {
@@ -121,6 +121,17 @@
               "description": ""
             }
           }
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
         }
       ]
     }
@@ -151,14 +162,14 @@
       }
     },
     {
-      "key": "src/newspage/EntryForm.mdx",
+      "key": "src/newspage/Form.mdx",
       "value": {
-        "name": "Entry Form",
-        "id": "13d8f2b8dfb29f5950e66455ba958c2c",
-        "filepath": "src/newspage/EntryForm.mdx",
+        "name": "Form",
+        "id": "43ef7d224d5e758cb293c89aeb3d832d",
+        "filepath": "src/newspage/Form.mdx",
         "link": "",
-        "slug": "src-newspage-entry-form",
-        "route": "/src-newspage-entry-form",
+        "slug": "src-newspage-form",
+        "route": "/src-newspage-form",
         "menu": "",
         "headings": [
           {
@@ -167,9 +178,9 @@
             "value": "Example for the Form to create a new Entry"
           },
           {
-            "slug": "props-of-component-entryform",
+            "slug": "props-of-component-form",
             "depth": 2,
-            "value": "Props of Component EntryForm"
+            "value": "Props of Component Form"
           }
         ]
       }

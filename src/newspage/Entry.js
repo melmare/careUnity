@@ -7,7 +7,7 @@ import Description from './Description';
 
 const EntryContainer = styled.article`
   border: 1px solid;
-  margin: 5px;
+  margin: 5px 25px;
   padding: 15px;
 `;
 

@@ -4,11 +4,11 @@ import Input from './Input';
 import styled from 'styled-components';
 import SubmitButton from './SubmitButton';
 
-const Form = styled.form`
+const StyledForm = styled.form`
   margin: 20px;
   display: grid;
 `;
-export default function EntryForm({ onFormSubmit }) {
+export default function Form({ onFormSubmit }) {
   function onSubmit(event, handleFormSubmit) {
     event.preventDefault();
     const form = event.target;
@@ -20,7 +20,7 @@ export default function EntryForm({ onFormSubmit }) {
     handleFormSubmit(newEntry);
   }
   return (
-    <Form onSubmit={event => onSubmit(event, onFormSubmit)}>
+    <StyledForm onSubmit={event => onSubmit(event, onFormSubmit)}>
       <Input
         name="title"
         label="Datum"
@@ -30,10 +30,10 @@ export default function EntryForm({ onFormSubmit }) {
       <Input name="author" label="Autor" required placeholder="Anna" />
       <Input name="description" label="Placeholder placeholder?" />
       <SubmitButton>Eintrag abschicken</SubmitButton>
-    </Form>
+    </StyledForm>
   );
 }
 
-EntryForm.propTypes = {
+Form.propTypes = {
   onFormSubmit: PropTypes.func.isRequired
 };

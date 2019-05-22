@@ -3,9 +3,9 @@ export const imports = {
     import(
       /* webpackPrefetch: true, webpackChunkName: "src-newspage-entry" */ 'src/newspage/Entry.mdx'
     ),
-  'src/newspage/EntryForm.mdx': () =>
+  'src/newspage/Form.mdx': () =>
     import(
-      /* webpackPrefetch: true, webpackChunkName: "src-newspage-entry-form" */ 'src/newspage/EntryForm.mdx'
+      /* webpackPrefetch: true, webpackChunkName: "src-newspage-form" */ 'src/newspage/Form.mdx'
     ),
   'src/newspage/Input.mdx': () =>
     import(

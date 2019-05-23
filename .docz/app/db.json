@@ -60,36 +60,13 @@
       ]
     },
     {
-      "key": "src/newspage/Entry.js",
+      "key": "src/newspage/Activity.js",
       "value": [
         {
           "description": "",
-          "displayName": "Entry",
+          "displayName": "Activity",
           "methods": [],
-          "actualName": "Entry",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "author": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "description": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
+          "actualName": "Activity"
         }
       ]
     },
@@ -101,6 +78,17 @@
           "displayName": "App",
           "methods": [],
           "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
         }
       ]
     },
@@ -125,13 +113,43 @@
       ]
     },
     {
-      "key": "src/newspage/NewsList.js",
+      "key": "src/newspage/Entry.js",
       "value": [
         {
           "description": "",
-          "displayName": "NewsList",
+          "displayName": "Entry",
           "methods": [],
-          "actualName": "NewsList"
+          "actualName": "Entry",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "author": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "activities": {
+              "type": {
+                "name": "array"
+              },
+              "required": false,
+              "description": ""
+            },
+            "description": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
         }
       ]
     }

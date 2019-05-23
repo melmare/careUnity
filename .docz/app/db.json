@@ -73,6 +73,39 @@
       ]
     },
     {
+      "key": "src/createpage/createPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "createPage",
+          "methods": [],
+          "actualName": "createPage"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Activity.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Activity",
+          "methods": [],
+          "actualName": "Activity"
+        }
+      ]
+    },
+    {
       "key": "src/app/App.js",
       "value": [
         {
@@ -80,6 +113,28 @@
           "displayName": "App",
           "methods": [],
           "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsPage",
+          "methods": [],
+          "actualName": "NewsPage"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/CreatePage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreatePage",
+          "methods": [],
+          "actualName": "CreatePage"
         }
       ]
     }

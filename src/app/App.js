@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import Entry from '../newspage/Entry';
+import React, { useState, useEffect } from 'react';
+import NewsList from '../newspage/NewsList';
 import GlobalStyles from '../components/GlobalStyles';
-import EntryForm from '../newspage/EntryForm';
+import Form from '../newspage/Form';
+import { setLocalData, getLocalData } from '../services';
 
 function App() {
-  const [entry, setEntry] = useState('');
+  const [newsList, setNewsList] = useState(getLocalData('news') || []);
 
   function handleFormSubmit(newEntry) {
-    setEntry(newEntry);
+    setNewsList([newEntry, ...newsList]);
   }
+
+  useEffect(() => {
+    setLocalData('news', newsList);
+  });
+
   return (
     <>
       <GlobalStyles />
-      <EntryForm onFormSubmit={handleFormSubmit} />
-      {entry && (
-        <Entry
-          title={entry.title}
-          author={entry.author}
-          description={entry.description}
-        />
-      )}
+      <Form onFormSubmit={handleFormSubmit} />
+      <NewsList newsList={newsList} />
     </>
   );
 }

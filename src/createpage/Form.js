@@ -8,8 +8,8 @@ const StyledForm = styled.form`
   margin: 20px;
   display: grid;
 `;
-export default function Form({ onFormSubmit }) {
-  function onSubmit(event, handleFormSubmit) {
+export default function Form({ onFormSubmit, history }) {
+  function onSubmit(event, handleFormSubmit, history) {
     event.preventDefault();
     const form = event.target;
     const activities = form.activities.value
@@ -22,10 +22,10 @@ export default function Form({ onFormSubmit }) {
       activities,
       description: form.description.value
     };
-    handleFormSubmit(newEntry);
+    handleFormSubmit(newEntry, history);
   }
   return (
-    <StyledForm onSubmit={event => onSubmit(event, onFormSubmit)}>
+    <StyledForm onSubmit={event => onSubmit(event, onFormSubmit, history)}>
       <Input
         name="title"
         label="Datum"

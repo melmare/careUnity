@@ -12,107 +12,6 @@
   },
   "props": [
     {
-      "key": "src/newspage/Input.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Input",
-          "methods": [],
-          "actualName": "Input",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "label": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "placeholder": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "required": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/Activity.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Activity",
-          "methods": [],
-          "actualName": "Activity"
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/NewsList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsList",
-          "methods": [],
-          "actualName": "NewsList"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/Form.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form",
-          "props": {
-            "onFormSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/newspage/Entry.js",
       "value": [
         {
@@ -152,9 +51,93 @@
           }
         }
       ]
+    },
+    {
+      "key": "src/createpage/Form.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form",
+          "props": {
+            "onFormSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
     }
   ],
   "entries": [
+    {
+      "key": "src/createpage/Form.mdx",
+      "value": {
+        "name": "Form",
+        "id": "63d0df8e10387c7b1cd4f64698fcc915",
+        "filepath": "src/createpage/Form.mdx",
+        "link": "",
+        "slug": "src-createpage-form",
+        "route": "/src-createpage-form",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "example-for-the-form-to-create-a-new-entry",
+            "depth": 2,
+            "value": "Example for the Form to create a new Entry"
+          },
+          {
+            "slug": "props-of-component-form",
+            "depth": 2,
+            "value": "Props of Component Form"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/createpage/Input.mdx",
+      "value": {
+        "name": "Input",
+        "id": "09dd1cd1c35061dcd455e80f847edabb",
+        "filepath": "src/createpage/Input.mdx",
+        "link": "",
+        "slug": "src-createpage-input",
+        "route": "/src-createpage-input",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "example-for-a-input",
+            "depth": 2,
+            "value": "Example for a Input"
+          },
+          {
+            "slug": "example-for-a-input-as-a-textarea",
+            "depth": 2,
+            "value": "Example for a Input as a Textarea"
+          },
+          {
+            "slug": "props-of-component-input",
+            "depth": 2,
+            "value": "Props of Component Input"
+          }
+        ]
+      }
+    },
     {
       "key": "src/newspage/Entry.mdx",
       "value": {
@@ -175,59 +158,6 @@
             "slug": "props-of-component-entry",
             "depth": 2,
             "value": "Props of Component Entry"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/newspage/Form.mdx",
-      "value": {
-        "name": "Form",
-        "id": "43ef7d224d5e758cb293c89aeb3d832d",
-        "filepath": "src/newspage/Form.mdx",
-        "link": "",
-        "slug": "src-newspage-form",
-        "route": "/src-newspage-form",
-        "menu": "",
-        "headings": [
-          {
-            "slug": "example-for-the-form-to-create-a-new-entry",
-            "depth": 2,
-            "value": "Example for the Form to create a new Entry"
-          },
-          {
-            "slug": "props-of-component-form",
-            "depth": 2,
-            "value": "Props of Component Form"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/newspage/Input.mdx",
-      "value": {
-        "name": "Input",
-        "id": "3d84a5d62f4167045527c6836d34994a",
-        "filepath": "src/newspage/Input.mdx",
-        "link": "",
-        "slug": "src-newspage-input",
-        "route": "/src-newspage-input",
-        "menu": "",
-        "headings": [
-          {
-            "slug": "example-for-a-input",
-            "depth": 2,
-            "value": "Example for a Input"
-          },
-          {
-            "slug": "example-for-a-input-as-a-textarea",
-            "depth": 2,
-            "value": "Example for a Input as a Textarea"
-          },
-          {
-            "slug": "props-of-component-input",
-            "depth": 2,
-            "value": "Props of Component Input"
           }
         ]
       }

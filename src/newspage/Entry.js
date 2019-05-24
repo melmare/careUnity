@@ -8,9 +8,9 @@ import Activity from './Activity';
 import Activities from './Activities';
 
 const EntryContainer = styled.article`
-  border: 1px solid;
-  margin: 5px 25px;
-  padding: 15px;
+  background: lightgray
+  border-radius: 3%;
+  margin: 0 15px 30px 15px;
 `;
 
 export default function Entry({ entry }) {

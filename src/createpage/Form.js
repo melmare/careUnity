@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import SubmitButton from './SubmitButton';
 
 const StyledForm = styled.form`
-  margin: 20px;
   display: grid;
+  margin: 0 20px 20px 20px;
 `;
-export default function Form({ onFormSubmit }) {
-  function onSubmit(event, handleFormSubmit) {
+export default function Form({ onFormSubmit, history }) {
+  function handleSubmit({ event, onFormSubmit, history }) {
     event.preventDefault();
     const form = event.target;
     const activities = form.activities.value
@@ -22,23 +22,25 @@ export default function Form({ onFormSubmit }) {
       activities,
       description: form.description.value
     };
-    handleFormSubmit(newEntry);
+    onFormSubmit(newEntry, history);
   }
   return (
-    <StyledForm onSubmit={event => onSubmit(event, onFormSubmit)}>
+    <StyledForm
+      onSubmit={event => handleSubmit({ event, onFormSubmit, history })}
+    >
       <Input
         name="title"
         label="Datum"
         required
         placeholder="Donnerstag, 09.05.2019"
       />
+      <Input name="author" label="Autor" required placeholder="Anna" />
       <Input
         name="activities"
         label="Aktivitäten"
         required
         placeholder="Spaziergang, Mittagessen, ..."
       />
-      <Input name="author" label="Autor" required placeholder="Anna" />
       <Input name="description" label="Placeholder placeholder?" />
       <SubmitButton>Eintrag abschicken</SubmitButton>
     </StyledForm>

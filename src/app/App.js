@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { setLocalData, getLocalData } from '../services';
 import styled from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import GlobalStyles from '../components/GlobalStyles';
 import Navigation from '../components/Navigation';
@@ -16,10 +15,6 @@ library.add(faHome);
 
 const AppContainer = styled.div`
   position: absolute;
-`;
-
-const Main = styled.main`
-  display: block;
 `;
 
 function App() {
@@ -38,20 +33,18 @@ function App() {
     <BrowserRouter>
       <GlobalStyles />
       <AppContainer>
-        <Main>
-          <Switch>
-            <Route
-              path="/create"
-              render={props => (
-                <CreatePage
-                  onFormSubmit={handleFormSubmit}
-                  history={props.history}
-                />
-              )}
-            />
-            <Route path="/" render={() => <NewsPage newsList={newsList} />} />
-          </Switch>
-        </Main>
+        <Switch>
+          <Route
+            path="/create"
+            render={props => (
+              <CreatePage
+                onFormSubmit={handleFormSubmit}
+                history={props.history}
+              />
+            )}
+          />
+          <Route path="/" render={() => <NewsPage newsList={newsList} />} />
+        </Switch>
         <Navigation>
           <NavButton to="/">
             <Icon icon="home" />

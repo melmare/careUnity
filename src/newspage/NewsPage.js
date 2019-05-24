@@ -4,9 +4,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Header from '../components/Header';
 import NewsList from './NewsList';
 import Icon from '../components/NavIcon';
-import { NavLink } from 'react-router-dom';
 import ContentContainer from '../components/ContentContainer';
-import styled from 'styled-components';
 import HeaderButton from '../components/HeaderButton';
 import Headline from '../components/Headline';
 

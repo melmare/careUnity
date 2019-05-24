@@ -11,8 +11,8 @@ const StyledInput = styled.input`
 
 const InputTextArea = styled.textarea`
   border: solid 2px gray;
-  margin: 15px;
   height: 100px;
+  margin: 15px;
   width: 300px;
 `;
 

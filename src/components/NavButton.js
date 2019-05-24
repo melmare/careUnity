@@ -2,15 +2,15 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const NavButton = styled(NavLink)`
-  padding: 5px;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
   align-items: center;
   background: skyblue;
+  border-radius: 50%;
+  display: flex;
+  height: 100px;
+  justify-content: center;
   margin-bottom: 15px;
+  padding: 5px;
+  width: 100px;
 `;
 
 export default NavButton;

@@ -12,6 +12,109 @@
   },
   "props": [
     {
+      "key": "src/createpage/createPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "createPage",
+          "methods": [],
+          "actualName": "createPage"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/CreatePage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreatePage",
+          "methods": [],
+          "actualName": "CreatePage"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/Input.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Input",
+          "methods": [],
+          "actualName": "Input",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "label": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "required": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Activity.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Activity",
+          "methods": [],
+          "actualName": "Activity"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsPage",
+          "methods": [],
+          "actualName": "NewsPage"
+        }
+      ]
+    },
+    {
       "key": "src/newspage/Entry.js",
       "value": [
         {
@@ -53,6 +156,17 @@
       ]
     },
     {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
       "key": "src/createpage/Form.js",
       "value": [
         {
@@ -69,72 +183,6 @@
               "description": ""
             }
           }
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/createPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "createPage",
-          "methods": [],
-          "actualName": "createPage"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/NewsList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsList",
-          "methods": [],
-          "actualName": "NewsList"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/Activity.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Activity",
-          "methods": [],
-          "actualName": "Activity"
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/NewsPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsPage",
-          "methods": [],
-          "actualName": "NewsPage"
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/CreatePage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CreatePage",
-          "methods": [],
-          "actualName": "CreatePage"
         }
       ]
     }

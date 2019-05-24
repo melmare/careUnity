@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
 const Title = styled.h2`
-  padding: 10px 0;
-  margin: 0;
-  font-size: 34px;
-  border-bottom: 1px solid;
-  align-self: center;
+  background: silver;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+  display: flex;
+  font-size: 26px;
+  justify-content: center;
+  padding: 5px;
+  width: 100%;
 `;
 
 export default Title;

@@ -6,10 +6,10 @@ import SubmitButton from './SubmitButton';
 
 const StyledForm = styled.form`
   display: grid;
-  margin: 20px;
+  margin: 0 20px 20px 20px;
 `;
 export default function Form({ onFormSubmit, history }) {
-  function handleSubmit(event, onFormSubmit, history) {
+  function handleSubmit({ event, onFormSubmit, history }) {
     event.preventDefault();
     const form = event.target;
     const activities = form.activities.value
@@ -25,7 +25,9 @@ export default function Form({ onFormSubmit, history }) {
     onFormSubmit(newEntry, history);
   }
   return (
-    <StyledForm onSubmit={event => handleSubmit(event, onFormSubmit, history)}>
+    <StyledForm
+      onSubmit={event => handleSubmit({ event, onFormSubmit, history })}
+    >
       <Input
         name="title"
         label="Datum"

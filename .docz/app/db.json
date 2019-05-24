@@ -23,28 +23,6 @@
       ]
     },
     {
-      "key": "src/newspage/NewsList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsList",
-          "methods": [],
-          "actualName": "NewsList"
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/CreatePage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CreatePage",
-          "methods": [],
-          "actualName": "CreatePage"
-        }
-      ]
-    },
-    {
       "key": "src/createpage/Input.js",
       "value": [
         {
@@ -156,6 +134,17 @@
       ]
     },
     {
+      "key": "src/createpage/CreatePage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreatePage",
+          "methods": [],
+          "actualName": "CreatePage"
+        }
+      ]
+    },
+    {
       "key": "src/app/App.js",
       "value": [
         {
@@ -163,6 +152,17 @@
           "displayName": "App",
           "methods": [],
           "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
         }
       ]
     },

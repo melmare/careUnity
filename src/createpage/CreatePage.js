@@ -8,7 +8,7 @@ export default function CreatePage({ onFormSubmit, history }) {
   return (
     <>
       <Header>
-        <Headline>Create new Entry</Headline>
+        <Headline>Eintrag erstellen</Headline>
       </Header>
       <ContentContainer>
         <Form onFormSubmit={onFormSubmit} history={history} />

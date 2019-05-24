@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from './Input';
+import Input from '../components/Input';
 import styled from 'styled-components';
-import SubmitButton from './SubmitButton';
+import SubmitButton from '../components/SubmitButton';
 
 const StyledForm = styled.form`
   display: grid;

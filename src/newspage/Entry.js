@@ -10,7 +10,7 @@ import Activities from './Activities';
 const EntryContainer = styled.article`
   background: lightgray
   border-radius: 3%;
-  margin: 0 15px 30px 15px;
+  margin-bottom: 30px;
 `;
 
 export default function Entry({ entry }) {

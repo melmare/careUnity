@@ -5,7 +5,7 @@ export default function NewsList({ newsList }) {
   return (
     <>
       {newsList.map(entry => (
-        <Entry entry={entry} />
+        <Entry key={entry._id} entry={entry} />
       ))}
     </>
   );

@@ -12,18 +12,18 @@ export default function Form({ onFormSubmit, history }) {
   function handleSubmit({ event, onFormSubmit, history }) {
     event.preventDefault();
     const form = event.target;
-    const activities = form.activities.value
-      .split(',')
-      .map(value => value.trim())
-      .filter(value => Boolean(value));
     const newEntry = {
       title: form.title.value,
       author: form.author.value,
-      activities,
+      activities: form.activities.value
+        .split(',')
+        .map(value => value.trim())
+        .filter(value => Boolean(value)),
       description: form.description.value
     };
     onFormSubmit(newEntry, history);
   }
+
   return (
     <StyledForm
       onSubmit={event => handleSubmit({ event, onFormSubmit, history })}

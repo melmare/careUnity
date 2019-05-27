@@ -8,8 +8,9 @@ import Activity from './Activity';
 import Activities from './Activities';
 
 const EntryContainer = styled.article`
-  background: lightgray
+  background: lightgray;
   border-radius: 3%;
+  width: 100%;
   margin: 0 15px 30px 15px;
 `;
 
@@ -21,7 +22,7 @@ export default function Entry({ entry }) {
       <Author>Erstellt von {author}</Author>
       <Activities>
         {activities.map(activity => (
-          <Activity activity={activity} />
+          <Activity activity={activity} key={activities.indexOf(activity)} />
         ))}
       </Activities>
 

@@ -1,10 +1,23 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const fs = require('fs');
+dotenv.config();
+
+try {
+  const localConfig = dotenv.parse(fs.readFileSync('.env.local'));
+  process.env = {
+    ...process.env,
+    ...localConfig
+  };
+} catch (error) {
+  console.log('no .env.local found');
+}
 
 module.exports = function() {
   mongoose
-    .connect('mongodb://localhost:27017/react-mongo-exercise', {
+    .connect(process.env.DB_URL, {
       useNewUrlParser: true
     })
     .then(() => console.log('Connected to MongoDB'))
@@ -15,7 +28,7 @@ module.exports = function() {
   app.use(express.static(path.join(__dirname, 'build')));
 
   app.listen(process.env.PORT || 4000, err => {
-    err ? console.log(err) : console.log('Server ready!!!');
+    err ? console.log(err) : console.log('Server ready');
   });
 
   app.get('/', function(req, res) {

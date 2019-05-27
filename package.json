@@ -1,6 +1,10 @@
 {
   "name": "klarcare-app",
   "version": "0.1.0",
+  "author": {
+    "name": "melmare",
+    "url": "https://github.com/melmare/klarcare-app"
+  },
   "private": true,
   "dependencies": {
     "@craco/craco": "^5.1.0",
@@ -11,8 +15,10 @@
     "babel-plugin-styled-components": "^1.10.0",
     "docz": "^1.2.0",
     "docz-theme-default": "^1.2.0",
+    "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "i": "^0.3.6",
+    "mongo": "^0.1.0",
     "mongoose": "^5.5.9",
     "nodemon": "^1.19.0",
     "npm": "^6.9.0",
@@ -34,6 +40,7 @@
     "docz:dev": "docz dev",
     "docz:build": "docz build"
   },
+  "proxy": "http://localhost:4000",
   "eslintConfig": {
     "extends": "react-app"
   },

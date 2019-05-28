@@ -12,13 +12,13 @@
   },
   "props": [
     {
-      "key": "src/createpage/createPage.js",
+      "key": "src/createpage/CreatePage.js",
       "value": [
         {
           "description": "",
-          "displayName": "createPage",
+          "displayName": "CreatePage",
           "methods": [],
-          "actualName": "createPage"
+          "actualName": "CreatePage"
         }
       ]
     },
@@ -34,33 +34,24 @@
       ]
     },
     {
-      "key": "src/createpage/CreatePage.js",
+      "key": "src/newspage/NewsPage.js",
       "value": [
         {
           "description": "",
-          "displayName": "CreatePage",
+          "displayName": "NewsPage",
           "methods": [],
-          "actualName": "CreatePage"
+          "actualName": "NewsPage"
         }
       ]
     },
     {
-      "key": "src/createpage/NewsForm.js",
+      "key": "src/newspage/NewsList.js",
       "value": [
         {
           "description": "",
-          "displayName": "Form",
+          "displayName": "NewsList",
           "methods": [],
-          "actualName": "Form",
-          "props": {
-            "onFormSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
+          "actualName": "NewsList"
         }
       ]
     },
@@ -106,17 +97,6 @@
       ]
     },
     {
-      "key": "src/newspage/NewsList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsList",
-          "methods": [],
-          "actualName": "NewsList"
-        }
-      ]
-    },
-    {
       "key": "src/todopage/ToDoForm.js",
       "value": [
         {
@@ -128,13 +108,24 @@
       ]
     },
     {
-      "key": "src/todopage/ToDoPage.js",
+      "key": "src/app/App.js",
       "value": [
         {
           "description": "",
-          "displayName": "ToDoPage",
+          "displayName": "App",
           "methods": [],
-          "actualName": "ToDoPage"
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/userpage/UserPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UserPage",
+          "methods": [],
+          "actualName": "UserPage"
         }
       ]
     },
@@ -150,6 +141,17 @@
       ]
     },
     {
+      "key": "src/todopage/ToDoPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDoPage",
+          "methods": [],
+          "actualName": "ToDoPage"
+        }
+      ]
+    },
+    {
       "key": "src/todopage/ToDoList.js",
       "value": [
         {
@@ -157,17 +159,6 @@
           "displayName": "ToDoList",
           "methods": [],
           "actualName": "ToDoList"
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
         }
       ]
     }

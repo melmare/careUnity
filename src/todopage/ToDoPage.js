@@ -6,9 +6,11 @@ import ToDoForm from './ToDoForm';
 import ToDoList from './ToDoList';
 export default function ToDoPage({
   toDos,
+  user,
   onToDoSubmit,
   onToDoStatusChange,
-  onToDoDelete
+  onToDoDelete,
+  onToDoDistribution
 }) {
   return (
     <>
@@ -19,8 +21,10 @@ export default function ToDoPage({
         <ToDoForm onToDoSubmit={onToDoSubmit} />
         <ToDoList
           toDos={toDos}
+          user={user}
           onToDoStatusChange={onToDoStatusChange}
           onToDoDelete={onToDoDelete}
+          onToDoDistribution={onToDoDistribution}
         />
       </ContentContainer>
     </>

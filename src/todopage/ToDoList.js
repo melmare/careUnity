@@ -1,7 +1,13 @@
 import React from 'react';
 import ToDo from './ToDo';
 
-export default function ToDoList({ toDos, onToDoStatusChange, onToDoDelete }) {
+export default function ToDoList({
+  toDos,
+  onToDoStatusChange,
+  onToDoDelete,
+  user,
+  onToDoDistribution
+}) {
   return (
     <>
       <div>Offene Aufgaben</div>
@@ -11,8 +17,10 @@ export default function ToDoList({ toDos, onToDoStatusChange, onToDoDelete }) {
           .map(toDo => (
             <ToDo
               toDo={toDo}
+              user={user}
               onToDoStatusChange={onToDoStatusChange}
               onToDoDelete={onToDoDelete}
+              onToDoDistribution={onToDoDistribution}
             />
           ))}
       <div>In Bearbeitung</div>
@@ -22,8 +30,10 @@ export default function ToDoList({ toDos, onToDoStatusChange, onToDoDelete }) {
           .map(toDo => (
             <ToDo
               toDo={toDo}
+              user={user}
               onToDoStatusChange={onToDoStatusChange}
               onToDoDelete={onToDoDelete}
+              onToDoDistribution={onToDoDistribution}
             />
           ))}
       <div>Abgeschlossene Aufgaben</div>
@@ -33,8 +43,10 @@ export default function ToDoList({ toDos, onToDoStatusChange, onToDoDelete }) {
           .map(toDo => (
             <ToDo
               toDo={toDo}
+              user={user}
               onToDoStatusChange={onToDoStatusChange}
               onToDoDelete={onToDoDelete}
+              onToDoDistribution={onToDoDistribution}
             />
           ))}
     </>

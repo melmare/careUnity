@@ -56,47 +56,6 @@
       ]
     },
     {
-      "key": "src/newspage/Entry.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Entry",
-          "methods": [],
-          "actualName": "Entry",
-          "props": {
-            "title": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "author": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "activities": {
-              "type": {
-                "name": "array"
-              },
-              "required": false,
-              "description": ""
-            },
-            "description": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/todopage/ToDoForm.js",
       "value": [
         {
@@ -104,17 +63,6 @@
           "displayName": "ToDoForm",
           "methods": [],
           "actualName": "ToDoForm"
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
         }
       ]
     },
@@ -159,6 +107,58 @@
           "displayName": "ToDoList",
           "methods": [],
           "actualName": "ToDoList"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Entry.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Entry",
+          "methods": [],
+          "actualName": "Entry",
+          "props": {
+            "title": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "author": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "activities": {
+              "type": {
+                "name": "array"
+              },
+              "required": false,
+              "description": ""
+            },
+            "description": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
         }
       ]
     }

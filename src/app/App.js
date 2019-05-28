@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { setLocalData, getLocalData } from '../services';
+import {
+  setLocalData,
+  getLocalData,
+  postNewsEntry,
+  getNews
+} from '../services';
 import styled from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHome, faList, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -26,11 +31,19 @@ function App() {
   const [user, setUser] = useState(getLocalData('user') || 'User');
 
   function handleNewsFormSubmit(newEntry, history) {
-    setNewsList([newEntry, ...newsList]);
-    history.push('/');
+    postNewsEntry(newEntry)
+      .then(newEntry => setNewsList([newEntry, ...newsList]))
+      .catch(err => console.log(err));
+    history.push('/news');
   }
 
-  useEffect(() => setLocalData('news', newsList), [newsList]);
+  useEffect(() => {
+    setLocalData('news', newsList);
+  }, [newsList]);
+
+  useEffect(() => {
+    getNews().then(newsList => setNewsList(newsList.reverse()));
+  }, [newsList]);
 
   function handleToDoSubmit(newToDo) {
     setToDos([newToDo, ...toDos]);

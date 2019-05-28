@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from './Form';
+import NewsForm from './NewsForm';
 import Header from '../components/Header';
 import ContentContainer from '../components/ContentContainer';
 import Headline from '../components/Headline';
@@ -11,7 +11,7 @@ export default function CreatePage({ onFormSubmit, history }) {
         <Headline>Eintrag erstellen</Headline>
       </Header>
       <ContentContainer>
-        <Form onFormSubmit={onFormSubmit} history={history} />
+        <NewsForm onFormSubmit={onFormSubmit} history={history} />
       </ContentContainer>
     </>
   );

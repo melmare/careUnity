@@ -23,54 +23,6 @@
       ]
     },
     {
-      "key": "src/createpage/Input.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Input",
-          "methods": [],
-          "actualName": "Input",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "label": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "placeholder": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "required": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/newspage/Activity.js",
       "value": [
         {
@@ -89,6 +41,83 @@
           "displayName": "NewsPage",
           "methods": [],
           "actualName": "NewsPage"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDoForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDoForm",
+          "methods": [],
+          "actualName": "ToDoForm"
+        }
+      ]
+    },
+    {
+      "key": "src/userpage/UserPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UserPage",
+          "methods": [],
+          "actualName": "UserPage"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDo.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDo",
+          "methods": [],
+          "actualName": "ToDo"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDoPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDoPage",
+          "methods": [],
+          "actualName": "ToDoPage"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDoList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDoList",
+          "methods": [],
+          "actualName": "ToDoList"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
         }
       ]
     },
@@ -132,84 +161,18 @@
           }
         }
       ]
-    },
-    {
-      "key": "src/newspage/NewsList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsList",
-          "methods": [],
-          "actualName": "NewsList"
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/Form.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form",
-          "props": {
-            "onFormSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
     }
   ],
   "entries": [
     {
-      "key": "src/createpage/Form.mdx",
-      "value": {
-        "name": "Form",
-        "id": "63d0df8e10387c7b1cd4f64698fcc915",
-        "filepath": "src/createpage/Form.mdx",
-        "link": "",
-        "slug": "src-createpage-form",
-        "route": "/src-createpage-form",
-        "menu": "",
-        "headings": [
-          {
-            "slug": "example-for-the-form-to-create-a-new-entry",
-            "depth": 2,
-            "value": "Example for the Form to create a new Entry"
-          },
-          {
-            "slug": "props-of-component-form",
-            "depth": 2,
-            "value": "Props of Component Form"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/createpage/Input.mdx",
+      "key": "src/components/Input.mdx",
       "value": {
         "name": "Input",
-        "id": "09dd1cd1c35061dcd455e80f847edabb",
-        "filepath": "src/createpage/Input.mdx",
+        "id": "b7f02ed6d1f5e34dafd0f8a16785e9cc",
+        "filepath": "src/components/Input.mdx",
         "link": "",
-        "slug": "src-createpage-input",
-        "route": "/src-createpage-input",
+        "slug": "src-components-input",
+        "route": "/src-components-input",
         "menu": "",
         "headings": [
           {
@@ -226,6 +189,30 @@
             "slug": "props-of-component-input",
             "depth": 2,
             "value": "Props of Component Input"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/createpage/NewsForm.mdx",
+      "value": {
+        "name": "Form",
+        "id": "4fa2a04435809f293f520b93bf2f30bc",
+        "filepath": "src/createpage/NewsForm.mdx",
+        "link": "",
+        "slug": "src-createpage-news-form",
+        "route": "/src-createpage-news-form",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "example-for-the-form-to-create-a-new-entry",
+            "depth": 2,
+            "value": "Example for the Form to create a new Entry"
+          },
+          {
+            "slug": "props-of-component-form",
+            "depth": 2,
+            "value": "Props of Component Form"
           }
         ]
       }

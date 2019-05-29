@@ -12,6 +12,54 @@
   },
   "props": [
     {
+      "key": "src/components/Input.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Input",
+          "methods": [],
+          "actualName": "Input",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "label": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "required": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/createpage/CreatePage.js",
       "value": [
         {
@@ -19,6 +67,26 @@
           "displayName": "CreatePage",
           "methods": [],
           "actualName": "CreatePage"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/NewsForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form",
+          "props": {
+            "onFormSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
         }
       ]
     },
@@ -45,13 +113,13 @@
       ]
     },
     {
-      "key": "src/newspage/NewsList.js",
+      "key": "src/todopage/ToDo.js",
       "value": [
         {
           "description": "",
-          "displayName": "NewsList",
+          "displayName": "ToDo",
           "methods": [],
-          "actualName": "NewsList"
+          "actualName": "ToDo"
         }
       ]
     },
@@ -67,39 +135,6 @@
       ]
     },
     {
-      "key": "src/userpage/UserPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "UserPage",
-          "methods": [],
-          "actualName": "UserPage"
-        }
-      ]
-    },
-    {
-      "key": "src/todopage/ToDo.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDo",
-          "methods": [],
-          "actualName": "ToDo"
-        }
-      ]
-    },
-    {
-      "key": "src/todopage/ToDoPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDoPage",
-          "methods": [],
-          "actualName": "ToDoPage"
-        }
-      ]
-    },
-    {
       "key": "src/todopage/ToDoList.js",
       "value": [
         {
@@ -111,13 +146,13 @@
       ]
     },
     {
-      "key": "src/app/App.js",
+      "key": "src/newspage/NewsList.js",
       "value": [
         {
           "description": "",
-          "displayName": "App",
+          "displayName": "NewsList",
           "methods": [],
-          "actualName": "App"
+          "actualName": "NewsList"
         }
       ]
     },
@@ -159,6 +194,28 @@
               "description": ""
             }
           }
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDoPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDoPage",
+          "methods": [],
+          "actualName": "ToDoPage"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
         }
       ]
     }

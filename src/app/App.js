@@ -3,7 +3,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { setLocalData, getLocalData } from '../services';
 import styled from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHome, faList, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHome,
+  faList,
+  faUser,
+  faFirstAid
+} from '@fortawesome/free-solid-svg-icons';
 import GlobalStyles from '../components/GlobalStyles';
 import Navigation from '../components/Navigation';
 import CreatePage from '../createpage/CreatePage';
@@ -12,8 +17,9 @@ import NewsPage from '../newspage/NewsPage';
 import NavButton from '../components/NavButton';
 import Icon from '../components/NavIcon';
 import UserPage from '../userpage/UserPage';
+import { MedicalPage } from './medicalpage/MedicalPage';
 
-library.add(faHome, faList, faUser);
+library.add(faHome, faList, faUser, faFirstAid);
 
 const AppContainer = styled.div`
   position: absolute;
@@ -102,6 +108,7 @@ function App() {
               <UserPage onUserChange={handleUserChange} user={user} />
             )}
           />
+          <Route path="/info" render={() => <MedicalPage />} />
           <Route path="/" render={() => <NewsPage newsList={newsList} />} />
         </Switch>
         <Navigation>
@@ -113,6 +120,9 @@ function App() {
           </NavButton>
           <NavButton to="/user">
             <Icon icon="user" />
+          </NavButton>
+          <NavButton to="/info">
+            <Icon icon="first-aid" />
           </NavButton>
         </Navigation>
       </AppContainer>

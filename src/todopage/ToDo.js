@@ -108,7 +108,7 @@ export default function ToDo({
       author,
       status,
       isDistributed: true,
-      personInCharge: user
+      personInCharge: user.username
     };
     onToDoDistribution(distributedToDo);
   }

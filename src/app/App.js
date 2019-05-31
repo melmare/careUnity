@@ -17,7 +17,7 @@ import NewsPage from '../newspage/NewsPage';
 import NavButton from '../components/NavButton';
 import Icon from '../components/NavIcon';
 import UserPage from '../userpage/UserPage';
-import { MedicalPage } from './medicalpage/MedicalPage';
+import MedicalPage from '../medicalpage/MedicalPage';
 
 library.add(faHome, faList, faUser, faFirstAid);
 
@@ -30,6 +30,7 @@ function App() {
   const [newsList, setNewsList] = useState(getLocalData('news') || []);
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
   const [user, setUser] = useState(getLocalData('user') || 'User');
+  const [location, setLocation] = useState(getLocalData('location') || {});
 
   function handleNewsFormSubmit(newEntry, history) {
     setNewsList([newEntry, ...newsList]);
@@ -75,6 +76,12 @@ function App() {
 
   useEffect(() => setLocalData('user', user), [user]);
 
+  function handleLocationChange(newAdress) {
+    setLocation(newAdress);
+  }
+
+  useEffect(() => setLocalData('location', location), [location]);
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -108,7 +115,15 @@ function App() {
               <UserPage onUserChange={handleUserChange} user={user} />
             )}
           />
-          <Route path="/info" render={() => <MedicalPage />} />
+          <Route
+            path="/info"
+            render={() => (
+              <MedicalPage
+                location={location}
+                onLocationChange={handleLocationChange}
+              />
+            )}
+          />
           <Route path="/" render={() => <NewsPage newsList={newsList} />} />
         </Switch>
         <Navigation>

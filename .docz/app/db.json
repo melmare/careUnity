@@ -34,6 +34,17 @@
       ]
     },
     {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
+        }
+      ]
+    },
+    {
       "key": "src/newspage/NewsPage.js",
       "value": [
         {
@@ -41,6 +52,17 @@
           "displayName": "NewsPage",
           "methods": [],
           "actualName": "NewsPage"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDoForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDoForm",
+          "methods": [],
+          "actualName": "ToDoForm"
         }
       ]
     },
@@ -56,13 +78,13 @@
       ]
     },
     {
-      "key": "src/newspage/NewsList.js",
+      "key": "src/todopage/ToDoPage.js",
       "value": [
         {
           "description": "",
-          "displayName": "NewsList",
+          "displayName": "ToDoPage",
           "methods": [],
-          "actualName": "NewsList"
+          "actualName": "ToDoPage"
         }
       ]
     },
@@ -108,39 +130,6 @@
       ]
     },
     {
-      "key": "src/todopage/ToDoPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDoPage",
-          "methods": [],
-          "actualName": "ToDoPage"
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
-      "key": "src/userpage/UserPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "UserPage",
-          "methods": [],
-          "actualName": "UserPage"
-        }
-      ]
-    },
-    {
       "key": "src/todopage/ToDo.js",
       "value": [
         {
@@ -152,13 +141,13 @@
       ]
     },
     {
-      "key": "src/components/Label.js",
+      "key": "src/userpage/UserPage.js",
       "value": [
         {
           "description": "",
-          "displayName": "Label",
+          "displayName": "UserPage",
           "methods": [],
-          "actualName": "Label"
+          "actualName": "UserPage"
         }
       ]
     },
@@ -224,18 +213,18 @@
       ]
     },
     {
-      "key": "src/todopage/ToDoForm.js",
+      "key": "src/app/App.js",
       "value": [
         {
           "description": "",
-          "displayName": "ToDoForm",
+          "displayName": "App",
           "methods": [],
-          "actualName": "ToDoForm"
+          "actualName": "App"
         }
       ]
     },
     {
-      "key": "src/app/medicalpage/MedicalPage.js",
+      "key": "src/medicalpage/MedicalPage.js",
       "value": [
         {
           "description": "",

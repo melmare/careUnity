@@ -12,7 +12,14 @@ const InputTextArea = styled.textarea`
   width: 300px;
 `;
 
-export default function Input({ name, type, required, placeholder }) {
+export default function Input({
+  name,
+  type,
+  required,
+  placeholder,
+  value,
+  onChange
+}) {
   return (
     <>
       {name === 'description' ? (
@@ -21,6 +28,7 @@ export default function Input({ name, type, required, placeholder }) {
           type={type}
           required={required}
           placeholder={placeholder}
+          value={value}
         />
       ) : (
         <StyledInput
@@ -28,6 +36,8 @@ export default function Input({ name, type, required, placeholder }) {
           type={type}
           required={required}
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
         />
       )}
     </>

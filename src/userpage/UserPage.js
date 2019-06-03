@@ -17,6 +17,7 @@ export default function UserPage({ user, onUserChange }) {
       <Header>User</Header>
       <ContentContainer>
         <form onSubmit={event => onSubmit(event, onUserChange)}>
+          <label>Gib deinen Namen an:</label>
           <Input label="Username:" name="username" />
           <p>Du bist eingeloggt als {user.username}</p>
         </form>

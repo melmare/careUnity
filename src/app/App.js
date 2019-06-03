@@ -31,6 +31,9 @@ function App() {
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
   const [user, setUser] = useState(getLocalData('user') || 'User');
   const [location, setLocation] = useState(getLocalData('location') || {});
+  const [medicationList, setMedicationList] = useState(
+    getLocalData('medicationList') || []
+  );
 
   function handleNewsFormSubmit(newEntry, history) {
     setNewsList([newEntry, ...newsList]);
@@ -82,6 +85,13 @@ function App() {
 
   useEffect(() => setLocalData('location', location), [location]);
 
+  function handleSingleMedicationSubmit(newSingleMedication) {
+    setMedicationList([...medicationList, newSingleMedication]);
+    console.log(newSingleMedication);
+  }
+  useEffect(() => setLocalData('medicationList', medicationList), [
+    medicationList
+  ]);
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -121,6 +131,8 @@ function App() {
               <MedicalPage
                 location={location}
                 onLocationChange={handleLocationChange}
+                medicationList={medicationList}
+                onSingleMedicationSubmit={handleSingleMedicationSubmit}
               />
             )}
           />

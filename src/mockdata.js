@@ -15,4 +15,18 @@ const mockToDos = [
     author: 'Marlies'
   }
 ];
-export default mockToDos;
+
+const mockMedication = [
+  (medicationOne = {
+    time: 'morning',
+    medicine: 'voltaren',
+    dosage: '20mg'
+  }),
+  (medicationOne = {
+    time: 'evening',
+    medicine: 'bepanthen',
+    dosage: '200mg'
+  })
+];
+
+export default mockMedication;

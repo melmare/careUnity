@@ -4,7 +4,12 @@ import ContentContainer from '../components/ContentContainer';
 import LocationInformation from './LocationInformation';
 import MedicalInformation from './MedicalInformation';
 
-export default function MedicalPage({ location, onLocationChange }) {
+export default function MedicalPage({
+  location,
+  onLocationChange,
+  medicationList,
+  onSingleMedicationSubmit
+}) {
   return (
     <>
       <Header>Informationen</Header>
@@ -13,7 +18,10 @@ export default function MedicalPage({ location, onLocationChange }) {
           location={location}
           onLocationChange={onLocationChange}
         />
-        <MedicalInformation />
+        <MedicalInformation
+          medicationList={medicationList}
+          onSingleMedicationSubmit={onSingleMedicationSubmit}
+        />
       </ContentContainer>
     </>
   );

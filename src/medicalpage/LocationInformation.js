@@ -3,27 +3,26 @@ import Label from '../components/Label';
 import Input from '../components/Input';
 import MedicalIcon from './MedicalIcon';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faClinicMedical, faEdit } from '@fortawesome/free-solid-svg-icons';
+import {
+  faClinicMedical,
+  faEdit,
+  faCheckSquare
+} from '@fortawesome/free-solid-svg-icons';
+import { EditStatusIcon } from './EditStatus';
 
-library.add(faEdit, faClinicMedical);
+library.add(faEdit, faCheckSquare, faClinicMedical);
 
 const LocationInformationContainer = styled.section`
   display: grid;
-  grid-template-rows: auto auto auto;
-  grid-template-columns: auto auto auto auto;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
   padding: 10px;
   border: grey solid 1px;
   border-radius: 10px;
   margin-bottom: 20px;
   align-items: center;
-`;
-
-const EditIcon = styled(FontAwesomeIcon)`
-  color: skyblue;
-  font-size: 1.5rem;
 `;
 
 const Output = styled.div``;
@@ -54,12 +53,12 @@ export default function LocationInformation({ location, onLocationChange }) {
         <Output>{adress}</Output>
       )}
       {isAdressEditable ? (
-        <EditIcon
+        <EditStatusIcon
           icon="check-square"
           onClick={() => setIsAdressEditable(!isAdressEditable)}
         />
       ) : (
-        <EditIcon
+        <EditStatusIcon
           icon="edit"
           onClick={() => setIsAdressEditable(!isAdressEditable)}
         />
@@ -78,12 +77,12 @@ export default function LocationInformation({ location, onLocationChange }) {
         <Output>{phonenum}</Output>
       )}
       {isPhonenumEditable ? (
-        <EditIcon
+        <EditStatusIcon
           icon="check-square"
           onClick={() => setIsPhonenumEditable(!isPhonenumEditable)}
         />
       ) : (
-        <EditIcon
+        <EditStatusIcon
           icon="edit"
           onClick={() => setIsPhonenumEditable(!isPhonenumEditable)}
         />
@@ -100,12 +99,12 @@ export default function LocationInformation({ location, onLocationChange }) {
         <Output>{room}</Output>
       )}
       {isRoomEditable ? (
-        <EditIcon
+        <EditStatusIcon
           icon="check-square"
           onClick={() => setIsRoomEditable(!isRoomEditable)}
         />
       ) : (
-        <EditIcon
+        <EditStatusIcon
           icon="edit"
           onClick={() => setIsRoomEditable(!isRoomEditable)}
         />

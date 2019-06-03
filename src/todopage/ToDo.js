@@ -2,11 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import {
+  faTrash,
+  faHourglassStart,
+  faHourglassHalf,
+  faHourglassEnd
+} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faTrash);
+library.add(faTrash, faHourglassStart, faHourglassHalf, faHourglassEnd);
 
 const DeleteIcon = styled(FontAwesomeIcon)``;
+
+const StatusIcon = styled(FontAwesomeIcon)`
+  font-size: 1.3rem;
+`;
 
 function getColor(status) {
   switch (status) {
@@ -57,9 +66,9 @@ const DeleteButton = styled.button`
 `;
 
 const DistributionButton = styled.button`
-  background: lightgray;
+  background: skyblue;
   padding: 5px;
-  border-radius: 3%;
+  border-radius: 5px;
 `;
 const ToDoPersonInChargeContainer = styled.div`
   grid-row: 1 / span 2;
@@ -78,6 +87,17 @@ export default function ToDo({
   onToDoDistribution
 }) {
   const { title, author, status, isDistributed, personInCharge } = toDo;
+
+  function getStatusIcon(status) {
+    switch (status) {
+      case 'inProgress':
+        return <StatusIcon icon="hourglass-half" />;
+      case 'complete':
+        return <StatusIcon icon="hourglass-end" />;
+      default:
+        return <StatusIcon icon="hourglass-start" />;
+    }
+  }
 
   function onStatusBtnClick(event, onToDoStatusChange) {
     const changedToDo = {
@@ -132,7 +152,7 @@ export default function ToDo({
       <StatusButton
         onClick={event => onStatusBtnClick(event, onToDoStatusChange)}
       >
-        {status}
+        {getStatusIcon(status)}
       </StatusButton>
       <DeleteButton onClick={event => onDeleteBtnClick(event, onToDoDelete)}>
         <DeleteIcon icon="trash" />

@@ -119,28 +119,6 @@
       ]
     },
     {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
-      "key": "src/medicalpage/MedicalPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MedicalPage",
-          "methods": [],
-          "actualName": "MedicalPage"
-        }
-      ]
-    },
-    {
       "key": "src/medicalpage/LocationInformation.js",
       "value": [
         {
@@ -148,17 +126,6 @@
           "displayName": "LocationInformation",
           "methods": [],
           "actualName": "LocationInformation"
-        }
-      ]
-    },
-    {
-      "key": "src/medicalpage/SingleMedication.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "SingleMedication",
-          "methods": [],
-          "actualName": "SingleMedication"
         }
       ]
     },
@@ -174,6 +141,17 @@
       ]
     },
     {
+      "key": "src/medicalpage/MedicalPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicalPage",
+          "methods": [],
+          "actualName": "MedicalPage"
+        }
+      ]
+    },
+    {
       "key": "src/medicalpage/MedicalInformation.js",
       "value": [
         {
@@ -181,6 +159,28 @@
           "displayName": "MedicalInformation",
           "methods": [],
           "actualName": "MedicalInformation"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/SingleMedication.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SingleMedication",
+          "methods": [],
+          "actualName": "SingleMedication"
         }
       ]
     }

@@ -92,6 +92,17 @@ function App() {
   useEffect(() => setLocalData('medicationList', medicationList), [
     medicationList
   ]);
+
+  function handleSingleMedicationDelete(deletedSingleMedication) {
+    const index = medicationList.findIndex(
+      singleMedication => singleMedication.id === deletedSingleMedication.id
+    );
+    setMedicationList([
+      ...medicationList.slice(0, index),
+      ...medicationList.slice(index + 1)
+    ]);
+  }
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -133,6 +144,7 @@ function App() {
                 onLocationChange={handleLocationChange}
                 medicationList={medicationList}
                 onSingleMedicationSubmit={handleSingleMedicationSubmit}
+                onSingleMedicationDelete={handleSingleMedicationDelete}
               />
             )}
           />

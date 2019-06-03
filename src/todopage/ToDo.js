@@ -32,7 +32,7 @@ function getNewStatus(status) {
 
 const ToDoContainer = styled.div`
   border: gray 1px solid;
-  background: ${props => getColor(props.status)};
+  border-left: ${props => getColor(props.status)} 5px solid;
   display: grid;
   grid-template-columns: 40px 1fr 1fr 40px;
   grid-template-rows: 1fr 1fr;
@@ -108,7 +108,7 @@ export default function ToDo({
       author,
       status,
       isDistributed: true,
-      personInCharge: user
+      personInCharge: user.username
     };
     onToDoDistribution(distributedToDo);
   }

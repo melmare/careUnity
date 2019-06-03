@@ -6,11 +6,11 @@ const NavButton = styled(NavLink)`
   background: skyblue;
   border-radius: 50%;
   display: flex;
-  height: 100px;
+  height: 80px;
   justify-content: center;
   margin-bottom: 15px;
   padding: 5px;
-  width: 100px;
+  width: 80px;
 `;
 
 export default NavButton;

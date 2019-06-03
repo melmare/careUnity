@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import {
-  setLocalData,
-  getLocalData,
-  postNewsEntry,
-  getNews
-} from '../services';
+import { setLocalData, getLocalData } from '../services';
 import styled from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHome, faList, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHome,
+  faList,
+  faUser,
+  faFirstAid
+} from '@fortawesome/free-solid-svg-icons';
 import GlobalStyles from '../components/GlobalStyles';
 import Navigation from '../components/Navigation';
 import CreatePage from '../createpage/CreatePage';
@@ -17,8 +17,9 @@ import NewsPage from '../newspage/NewsPage';
 import NavButton from '../components/NavButton';
 import Icon from '../components/NavIcon';
 import UserPage from '../userpage/UserPage';
+import MedicalPage from '../medicalpage/MedicalPage';
 
-library.add(faHome, faList, faUser);
+library.add(faHome, faList, faUser, faFirstAid);
 
 const AppContainer = styled.div`
   position: absolute;
@@ -29,20 +30,15 @@ function App() {
   const [newsList, setNewsList] = useState(getLocalData('news') || []);
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
   const [user, setUser] = useState(getLocalData('user') || 'User');
+  const [location, setLocation] = useState(getLocalData('location') || {});
 
   function handleNewsFormSubmit(newEntry, history) {
-    postNewsEntry(newEntry)
-      .then(newEntry => setNewsList([newEntry, ...newsList]))
-      .catch(err => console.log(err));
+    setNewsList([newEntry, ...newsList]);
     history.push('/news');
   }
 
   useEffect(() => {
     setLocalData('news', newsList);
-  }, [newsList]);
-
-  useEffect(() => {
-    getNews().then(newsList => setNewsList(newsList.reverse()));
   }, [newsList]);
 
   function handleToDoSubmit(newToDo) {
@@ -80,6 +76,12 @@ function App() {
 
   useEffect(() => setLocalData('user', user), [user]);
 
+  function handleLocationChange(newAdress) {
+    setLocation(newAdress);
+  }
+
+  useEffect(() => setLocalData('location', location), [location]);
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -113,6 +115,15 @@ function App() {
               <UserPage onUserChange={handleUserChange} user={user} />
             )}
           />
+          <Route
+            path="/info"
+            render={() => (
+              <MedicalPage
+                location={location}
+                onLocationChange={handleLocationChange}
+              />
+            )}
+          />
           <Route path="/" render={() => <NewsPage newsList={newsList} />} />
         </Switch>
         <Navigation>
@@ -124,6 +135,9 @@ function App() {
           </NavButton>
           <NavButton to="/user">
             <Icon icon="user" />
+          </NavButton>
+          <NavButton to="/info">
+            <Icon icon="first-aid" />
           </NavButton>
         </Navigation>
       </AppContainer>

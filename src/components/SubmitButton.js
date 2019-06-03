@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const SubmitButton = styled.button`
   background: skyblue;
-  height: 30px;
-  width: 30%;
+  width: 100%;
+  height: 20px;
 `;
 
 export default SubmitButton;

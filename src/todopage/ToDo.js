@@ -9,24 +9,24 @@ library.add(faTrash);
 const DeleteIcon = styled(FontAwesomeIcon)``;
 
 function getColor(status) {
-  if (status === 'active') {
-    return 'red';
-  } else if (status === 'inProgress') {
-    return 'yellow';
-  } else {
-    return 'green';
+  switch (status) {
+    case 'inProgress':
+      return 'yellow';
+    case 'complete':
+      return 'green';
+    default:
+      return 'red';
   }
 }
 
 function getNewStatus(status) {
-  if (status === 'active') {
-    return 'inProgress';
-  } else if (status === 'inProgress') {
-    return 'complete';
-  } else if (status === 'complete') {
-    return 'active';
-  } else {
-    return 'active';
+  switch (status) {
+    case 'active':
+      return 'inProgress';
+    case 'inProgress':
+      return 'complete';
+    default:
+      return 'active';
   }
 }
 

@@ -12,54 +12,6 @@
   },
   "props": [
     {
-      "key": "src/components/Input.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Input",
-          "methods": [],
-          "actualName": "Input",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "label": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "placeholder": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "required": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/createpage/CreatePage.js",
       "value": [
         {
@@ -67,26 +19,6 @@
           "displayName": "CreatePage",
           "methods": [],
           "actualName": "CreatePage"
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/NewsForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form",
-          "props": {
-            "onFormSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
         }
       ]
     },
@@ -102,6 +34,17 @@
       ]
     },
     {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
+        }
+      ]
+    },
+    {
       "key": "src/newspage/NewsPage.js",
       "value": [
         {
@@ -109,17 +52,6 @@
           "displayName": "NewsPage",
           "methods": [],
           "actualName": "NewsPage"
-        }
-      ]
-    },
-    {
-      "key": "src/todopage/ToDo.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDo",
-          "methods": [],
-          "actualName": "ToDo"
         }
       ]
     },
@@ -146,13 +78,13 @@
       ]
     },
     {
-      "key": "src/newspage/NewsList.js",
+      "key": "src/todopage/ToDoPage.js",
       "value": [
         {
           "description": "",
-          "displayName": "NewsList",
+          "displayName": "ToDoPage",
           "methods": [],
-          "actualName": "NewsList"
+          "actualName": "ToDoPage"
         }
       ]
     },
@@ -198,13 +130,85 @@
       ]
     },
     {
-      "key": "src/todopage/ToDoPage.js",
+      "key": "src/todopage/ToDo.js",
       "value": [
         {
           "description": "",
-          "displayName": "ToDoPage",
+          "displayName": "ToDo",
           "methods": [],
-          "actualName": "ToDoPage"
+          "actualName": "ToDo"
+        }
+      ]
+    },
+    {
+      "key": "src/userpage/UserPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UserPage",
+          "methods": [],
+          "actualName": "UserPage"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/NewsForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form",
+          "props": {
+            "onFormSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/Input.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Input",
+          "methods": [],
+          "actualName": "Input",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "required": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
         }
       ]
     },
@@ -216,6 +220,17 @@
           "displayName": "App",
           "methods": [],
           "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/MedicalPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicalPage",
+          "methods": [],
+          "actualName": "MedicalPage"
         }
       ]
     }

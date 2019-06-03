@@ -108,6 +108,17 @@
       ]
     },
     {
+      "key": "src/userpage/UserPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UserPage",
+          "methods": [],
+          "actualName": "UserPage"
+        }
+      ]
+    },
+    {
       "key": "src/todopage/ToDo.js",
       "value": [
         {
@@ -119,13 +130,35 @@
       ]
     },
     {
-      "key": "src/userpage/UserPage.js",
+      "key": "src/medicalpage/LocationInformation.js",
       "value": [
         {
           "description": "",
-          "displayName": "UserPage",
+          "displayName": "LocationInformation",
           "methods": [],
-          "actualName": "UserPage"
+          "actualName": "LocationInformation"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/MedicalPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicalPage",
+          "methods": [],
+          "actualName": "MedicalPage"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/MedicalInformation.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicalInformation",
+          "methods": [],
+          "actualName": "MedicalInformation"
         }
       ]
     }

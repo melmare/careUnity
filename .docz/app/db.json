@@ -56,39 +56,6 @@
       ]
     },
     {
-      "key": "src/todopage/ToDoForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDoForm",
-          "methods": [],
-          "actualName": "ToDoForm"
-        }
-      ]
-    },
-    {
-      "key": "src/todopage/ToDoList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDoList",
-          "methods": [],
-          "actualName": "ToDoList"
-        }
-      ]
-    },
-    {
-      "key": "src/todopage/ToDoPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDoPage",
-          "methods": [],
-          "actualName": "ToDoPage"
-        }
-      ]
-    },
-    {
       "key": "src/newspage/Entry.js",
       "value": [
         {
@@ -130,6 +97,17 @@
       ]
     },
     {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
       "key": "src/todopage/ToDo.js",
       "value": [
         {
@@ -148,89 +126,6 @@
           "displayName": "UserPage",
           "methods": [],
           "actualName": "UserPage"
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/NewsForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form",
-          "props": {
-            "onFormSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/components/Input.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Input",
-          "methods": [],
-          "actualName": "Input",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "placeholder": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "required": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
-      "key": "src/medicalpage/MedicalPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MedicalPage",
-          "methods": [],
-          "actualName": "MedicalPage"
         }
       ]
     }

@@ -60,7 +60,7 @@ export default function SingleMedication({
   function getTimeIcon(time) {
     switch (time) {
       case 'morning':
-        return '🌘';
+        return '🌗';
       case 'midday':
         return '🌕';
       case 'evening':

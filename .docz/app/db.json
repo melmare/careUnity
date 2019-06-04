@@ -141,17 +141,6 @@
       ]
     },
     {
-      "key": "src/medicalpage/MedicationForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MedicationForm",
-          "methods": [],
-          "actualName": "MedicationForm"
-        }
-      ]
-    },
-    {
       "key": "src/medicalpage/MedicalInformation.js",
       "value": [
         {
@@ -159,6 +148,26 @@
           "displayName": "MedicalInformation",
           "methods": [],
           "actualName": "MedicalInformation"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/NewsForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form",
+          "props": {
+            "onFormSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
         }
       ]
     },
@@ -185,22 +194,13 @@
       ]
     },
     {
-      "key": "src/createpage/NewsForm.js",
+      "key": "src/medicalpage/MedicationForm.js",
       "value": [
         {
           "description": "",
-          "displayName": "Form",
+          "displayName": "MedicationForm",
           "methods": [],
-          "actualName": "Form",
-          "props": {
-            "onFormSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
+          "actualName": "MedicationForm"
         }
       ]
     }

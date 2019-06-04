@@ -28,12 +28,12 @@ const LocationInformationContainer = styled.section`
 const Output = styled.div``;
 
 export default function LocationInformation({ location, onLocationChange }) {
-  const { adress, phonenum, room } = location;
+  const { adress: address, phonenum, room } = location;
   const [isAdressEditable, setIsAdressEditable] = useState(false);
   const [isPhonenumEditable, setIsPhonenumEditable] = useState(false);
   const [isRoomEditable, setIsRoomEditable] = useState(false);
 
-  function onAdressChange(name, event, onLocationChange) {
+  function onAddressChange(name, event, onLocationChange) {
     const newLocation = { ...location, [name]: event.target.value };
     onLocationChange(newLocation);
   }
@@ -45,12 +45,12 @@ export default function LocationInformation({ location, onLocationChange }) {
       <Label htmlFor="adress" label="Adresse" />
       {isAdressEditable ? (
         <Input
-          onChange={event => onAdressChange('adress', event, onLocationChange)}
+          onChange={event => onAddressChange('adress', event, onLocationChange)}
           name="adress"
-          value={adress}
+          value={address}
         />
       ) : (
-        <Output>{adress}</Output>
+        <Output>{address}</Output>
       )}
       {isAdressEditable ? (
         <EditStatusIcon
@@ -68,7 +68,7 @@ export default function LocationInformation({ location, onLocationChange }) {
       {isPhonenumEditable ? (
         <Input
           onChange={event =>
-            onAdressChange('phonenum', event, onLocationChange)
+            onAddressChange('phonenum', event, onLocationChange)
           }
           name="phonenum"
           value={phonenum}
@@ -91,7 +91,7 @@ export default function LocationInformation({ location, onLocationChange }) {
       <Label htmlFor="room" label="Zimmer" />
       {isRoomEditable ? (
         <Input
-          onChange={event => onAdressChange('room', event, onLocationChange)}
+          onChange={event => onAddressChange('room', event, onLocationChange)}
           name="room"
           value={room}
         />

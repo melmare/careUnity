@@ -25,7 +25,6 @@ export default function MedicationForm({ onSingleMedicationSubmit }) {
       medicine: event.target.medicine.value,
       dosage: event.target.dosage.value
     };
-    console.log(newSingleMedication);
     onSingleMedicationSubmit(newSingleMedication);
     setIsFormVisible(!isFormVisible);
   }

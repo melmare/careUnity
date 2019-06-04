@@ -31,6 +31,9 @@ function App() {
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
   const [user, setUser] = useState(getLocalData('user') || 'User');
   const [location, setLocation] = useState(getLocalData('location') || {});
+  const [medicationList, setMedicationList] = useState(
+    getLocalData('medicationList') || []
+  );
 
   function handleNewsFormSubmit(newEntry, history) {
     setNewsList([newEntry, ...newsList]);
@@ -82,6 +85,35 @@ function App() {
 
   useEffect(() => setLocalData('location', location), [location]);
 
+  function handleSingleMedicationSubmit(newSingleMedication) {
+    setMedicationList([...medicationList, newSingleMedication]);
+    console.log(newSingleMedication);
+  }
+  useEffect(() => setLocalData('medicationList', medicationList), [
+    medicationList
+  ]);
+
+  function handleSingleMedicationDelete(deletedSingleMedication) {
+    const index = medicationList.findIndex(
+      singleMedication => singleMedication.id === deletedSingleMedication.id
+    );
+    setMedicationList([
+      ...medicationList.slice(0, index),
+      ...medicationList.slice(index + 1)
+    ]);
+  }
+
+  function handleSingleMedicationChange(changedSingleMedication) {
+    const index = medicationList.findIndex(
+      singleMedication => singleMedication.id === changedSingleMedication.id
+    );
+    setMedicationList([
+      ...medicationList.slice(0, index),
+      changedSingleMedication,
+      ...medicationList.slice(index + 1)
+    ]);
+  }
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -121,6 +153,10 @@ function App() {
               <MedicalPage
                 location={location}
                 onLocationChange={handleLocationChange}
+                medicationList={medicationList}
+                onSingleMedicationSubmit={handleSingleMedicationSubmit}
+                onSingleMedicationDelete={handleSingleMedicationDelete}
+                onSingleMedicationChange={handleSingleMedicationChange}
               />
             )}
           />

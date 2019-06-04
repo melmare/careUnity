@@ -41,7 +41,7 @@ export default function Form({ onFormSubmit, history }) {
         required
         placeholder="Spaziergang, Mittagessen, ..."
       />
-      <Label htmlFor="description" label="Was hast Du von heute erzählen?" />
+      <Label htmlFor="description" label="Was hast Du von heute zu erzählen?" />
       <Input name="description" />
       <SubmitButton>Eintrag abschicken</SubmitButton>
     </StyledForm>

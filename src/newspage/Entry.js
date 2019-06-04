@@ -41,10 +41,7 @@ export default function Entry({ entry, onNewsDelete }) {
     <EntryContainer>
       <EntryHeader>
         <Title>{title}</Title>
-        <DeleteIcon
-          icon="trash"
-          onClick={event => onDeleteBtnClick(event, onNewsDelete)}
-        />
+        <DeleteIcon icon="trash" onClick={() => onNewsDelete(entry)} />
       </EntryHeader>
 
       <Author>Erstellt von {author}</Author>

@@ -5,6 +5,8 @@ import Label from '../components/Label';
 import styled from 'styled-components';
 import SubmitButton from '../components/SubmitButton';
 
+const uid = require('uid');
+
 const StyledForm = styled.form`
   display: grid;
   grid-gap: 15px;
@@ -16,6 +18,7 @@ export default function Form({ onFormSubmit, history }) {
     event.preventDefault();
     const form = event.target;
     const newEntry = {
+      id: uid(),
       title: form.title.value,
       author: form.author.value,
       activities: form.activities.value

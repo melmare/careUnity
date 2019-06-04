@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Title from './Title';
 import Author from './Author';
 import Description from './Description';
 import Activity from './Activity';
 import Activities from './Activities';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const EntryContainer = styled.article`
   background: lightgray;
@@ -13,11 +13,40 @@ const EntryContainer = styled.article`
   margin-bottom: 30px;
 `;
 
-export default function Entry({ entry }) {
+const DeleteIcon = styled(FontAwesomeIcon)`
+  font-size: 1rem;
+`;
+
+const EntryHeader = styled.header`
+  background: silver;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+`;
+
+export default function Entry({ entry, onNewsDelete }) {
   const { title, author, activities, description } = entry;
+
+  function onDeleteBtnClick(event, onNewsDelete) {
+    const deletedEntry = {
+      ...entry
+    };
+    onNewsDelete(deletedEntry);
+  }
   return (
     <EntryContainer>
-      <Title>{title}</Title>
+      <EntryHeader>
+        <Title>{title}</Title>
+        <DeleteIcon
+          icon="trash"
+          onClick={event => onDeleteBtnClick(event, onNewsDelete)}
+        />
+      </EntryHeader>
+
       <Author>Erstellt von {author}</Author>
       <Activities>
         {activities.map(activity => (
@@ -29,10 +58,3 @@ export default function Entry({ entry }) {
     </EntryContainer>
   );
 }
-
-Entry.propTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  activities: PropTypes.array,
-  description: PropTypes.string
-};

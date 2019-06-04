@@ -108,6 +108,37 @@
       ]
     },
     {
+      "key": "src/createpage/NewsForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form",
+          "props": {
+            "onFormSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDo.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDo",
+          "methods": [],
+          "actualName": "ToDo"
+        }
+      ]
+    },
+    {
       "key": "src/medicalpage/MedicalPage.js",
       "value": [
         {
@@ -130,30 +161,40 @@
       ]
     },
     {
-      "key": "src/medicalpage/MedicalInformation.js",
+      "key": "src/components/Input.js",
       "value": [
         {
           "description": "",
-          "displayName": "MedicalInformation",
+          "displayName": "Input",
           "methods": [],
-          "actualName": "MedicalInformation"
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/NewsForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form",
+          "actualName": "Input",
           "props": {
-            "onFormSubmit": {
+            "name": {
               "type": {
-                "name": "func"
+                "name": "string"
               },
               "required": true,
+              "description": ""
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "required": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
               "description": ""
             }
           }
@@ -183,24 +224,24 @@
       ]
     },
     {
-      "key": "src/medicalpage/SingleMedication.js",
+      "key": "src/medicalpage/MedicalInformation.js",
       "value": [
         {
           "description": "",
-          "displayName": "SingleMedication",
+          "displayName": "MedicalInformation",
           "methods": [],
-          "actualName": "SingleMedication"
+          "actualName": "MedicalInformation"
         }
       ]
     },
     {
-      "key": "src/todopage/ToDo.js",
+      "key": "src/medicalpage/MedicalComment.js",
       "value": [
         {
           "description": "",
-          "displayName": "ToDo",
+          "displayName": "MedicalComment",
           "methods": [],
-          "actualName": "ToDo"
+          "actualName": "MedicalComment"
         }
       ]
     }

@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import ContentContainer from '../components/ContentContainer';
 import LocationInformation from './LocationInformation';
 import MedicalInformation from './MedicalInformation';
+import MedicalComment from './MedicalComment';
 
 export default function MedicalPage({
   location,
@@ -10,7 +11,9 @@ export default function MedicalPage({
   medicationList,
   onSingleMedicationSubmit,
   onSingleMedicationDelete,
-  onSingleMedicationChange
+  onSingleMedicationChange,
+  onMedicalCommentSubmit,
+  medicalComments
 }) {
   return (
     <>
@@ -25,6 +28,10 @@ export default function MedicalPage({
           onSingleMedicationSubmit={onSingleMedicationSubmit}
           onSingleMedicationDelete={onSingleMedicationDelete}
           onSingleMedicationChange={onSingleMedicationChange}
+        />
+        <MedicalComment
+          onMedicalCommentSubmit={onMedicalCommentSubmit}
+          medicalComments={medicalComments}
         />
       </ContentContainer>
     </>

@@ -34,6 +34,9 @@ function App() {
   const [medicationList, setMedicationList] = useState(
     getLocalData('medicationList') || []
   );
+  const [medicalComments, setMedicalComments] = useState(
+    getLocalData('medicalComments') || []
+  );
 
   function handleNewsFormSubmit(newEntry, history) {
     setNewsList([newEntry, ...newsList]);
@@ -114,6 +117,14 @@ function App() {
     ]);
   }
 
+  function handleMedicalCommentSubmit(newMedicalComment) {
+    setMedicalComments([newMedicalComment, ...medicalComments]);
+  }
+
+  useEffect(() => setLocalData('medicalComments', medicalComments), [
+    medicalComments
+  ]);
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -157,6 +168,8 @@ function App() {
                 onSingleMedicationSubmit={handleSingleMedicationSubmit}
                 onSingleMedicationDelete={handleSingleMedicationDelete}
                 onSingleMedicationChange={handleSingleMedicationChange}
+                onMedicalCommentSubmit={handleMedicalCommentSubmit}
+                medicalComments={medicalComments}
               />
             )}
           />

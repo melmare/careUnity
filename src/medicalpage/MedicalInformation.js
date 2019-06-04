@@ -16,10 +16,12 @@ library.add(faEdit, faPrescriptionBottle);
 const MedicalInformationContainer = styled.section`
   display: grid;
   grid-template-rows: repeat(2, auto);
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: 20% 80%;
   border: grey solid 1px;
   border-radius: 10px;
   margin-bottom: 20px;
+  padding: 10px;
+  align-items: center;
 `;
 
 const MedicationListContainer = styled.ul`

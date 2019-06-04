@@ -16,7 +16,7 @@ library.add(faEdit, faCheckSquare, faClinicMedical);
 const LocationInformationContainer = styled.section`
   display: grid;
   grid-template-rows: repeat(3, auto);
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: 20% repeat(3, auto);
   grid-gap: 10px;
   padding: 10px;
   border: grey solid 1px;

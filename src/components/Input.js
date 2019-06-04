@@ -4,12 +4,17 @@ import PropTypes from 'prop-types';
 
 const StyledInput = styled.input`
   border: solid 2px gray;
+  font-family: Helvetica, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  width: 100%;
 `;
 
 const InputTextArea = styled.textarea`
   border: solid 2px gray;
-  height: 100px;
-  width: 300px;
+  height: 30vh;
+  width: 100%;
+  font-family: Helvetica, Arial, Helvetica, sans-serif;
+  font-size: 18px;
 `;
 
 export default function Input({

@@ -5,7 +5,8 @@ const MedicalIcon = styled(FontAwesomeIcon)`
   color: skyblue;
   font-size: 2.5rem;
   margin: 5px;
-  grid-row: 1 / span 3;
+  grid-row: 1 / span all;
+  justify-self: center;
 `;
 
 export default MedicalIcon;

@@ -103,6 +103,17 @@ function App() {
     ]);
   }
 
+  function handleSingleMedicationChange(changedSingleMedication) {
+    const index = medicationList.findIndex(
+      singleMedication => singleMedication.id === changedSingleMedication.id
+    );
+    setMedicationList([
+      ...medicationList.slice(0, index),
+      changedSingleMedication,
+      ...medicationList.slice(index + 1)
+    ]);
+  }
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -145,6 +156,7 @@ function App() {
                 medicationList={medicationList}
                 onSingleMedicationSubmit={handleSingleMedicationSubmit}
                 onSingleMedicationDelete={handleSingleMedicationDelete}
+                onSingleMedicationChange={handleSingleMedicationChange}
               />
             )}
           />

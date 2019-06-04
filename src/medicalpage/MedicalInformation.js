@@ -32,7 +32,8 @@ const MedicationListContainer = styled.ul`
 export default function MedicalInformation({
   medicationList,
   onSingleMedicationSubmit,
-  onSingleMedicationDelete
+  onSingleMedicationDelete,
+  onSingleMedicationChange
 }) {
   return (
     <MedicalInformationContainer>
@@ -42,6 +43,7 @@ export default function MedicalInformation({
           <SingleMedication
             singleMedication={singleMedication}
             onSingleMedicationDelete={onSingleMedicationDelete}
+            onSingleMedicationChange={onSingleMedicationChange}
           />
         ))}
       </MedicationListContainer>

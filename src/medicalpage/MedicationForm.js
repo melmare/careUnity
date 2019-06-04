@@ -56,6 +56,9 @@ export default function MedicationForm({ onSingleMedicationSubmit }) {
             <Input name="dosage" required />
           </label>
           <SubmitButton>Abschicken</SubmitButton>
+          <SubmitButton onClick={() => setIsFormVisible(!isFormVisible)}>
+            Abbrechen
+          </SubmitButton>
         </MedicationFormContainer>
       ) : (
         <CreateMedicationEntryButton

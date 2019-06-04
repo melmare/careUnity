@@ -119,28 +119,6 @@
       ]
     },
     {
-      "key": "src/medicalpage/LocationInformation.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "LocationInformation",
-          "methods": [],
-          "actualName": "LocationInformation"
-        }
-      ]
-    },
-    {
-      "key": "src/medicalpage/MedicationForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MedicationForm",
-          "methods": [],
-          "actualName": "MedicationForm"
-        }
-      ]
-    },
-    {
       "key": "src/medicalpage/MedicalPage.js",
       "value": [
         {
@@ -148,17 +126,6 @@
           "displayName": "MedicalPage",
           "methods": [],
           "actualName": "MedicalPage"
-        }
-      ]
-    },
-    {
-      "key": "src/medicalpage/MedicalInformation.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MedicalInformation",
-          "methods": [],
-          "actualName": "MedicalInformation"
         }
       ]
     },
@@ -174,6 +141,39 @@
       ]
     },
     {
+      "key": "src/medicalpage/MedicationForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicationForm",
+          "methods": [],
+          "actualName": "MedicationForm"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/MedicalInformation.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicalInformation",
+          "methods": [],
+          "actualName": "MedicalInformation"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/LocationInformation.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LocationInformation",
+          "methods": [],
+          "actualName": "LocationInformation"
+        }
+      ]
+    },
+    {
       "key": "src/medicalpage/SingleMedication.js",
       "value": [
         {
@@ -181,6 +181,26 @@
           "displayName": "SingleMedication",
           "methods": [],
           "actualName": "SingleMedication"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/NewsForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form",
+          "props": {
+            "onFormSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
         }
       ]
     }

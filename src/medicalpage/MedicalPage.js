@@ -9,7 +9,8 @@ export default function MedicalPage({
   onLocationChange,
   medicationList,
   onSingleMedicationSubmit,
-  onSingleMedicationDelete
+  onSingleMedicationDelete,
+  onSingleMedicationChange
 }) {
   return (
     <>
@@ -23,6 +24,7 @@ export default function MedicalPage({
           medicationList={medicationList}
           onSingleMedicationSubmit={onSingleMedicationSubmit}
           onSingleMedicationDelete={onSingleMedicationDelete}
+          onSingleMedicationChange={onSingleMedicationChange}
         />
       </ContentContainer>
     </>

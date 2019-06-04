@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import MedicalIcon from './MedicalIcon';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faCommentMedical,
-  faCommentSlash
-} from '@fortawesome/free-solid-svg-icons';
+import { faCommentMedical } from '@fortawesome/free-solid-svg-icons';
 import SubmitButton from '../components/SubmitButton';
 import Input from '../components/Input';
 import Label from '../components/Label';

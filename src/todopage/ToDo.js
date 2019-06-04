@@ -112,11 +112,7 @@ export default function ToDo({
 
   function onDeleteBtnClick(event, onToDoDelete) {
     const deletedToDo = {
-      title,
-      author,
-      status,
-      isDistributed,
-      personInCharge
+      ...toDo
     };
     onToDoDelete(deletedToDo);
   }

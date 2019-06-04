@@ -43,6 +43,11 @@ function App() {
     history.push('/news');
   }
 
+  function handleNewsDelete(deletedEntry) {
+    const index = newsList.findIndex(entry => entry.id === deletedEntry.id);
+    setNewsList([...newsList.slice(0, index), ...newsList.slice(index + 1)]);
+  }
+
   useEffect(() => {
     setLocalData('news', newsList);
   }, [newsList]);
@@ -173,7 +178,12 @@ function App() {
               />
             )}
           />
-          <Route path="/" render={() => <NewsPage newsList={newsList} />} />
+          <Route
+            path="/"
+            render={() => (
+              <NewsPage newsList={newsList} onNewsDelete={handleNewsDelete} />
+            )}
+          />
         </Switch>
         <Navigation>
           <NavButton to="/">

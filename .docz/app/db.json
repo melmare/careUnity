@@ -97,17 +97,6 @@
       ]
     },
     {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
       "key": "src/userpage/UserPage.js",
       "value": [
         {
@@ -119,6 +108,26 @@
       ]
     },
     {
+      "key": "src/createpage/NewsForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form",
+          "props": {
+            "onFormSubmit": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
       "key": "src/todopage/ToDo.js",
       "value": [
         {
@@ -126,6 +135,113 @@
           "displayName": "ToDo",
           "methods": [],
           "actualName": "ToDo"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/MedicalPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicalPage",
+          "methods": [],
+          "actualName": "MedicalPage"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Input.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Input",
+          "methods": [],
+          "actualName": "Input",
+          "props": {
+            "name": {
+              "type": {
+                "name": "string"
+              },
+              "required": true,
+              "description": ""
+            },
+            "type": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "placeholder": {
+              "type": {
+                "name": "string"
+              },
+              "required": false,
+              "description": ""
+            },
+            "required": {
+              "type": {
+                "name": "bool"
+              },
+              "required": false,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/LocationInformation.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LocationInformation",
+          "methods": [],
+          "actualName": "LocationInformation"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/MedicationForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicationForm",
+          "methods": [],
+          "actualName": "MedicationForm"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/MedicalInformation.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicalInformation",
+          "methods": [],
+          "actualName": "MedicalInformation"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/MedicalComment.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicalComment",
+          "methods": [],
+          "actualName": "MedicalComment"
         }
       ]
     }

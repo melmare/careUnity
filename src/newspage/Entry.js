@@ -26,25 +26,34 @@ const EntryHeader = styled.header`
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 5px 20px 5px 20px;
   width: 100%;
 `;
 
-export default function Entry({ entry, onNewsDelete, onSaveChangedNewsEntry }) {
+export default function Entry({
+  entry,
+  onNewsDelete,
+  onSaveChangedNewsEntry,
+  user
+}) {
   const [isEditFormVisible, setEditFormVisible] = useState(false);
   const { title, author, activities, description } = entry;
 
   return (
     <EntryContainer>
       <EntryHeader>
-        <DeleteIcon icon="trash" onClick={() => onNewsDelete(entry)} />
+        {user.username === entry.author && (
+          <DeleteIcon icon="trash" onClick={() => onNewsDelete(entry)} />
+        )}
         <Title>{title}</Title>
-        <EditIcon
-          icon="edit"
-          onClick={() => setEditFormVisible(!isEditFormVisible)}
-        />
+        {user.username === entry.author && (
+          <EditIcon
+            icon="edit"
+            onClick={() => setEditFormVisible(!isEditFormVisible)}
+          />
+        )}
       </EntryHeader>
       {isEditFormVisible ? (
         <NewsForm

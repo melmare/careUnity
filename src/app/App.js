@@ -190,6 +190,7 @@ function App() {
             path="/"
             render={() => (
               <NewsPage
+                user={user}
                 newsList={newsList}
                 onNewsDelete={handleNewsDelete}
                 onSaveChangedNewsEntry={handleSaveChangedNewsEntry}

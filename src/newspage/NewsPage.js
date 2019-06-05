@@ -11,6 +11,7 @@ import Headline from '../components/Headline';
 library.add(faPlus);
 
 export default function NewsPage({
+  user,
   newsList,
   onNewsDelete,
   onSaveChangedNewsEntry
@@ -25,6 +26,7 @@ export default function NewsPage({
       </Header>
       <ContentContainer>
         <NewsList
+          user={user}
           newsList={newsList}
           onNewsDelete={onNewsDelete}
           onSaveChangedNewsEntry={onSaveChangedNewsEntry}

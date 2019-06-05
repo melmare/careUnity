@@ -122,50 +122,6 @@
       ]
     },
     {
-      "key": "src/newspage/Entry.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Entry",
-          "methods": [],
-          "actualName": "Entry"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/NewsList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsList",
-          "methods": [],
-          "actualName": "NewsList"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/NewsPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsPage",
-          "methods": [],
-          "actualName": "NewsPage"
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
       "key": "src/components/Input.js",
       "value": [
         {
@@ -184,6 +140,50 @@
           "displayName": "SingleMedication",
           "methods": [],
           "actualName": "SingleMedication"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsPage",
+          "methods": [],
+          "actualName": "NewsPage"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Entry.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Entry",
+          "methods": [],
+          "actualName": "Entry"
         }
       ]
     }

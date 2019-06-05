@@ -1,7 +1,11 @@
 import React from 'react';
 import Entry from './Entry';
 
-export default function NewsList({ newsList, onNewsDelete, onNewsChange }) {
+export default function NewsList({
+  newsList,
+  onNewsDelete,
+  onSaveChangedNewsEntry
+}) {
   return (
     <>
       {newsList.map(entry => (
@@ -9,7 +13,7 @@ export default function NewsList({ newsList, onNewsDelete, onNewsChange }) {
           key={entry.id}
           entry={entry}
           onNewsDelete={onNewsDelete}
-          onNewsChange={onNewsChange}
+          onSaveChangedNewsEntry={onSaveChangedNewsEntry}
         />
       ))}
     </>

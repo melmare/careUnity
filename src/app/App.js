@@ -49,14 +49,15 @@ function App() {
     setNewsList([...newsList.slice(0, index), ...newsList.slice(index + 1)]);
   }
 
-  function handleNewsEntryChange() {
+  function handleSaveChangedNewsEntry(changedEntry) {
     console.log('app function handleNewsChange');
-    // const index = newsList.findIndex(entry => entry.id === changedEntry.id);
-    // setNewsList([
-    //   ...newsList.slice(0, index),
-    //   changedEntry,
-    //   ...newsList.slice(index + 1)
-    // ]);
+    console.log(changedEntry);
+    const index = newsList.findIndex(entry => entry.id === changedEntry.id);
+    setNewsList([
+      ...newsList.slice(0, index),
+      changedEntry,
+      ...newsList.slice(index + 1)
+    ]);
   }
   useEffect(() => {
     setLocalData('news', newsList);
@@ -194,7 +195,7 @@ function App() {
               <NewsPage
                 newsList={newsList}
                 onNewsDelete={handleNewsDelete}
-                onNewsChange={handleNewsEntryChange}
+                onSaveChangedNewsEntry={handleSaveChangedNewsEntry}
               />
             )}
           />

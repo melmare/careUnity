@@ -32,13 +32,9 @@ const EntryHeader = styled.header`
   width: 100%;
 `;
 
-export default function Entry({ entry, onNewsDelete, onNewsEdit }) {
+export default function Entry({ entry, onNewsDelete, onSaveChangedNewsEntry }) {
   const [isEditFormVisible, setEditFormVisible] = useState(false);
   const { title, author, activities, description } = entry;
-
-  function handleEditBtnClick(event, onNewsEdit) {
-    console.log('click');
-  }
 
   return (
     <EntryContainer>
@@ -51,7 +47,11 @@ export default function Entry({ entry, onNewsDelete, onNewsEdit }) {
         />
       </EntryHeader>
       {isEditFormVisible ? (
-        <NewsForm entry={entry} />
+        <NewsForm
+          entry={entry}
+          onSaveChangedNewsEntry={onSaveChangedNewsEntry}
+          hideForm={() => setEditFormVisible(!isEditFormVisible)}
+        />
       ) : (
         <>
           <Author>Erstellt von {author}</Author>

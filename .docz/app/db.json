@@ -34,47 +34,6 @@
       ]
     },
     {
-      "key": "src/components/Input.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Input",
-          "methods": [],
-          "actualName": "Input",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "placeholder": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "required": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
-        }
-      ]
-    },
-    {
       "key": "src/medicalpage/LocationInformation.js",
       "value": [
         {
@@ -141,6 +100,39 @@
       ]
     },
     {
+      "key": "src/createpage/NewsForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Input.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Input",
+          "methods": [],
+          "actualName": "Input"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/CreatePage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreatePage",
+          "methods": [],
+          "actualName": "CreatePage"
+        }
+      ]
+    },
+    {
       "key": "src/newspage/Entry.js",
       "value": [
         {
@@ -148,17 +140,6 @@
           "displayName": "Entry",
           "methods": [],
           "actualName": "Entry"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/NewsPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsPage",
-          "methods": [],
-          "actualName": "NewsPage"
         }
       ]
     },
@@ -174,17 +155,6 @@
       ]
     },
     {
-      "key": "src/createpage/NewsForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form"
-        }
-      ]
-    },
-    {
       "key": "src/app/App.js",
       "value": [
         {
@@ -196,13 +166,13 @@
       ]
     },
     {
-      "key": "src/createpage/CreatePage.js",
+      "key": "src/newspage/NewsPage.js",
       "value": [
         {
           "description": "",
-          "displayName": "CreatePage",
+          "displayName": "NewsPage",
           "methods": [],
-          "actualName": "CreatePage"
+          "actualName": "NewsPage"
         }
       ]
     }

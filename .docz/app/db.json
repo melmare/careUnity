@@ -23,17 +23,6 @@
       ]
     },
     {
-      "key": "src/userpage/UserPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "UserPage",
-          "methods": [],
-          "actualName": "UserPage"
-        }
-      ]
-    },
-    {
       "key": "src/medicalpage/LocationInformation.js",
       "value": [
         {
@@ -133,17 +122,6 @@
       ]
     },
     {
-      "key": "src/newspage/Entry.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Entry",
-          "methods": [],
-          "actualName": "Entry"
-        }
-      ]
-    },
-    {
       "key": "src/todopage/ToDoPage.js",
       "value": [
         {
@@ -217,6 +195,28 @@
           "displayName": "Form",
           "methods": [],
           "actualName": "Form"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Entry.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Entry",
+          "methods": [],
+          "actualName": "Entry"
+        }
+      ]
+    },
+    {
+      "key": "src/userpage/UserPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UserPage",
+          "methods": [],
+          "actualName": "UserPage"
         }
       ]
     }

@@ -34,6 +34,7 @@ export default function Form({
         id: entry.id,
         title: form.title.value,
         author: entry.author,
+        color: entry.color,
         activities: form.activities.value
           .split(',')
           .map(value => value.trim())
@@ -47,6 +48,7 @@ export default function Form({
         id: uid(),
         title: form.title.value,
         author: user.username,
+        color: user.usercolor,
         activities: form.activities.value
           .split(',')
           .map(value => value.trim())

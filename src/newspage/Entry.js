@@ -22,7 +22,7 @@ const EditIcon = styled(FontAwesomeIcon)`
   font-size: 1rem;
 `;
 const EntryHeader = styled.header`
-  background: silver;
+  background: ${props => props.color};
   border-top-right-radius: 5%;
   border-top-left-radius: 5%;
   display: flex;
@@ -43,7 +43,7 @@ export default function Entry({
 
   return (
     <EntryContainer>
-      <EntryHeader>
+      <EntryHeader color={entry.color}>
         {user.username === entry.author && (
           <DeleteIcon icon="trash" onClick={() => onNewsDelete(entry)} />
         )}

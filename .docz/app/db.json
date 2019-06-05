@@ -12,17 +12,6 @@
   },
   "props": [
     {
-      "key": "src/createpage/CreatePage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CreatePage",
-          "methods": [],
-          "actualName": "CreatePage"
-        }
-      ]
-    },
-    {
       "key": "src/newspage/Activity.js",
       "value": [
         {
@@ -41,47 +30,6 @@
           "displayName": "UserPage",
           "methods": [],
           "actualName": "UserPage"
-        }
-      ]
-    },
-    {
-      "key": "src/components/Input.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Input",
-          "methods": [],
-          "actualName": "Input",
-          "props": {
-            "name": {
-              "type": {
-                "name": "string"
-              },
-              "required": true,
-              "description": ""
-            },
-            "type": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "placeholder": {
-              "type": {
-                "name": "string"
-              },
-              "required": false,
-              "description": ""
-            },
-            "required": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": ""
-            }
-          }
         }
       ]
     },
@@ -130,22 +78,79 @@
       ]
     },
     {
+      "key": "src/medicalpage/MedicalComment.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "MedicalComment",
+          "methods": [],
+          "actualName": "MedicalComment"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDo.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDo",
+          "methods": [],
+          "actualName": "ToDo"
+        }
+      ]
+    },
+    {
       "key": "src/createpage/NewsForm.js",
       "value": [
         {
           "description": "",
           "displayName": "Form",
           "methods": [],
-          "actualName": "Form",
-          "props": {
-            "onFormSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
+          "actualName": "Form"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Input.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Input",
+          "methods": [],
+          "actualName": "Input"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/CreatePage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreatePage",
+          "methods": [],
+          "actualName": "CreatePage"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Entry.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Entry",
+          "methods": [],
+          "actualName": "Entry"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
         }
       ]
     },
@@ -168,50 +173,6 @@
           "displayName": "NewsPage",
           "methods": [],
           "actualName": "NewsPage"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/NewsList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsList",
-          "methods": [],
-          "actualName": "NewsList"
-        }
-      ]
-    },
-    {
-      "key": "src/todopage/ToDo.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDo",
-          "methods": [],
-          "actualName": "ToDo"
-        }
-      ]
-    },
-    {
-      "key": "src/medicalpage/MedicalComment.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "MedicalComment",
-          "methods": [],
-          "actualName": "MedicalComment"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/Entry.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Entry",
-          "methods": [],
-          "actualName": "Entry"
         }
       ]
     }

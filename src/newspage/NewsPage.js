@@ -10,7 +10,11 @@ import Headline from '../components/Headline';
 
 library.add(faPlus);
 
-export default function NewsPage({ newsList, onNewsDelete }) {
+export default function NewsPage({
+  newsList,
+  onNewsDelete,
+  onSaveChangedNewsEntry
+}) {
   return (
     <>
       <Header>
@@ -20,7 +24,11 @@ export default function NewsPage({ newsList, onNewsDelete }) {
         </HeaderButton>
       </Header>
       <ContentContainer>
-        <NewsList newsList={newsList} onNewsDelete={onNewsDelete} />
+        <NewsList
+          newsList={newsList}
+          onNewsDelete={onNewsDelete}
+          onSaveChangedNewsEntry={onSaveChangedNewsEntry}
+        />
       </ContentContainer>
     </>
   );

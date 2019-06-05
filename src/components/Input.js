@@ -23,6 +23,7 @@ export default function Input({
   required,
   placeholder,
   value,
+  defaultValue,
   onChange
 }) {
   return (
@@ -34,6 +35,7 @@ export default function Input({
           required={required}
           placeholder={placeholder}
           value={value}
+          defaultValue={defaultValue}
         />
       ) : (
         <StyledInput
@@ -43,15 +45,9 @@ export default function Input({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          defaultValue={defaultValue}
         />
       )}
     </>
   );
 }
-
-Input.propTypes = {
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool
-};

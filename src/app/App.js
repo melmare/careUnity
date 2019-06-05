@@ -38,7 +38,8 @@ function App() {
     getLocalData('medicalComments') || []
   );
 
-  function handleNewsFormSubmit(newEntry, history) {
+  function handleSaveNewEntry(newEntry, history) {
+    console.log('app funcion handleNewsEntryCreation');
     setNewsList([newEntry, ...newsList]);
     history.push('/news');
   }
@@ -48,6 +49,16 @@ function App() {
     setNewsList([...newsList.slice(0, index), ...newsList.slice(index + 1)]);
   }
 
+  function handleSaveChangedNewsEntry(changedEntry) {
+    console.log('app function handleNewsChange');
+    console.log(changedEntry);
+    const index = newsList.findIndex(entry => entry.id === changedEntry.id);
+    setNewsList([
+      ...newsList.slice(0, index),
+      changedEntry,
+      ...newsList.slice(index + 1)
+    ]);
+  }
   useEffect(() => {
     setLocalData('news', newsList);
   }, [newsList]);
@@ -139,7 +150,7 @@ function App() {
             path="/create"
             render={props => (
               <CreatePage
-                onFormSubmit={handleNewsFormSubmit}
+                onSaveNewEntry={handleSaveNewEntry}
                 history={props.history}
               />
             )}
@@ -181,7 +192,11 @@ function App() {
           <Route
             path="/"
             render={() => (
-              <NewsPage newsList={newsList} onNewsDelete={handleNewsDelete} />
+              <NewsPage
+                newsList={newsList}
+                onNewsDelete={handleNewsDelete}
+                onSaveChangedNewsEntry={handleSaveChangedNewsEntry}
+              />
             )}
           />
         </Switch>

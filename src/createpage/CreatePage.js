@@ -4,14 +4,17 @@ import Header from '../components/Header';
 import ContentContainer from '../components/ContentContainer';
 import Headline from '../components/Headline';
 
-export default function CreatePage({ onFormSubmit, history }) {
+export default function CreatePage({ onSaveNewEntry, history }) {
+  function handleEntrySubmit(newEntry) {
+    onSaveNewEntry(newEntry, history);
+  }
   return (
     <>
       <Header>
         <Headline>Eintrag erstellen</Headline>
       </Header>
       <ContentContainer>
-        <NewsForm onFormSubmit={onFormSubmit} history={history} />
+        <NewsForm onNewsCreation={handleEntrySubmit} />
       </ContentContainer>
     </>
   );

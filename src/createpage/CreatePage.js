@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import ContentContainer from '../components/ContentContainer';
 import Headline from '../components/Headline';
 
-export default function CreatePage({ onSaveNewEntry, history }) {
+export default function CreatePage({ onSaveNewEntry, history, user }) {
   function handleEntrySubmit(newEntry) {
     onSaveNewEntry(newEntry, history);
   }
@@ -14,7 +14,7 @@ export default function CreatePage({ onSaveNewEntry, history }) {
         <Headline>Eintrag erstellen</Headline>
       </Header>
       <ContentContainer>
-        <NewsForm onNewsCreation={handleEntrySubmit} />
+        <NewsForm user={user} onNewsCreation={handleEntrySubmit} />
       </ContentContainer>
     </>
   );

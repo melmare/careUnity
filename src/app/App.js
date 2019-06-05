@@ -147,6 +147,7 @@ function App() {
             path="/create"
             render={props => (
               <CreatePage
+                user={user}
                 onSaveNewEntry={handleSaveNewEntry}
                 history={props.history}
               />

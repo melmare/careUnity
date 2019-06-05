@@ -18,7 +18,7 @@ export default function ToDoPage({
         <Headline>Aufgaben</Headline>
       </Header>
       <ContentContainer>
-        <ToDoForm onToDoSubmit={onToDoSubmit} />
+        <ToDoForm user={user} onToDoSubmit={onToDoSubmit} />
         <ToDoList
           toDos={toDos}
           user={user}

@@ -39,7 +39,6 @@ function App() {
   );
 
   function handleSaveNewEntry(newEntry, history) {
-    console.log('app funcion handleNewsEntryCreation');
     setNewsList([newEntry, ...newsList]);
     history.push('/news');
   }
@@ -50,8 +49,6 @@ function App() {
   }
 
   function handleSaveChangedNewsEntry(changedEntry) {
-    console.log('app function handleNewsChange');
-    console.log(changedEntry);
     const index = newsList.findIndex(entry => entry.id === changedEntry.id);
     setNewsList([
       ...newsList.slice(0, index),

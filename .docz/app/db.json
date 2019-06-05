@@ -111,17 +111,6 @@
       ]
     },
     {
-      "key": "src/components/Input.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Input",
-          "methods": [],
-          "actualName": "Input"
-        }
-      ]
-    },
-    {
       "key": "src/createpage/CreatePage.js",
       "value": [
         {
@@ -155,6 +144,17 @@
       ]
     },
     {
+      "key": "src/newspage/NewsPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsPage",
+          "methods": [],
+          "actualName": "NewsPage"
+        }
+      ]
+    },
+    {
       "key": "src/app/App.js",
       "value": [
         {
@@ -166,13 +166,24 @@
       ]
     },
     {
-      "key": "src/newspage/NewsPage.js",
+      "key": "src/components/Input.js",
       "value": [
         {
           "description": "",
-          "displayName": "NewsPage",
+          "displayName": "Input",
           "methods": [],
-          "actualName": "NewsPage"
+          "actualName": "Input"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/SingleMedication.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SingleMedication",
+          "methods": [],
+          "actualName": "SingleMedication"
         }
       ]
     }

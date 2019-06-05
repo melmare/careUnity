@@ -8,7 +8,6 @@ import {
   faEdit,
   faCheckSquare
 } from '@fortawesome/free-solid-svg-icons';
-import Input from '../components/Input';
 
 library.add(faTrash, faEdit, faCheckSquare);
 

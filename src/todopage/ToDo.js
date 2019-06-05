@@ -150,9 +150,11 @@ export default function ToDo({
       >
         {getStatusIcon(status)}
       </StatusButton>
-      <DeleteButton onClick={event => onDeleteBtnClick(event, onToDoDelete)}>
-        <DeleteIcon icon="trash" />
-      </DeleteButton>
+      {(user.username === author || user.username === personInCharge) && (
+        <DeleteButton onClick={event => onDeleteBtnClick(event, onToDoDelete)}>
+          <DeleteIcon icon="trash" />
+        </DeleteButton>
+      )}
     </ToDoContainer>
   );
 }

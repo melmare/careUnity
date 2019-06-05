@@ -89,17 +89,6 @@
       ]
     },
     {
-      "key": "src/todopage/ToDo.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDo",
-          "methods": [],
-          "actualName": "ToDo"
-        }
-      ]
-    },
-    {
       "key": "src/createpage/NewsForm.js",
       "value": [
         {
@@ -184,6 +173,17 @@
           "displayName": "Entry",
           "methods": [],
           "actualName": "Entry"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDo.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDo",
+          "methods": [],
+          "actualName": "ToDo"
         }
       ]
     }

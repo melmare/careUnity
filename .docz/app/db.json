@@ -144,28 +144,6 @@
       ]
     },
     {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/CreatePage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CreatePage",
-          "methods": [],
-          "actualName": "CreatePage"
-        }
-      ]
-    },
-    {
       "key": "src/todopage/ToDoPage.js",
       "value": [
         {
@@ -173,17 +151,6 @@
           "displayName": "ToDoPage",
           "methods": [],
           "actualName": "ToDoPage"
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/NewsForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form"
         }
       ]
     },
@@ -217,6 +184,39 @@
           "displayName": "ToDoForm",
           "methods": [],
           "actualName": "ToDoForm"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/CreatePage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreatePage",
+          "methods": [],
+          "actualName": "CreatePage"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/NewsForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Form",
+          "methods": [],
+          "actualName": "Form"
         }
       ]
     }

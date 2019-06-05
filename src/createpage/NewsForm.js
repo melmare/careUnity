@@ -24,7 +24,8 @@ export default function Form({
     entry,
     onNewsCreation,
     onSaveChangedNewsEntry,
-    hideForm
+    hideForm,
+    user
   }) {
     event.preventDefault();
     const form = event.target;
@@ -32,7 +33,7 @@ export default function Form({
       const changedEntry = {
         id: entry.id,
         title: form.title.value,
-        author: user.username,
+        author: entry.author,
         activities: form.activities.value
           .split(',')
           .map(value => value.trim())
@@ -64,7 +65,8 @@ export default function Form({
           entry,
           onNewsCreation,
           onSaveChangedNewsEntry,
-          hideForm
+          hideForm,
+          user
         })
       }
     >

@@ -12,17 +12,6 @@
   },
   "props": [
     {
-      "key": "src/createpage/CreatePage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CreatePage",
-          "methods": [],
-          "actualName": "CreatePage"
-        }
-      ]
-    },
-    {
       "key": "src/newspage/Activity.js",
       "value": [
         {
@@ -130,33 +119,35 @@
       ]
     },
     {
-      "key": "src/createpage/NewsForm.js",
+      "key": "src/medicalpage/MedicalComment.js",
       "value": [
         {
           "description": "",
-          "displayName": "Form",
+          "displayName": "MedicalComment",
           "methods": [],
-          "actualName": "Form",
-          "props": {
-            "onFormSubmit": {
-              "type": {
-                "name": "func"
-              },
-              "required": true,
-              "description": ""
-            }
-          }
+          "actualName": "MedicalComment"
         }
       ]
     },
     {
-      "key": "src/app/App.js",
+      "key": "src/todopage/ToDo.js",
       "value": [
         {
           "description": "",
-          "displayName": "App",
+          "displayName": "ToDo",
           "methods": [],
-          "actualName": "App"
+          "actualName": "ToDo"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Entry.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Entry",
+          "methods": [],
+          "actualName": "Entry"
         }
       ]
     },
@@ -183,35 +174,35 @@
       ]
     },
     {
-      "key": "src/todopage/ToDo.js",
+      "key": "src/createpage/NewsForm.js",
       "value": [
         {
           "description": "",
-          "displayName": "ToDo",
+          "displayName": "Form",
           "methods": [],
-          "actualName": "ToDo"
+          "actualName": "Form"
         }
       ]
     },
     {
-      "key": "src/medicalpage/MedicalComment.js",
+      "key": "src/app/App.js",
       "value": [
         {
           "description": "",
-          "displayName": "MedicalComment",
+          "displayName": "App",
           "methods": [],
-          "actualName": "MedicalComment"
+          "actualName": "App"
         }
       ]
     },
     {
-      "key": "src/newspage/Entry.js",
+      "key": "src/createpage/CreatePage.js",
       "value": [
         {
           "description": "",
-          "displayName": "Entry",
+          "displayName": "CreatePage",
           "methods": [],
-          "actualName": "Entry"
+          "actualName": "CreatePage"
         }
       ]
     }

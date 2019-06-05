@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Input from '../components/Input';
 import Label from '../components/Label';
 import styled from 'styled-components';
@@ -13,26 +12,37 @@ const StyledForm = styled.form`
   margin: 0 20px 20px 20px;
 `;
 
-export default function Form({ onFormSubmit, history }) {
-  function handleSubmit({ event, onFormSubmit, history }) {
+export default function Form({ entry, onNewsCreation }) {
+  function handleSubmit({ event, entry, onNewsCreation }) {
     event.preventDefault();
-    const form = event.target;
-    const newEntry = {
-      id: uid(),
-      title: form.title.value,
-      author: form.author.value,
-      activities: form.activities.value
-        .split(',')
-        .map(value => value.trim())
-        .filter(value => Boolean(value)),
-      description: form.description.value
-    };
-    onFormSubmit(newEntry, history);
+    if (entry) {
+      console.log('newsForm if');
+    } else {
+      const form = event.target;
+      const newEntry = {
+        id: uid(),
+        title: form.title.value,
+        author: form.author.value,
+        activities: form.activities.value
+          .split(',')
+          .map(value => value.trim())
+          .filter(value => Boolean(value)),
+        description: form.description.value
+      };
+      console.log('newsForm else');
+      onNewsCreation(newEntry);
+    }
   }
 
   return (
     <StyledForm
-      onSubmit={event => handleSubmit({ event, onFormSubmit, history })}
+      onSubmit={event =>
+        handleSubmit({
+          event,
+          entry,
+          onNewsCreation
+        })
+      }
     >
       <Label htmlFor="title" label="Datum" />
       <Input name="title" required placeholder="Donnerstag, 09.05.2019" />
@@ -50,7 +60,3 @@ export default function Form({ onFormSubmit, history }) {
     </StyledForm>
   );
 }
-
-Form.propTypes = {
-  onFormSubmit: PropTypes.func.isRequired
-};

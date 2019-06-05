@@ -147,11 +147,15 @@ export default function ToDo({
 
       <StatusButton
         onClick={event => onStatusBtnClick(event, onToDoStatusChange)}
+        disabled={!onToDoStatusChange}
       >
         {getStatusIcon(status)}
       </StatusButton>
       {(user.username === author || user.username === personInCharge) && (
-        <DeleteButton onClick={event => onDeleteBtnClick(event, onToDoDelete)}>
+        <DeleteButton
+          onClick={event => onDeleteBtnClick(event, onToDoDelete)}
+          disabled={!onToDoDelete}
+        >
           <DeleteIcon icon="trash" />
         </DeleteButton>
       )}

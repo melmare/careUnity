@@ -168,8 +168,14 @@ function App() {
           />
           <Route
             path="/user"
-            render={() => (
-              <UserPage onUserChange={handleUserChange} user={user} />
+            render={props => (
+              <UserPage
+                onUserChange={handleUserChange}
+                user={user}
+                toDos={toDos}
+                newsList={newsList}
+                history={props.history}
+              />
             )}
           />
           <Route

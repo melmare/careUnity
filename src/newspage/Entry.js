@@ -43,12 +43,12 @@ export default function Entry({
 
   return (
     <EntryContainer>
-      <EntryHeader color={entry.color}>
-        {user.username === entry.author && (
+      <EntryHeader>
+        {user.username === entry.author && onNewsDelete && (
           <DeleteIcon icon="trash" onClick={() => onNewsDelete(entry)} />
         )}
         <Title>{title}</Title>
-        {user.username === entry.author && (
+        {user.username === entry.author && onSaveChangedNewsEntry && (
           <EditIcon
             icon="edit"
             onClick={() => setEditFormVisible(!isEditFormVisible)}

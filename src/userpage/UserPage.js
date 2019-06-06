@@ -5,20 +5,37 @@ import ContentContainer from '../components/ContentContainer';
 import Label from '../components/Label';
 import ToDo from '../todopage/ToDo';
 import Entry from '../newspage/Entry';
+import styled from 'styled-components';
 
+const uid = require('uid');
+
+const UserBox = styled.span`
+  background: ${props => props.color};
+  border-radius: 5px;
+  display: inline-block;
+  list-style: none;
+  margin: 5px;
+  padding: 5px;
+`;
 export default function UserPage({
   user,
   onUserChange,
   toDos,
   newsList,
-  history
+  history,
+  userGroup
 }) {
-  function onSubmit(event, onUserChange) {
+  function onSubmit(event, onUserChange, user, userGroup) {
     event.preventDefault();
+    console.log(user.id);
     const newUser = {
+      id: uid(),
       username: event.target.username.value,
       usercolor: event.target.usercolor.value
     };
+    if (userGroup.map(user => user.username).includes(newUser.username)) {
+      return;
+    }
     onUserChange(newUser);
   }
 
@@ -29,13 +46,32 @@ export default function UserPage({
     <>
       <Header>User</Header>
       <ContentContainer>
-        <form onSubmit={event => onSubmit(event, onUserChange)}>
+        <div>Deine Familie besteht aus:</div>
+        {userGroup.map(user => (
+          <UserBox color={user.usercolor}>{user.username}</UserBox>
+        ))}
+        <form
+          onSubmit={event => onSubmit(event, onUserChange, user, userGroup)}
+        >
           <Label htmlFor="username" label="Gib deinen Namen an:" />
           <Input name="username" />
-          <Label htmlFor="usercolor" label="Wähle deine Farbe aus:" />
-          <input type="color" name="usercolor" />
-          <p>Du bist eingeloggt als {user.username}</p>
+          {!user.usercolor && (
+            <Label
+              htmlFor="usercolor"
+              label="Wähle deine Farbe aus:"
+              hidden={user.usercolor}
+            />
+          )}
+
+          <input
+            type="color"
+            name="usercolor"
+            defaultValue="#f6b73c"
+            required
+            hidden={user.usercolor}
+          />
         </form>
+        <p>Du bist eingeloggt als {user.username}</p>
         <p>Deine Aufgaben:</p>
         {toDos
           .filter(toDo => toDo.personInCharge === user.username)

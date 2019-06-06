@@ -144,17 +144,6 @@
       ]
     },
     {
-      "key": "src/todopage/ToDoForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDoForm",
-          "methods": [],
-          "actualName": "ToDoForm"
-        }
-      ]
-    },
-    {
       "key": "src/createpage/CreatePage.js",
       "value": [
         {
@@ -177,17 +166,6 @@
       ]
     },
     {
-      "key": "src/newspage/Entry.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Entry",
-          "methods": [],
-          "actualName": "Entry"
-        }
-      ]
-    },
-    {
       "key": "src/todopage/ToDo.js",
       "value": [
         {
@@ -195,6 +173,28 @@
           "displayName": "ToDo",
           "methods": [],
           "actualName": "ToDo"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDoForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDoForm",
+          "methods": [],
+          "actualName": "ToDoForm"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Entry.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Entry",
+          "methods": [],
+          "actualName": "Entry"
         }
       ]
     },

@@ -29,7 +29,8 @@ const AppContainer = styled.div`
 function App() {
   const [newsList, setNewsList] = useState(getLocalData('news') || []);
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
-  const [user, setUser] = useState(getLocalData('user') || 'User');
+  const [user, setUser] = useState(getLocalData('user') || {});
+  const [userGroup, setUserGroup] = useState(getLocalData('userGroup') || []);
   const [location, setLocation] = useState(getLocalData('location') || {});
   const [medicationList, setMedicationList] = useState(
     getLocalData('medicationList') || []
@@ -91,9 +92,12 @@ function App() {
 
   function handleUserChange(newUser) {
     setUser(newUser);
+    setUserGroup([...userGroup, newUser]);
   }
 
   useEffect(() => setLocalData('user', user), [user]);
+
+  useEffect(() => setLocalData('userGroup', userGroup), [userGroup]);
 
   function handleLocationChange(newAdress) {
     setLocation(newAdress);
@@ -171,6 +175,7 @@ function App() {
             render={props => (
               <UserPage
                 onUserChange={handleUserChange}
+                userGroup={userGroup}
                 user={user}
                 toDos={toDos}
                 newsList={newsList}
@@ -212,11 +217,11 @@ function App() {
           <NavButton to="/todo">
             <Icon icon="list" />
           </NavButton>
-          <NavButton to="/user">
-            <Icon icon="user" />
-          </NavButton>
           <NavButton to="/info">
             <Icon icon="first-aid" />
+          </NavButton>
+          <NavButton to="/user">
+            <Icon icon="user" />
           </NavButton>
         </Navigation>
       </AppContainer>

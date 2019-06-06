@@ -43,7 +43,7 @@ export default function Entry({
 
   return (
     <EntryContainer>
-      <EntryHeader>
+      <EntryHeader color={entry.color}>
         {user.username === entry.author && onNewsDelete && (
           <DeleteIcon icon="trash" onClick={() => onNewsDelete(entry)} />
         )}

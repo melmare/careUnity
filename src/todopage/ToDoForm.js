@@ -1,7 +1,6 @@
 import React from 'react';
 import Input from '../components/Input';
 import styled from 'styled-components';
-import SubmitButton from '../components/SubmitButton';
 import Label from '../components/Label';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';

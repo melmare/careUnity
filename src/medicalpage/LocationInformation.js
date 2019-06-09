@@ -28,7 +28,7 @@ const LocationInformationContainer = styled.section`
 const Output = styled.div``;
 
 export default function LocationInformation({ location, onLocationChange }) {
-  const { adress: address, phonenum, room } = location;
+  const { address, phonenum, room } = location;
   const [isAdressEditable, setIsAdressEditable] = useState(false);
   const [isPhonenumEditable, setIsPhonenumEditable] = useState(false);
   const [isRoomEditable, setIsRoomEditable] = useState(false);

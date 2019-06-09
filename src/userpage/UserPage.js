@@ -6,6 +6,7 @@ import Label from '../components/Label';
 import ToDo from '../todopage/ToDo';
 import Entry from '../newspage/Entry';
 import styled from 'styled-components';
+import SubmitButton from '../components/SubmitButton';
 
 const uid = require('uid');
 
@@ -19,58 +20,23 @@ const UserBox = styled.span`
 `;
 export default function UserPage({
   user,
-  onUserChange,
   toDos,
   newsList,
   history,
-  userGroup
+  userGroup,
+  onLogout
 }) {
-  function onSubmit(event, onUserChange, user, userGroup) {
-    event.preventDefault();
-    console.log(user.id);
-    const newUser = {
-      id: uid(),
-      username: event.target.username.value,
-      usercolor: event.target.usercolor.value
-    };
-    if (userGroup.map(user => user.username).includes(newUser.username)) {
-      return;
-    }
-    onUserChange(newUser);
-  }
-
   function onClick(history) {
     history.push('/todo');
+  }
+
+  function handleLogoutBtnClick({}) {
+    console.log('logout');
   }
   return (
     <>
       <Header>User</Header>
       <ContentContainer>
-        <div>Deine Familie besteht aus:</div>
-        {userGroup.map(user => (
-          <UserBox color={user.usercolor}>{user.username}</UserBox>
-        ))}
-        <form
-          onSubmit={event => onSubmit(event, onUserChange, user, userGroup)}
-        >
-          <Label htmlFor="username" label="Gib deinen Namen an:" />
-          <Input name="username" />
-          {!user.usercolor && (
-            <Label
-              htmlFor="usercolor"
-              label="Wähle deine Farbe aus:"
-              hidden={user.usercolor}
-            />
-          )}
-
-          <input
-            type="color"
-            name="usercolor"
-            defaultValue="#f6b73c"
-            required
-            hidden={user.usercolor}
-          />
-        </form>
         <p>Du bist eingeloggt als {user.username}</p>
         <p>Deine Aufgaben:</p>
         {toDos
@@ -86,7 +52,17 @@ export default function UserPage({
           .map(entry => (
             <Entry key={entry.id} user={user} entry={entry} />
           ))}
+        <SubmitButton onClick={() => onLogout()}>Logout</SubmitButton>
       </ContentContainer>
     </>
   );
 }
+
+/*
+
+        <div>Deine Familie besteht aus:</div>
+        {users.map(user => (
+          <UserBox color={user.usercolor}>{user.username}</UserBox>
+        ))}
+
+        */

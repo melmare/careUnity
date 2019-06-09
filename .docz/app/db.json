@@ -23,17 +23,6 @@
       ]
     },
     {
-      "key": "src/medicalpage/LocationInformation.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "LocationInformation",
-          "methods": [],
-          "actualName": "LocationInformation"
-        }
-      ]
-    },
-    {
       "key": "src/medicalpage/MedicationForm.js",
       "value": [
         {
@@ -199,13 +188,13 @@
       ]
     },
     {
-      "key": "src/app/App.js",
+      "key": "src/userpage/LoginPage.js",
       "value": [
         {
           "description": "",
-          "displayName": "App",
+          "displayName": "LoginPage",
           "methods": [],
-          "actualName": "App"
+          "actualName": "LoginPage"
         }
       ]
     },
@@ -217,6 +206,83 @@
           "displayName": "UserPage",
           "methods": [],
           "actualName": "UserPage"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/RegistrationPage.js/registrationpage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RegistrationPage",
+          "methods": [],
+          "actualName": "RegistrationPage"
+        }
+      ]
+    },
+    {
+      "key": "src/LoginPage/registrationpage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RegistrationPage",
+          "methods": [],
+          "actualName": "RegistrationPage"
+        }
+      ]
+    },
+    {
+      "key": "src/LoginPage/RegistrationPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RegistrationPage",
+          "methods": [],
+          "actualName": "RegistrationPage"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/RegistrationPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RegistrationPage",
+          "methods": [],
+          "actualName": "RegistrationPage"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/LocationInformation.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LocationInformation",
+          "methods": [],
+          "actualName": "LocationInformation"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/LoginPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LoginPage",
+          "methods": [],
+          "actualName": "LoginPage"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
         }
       ]
     }

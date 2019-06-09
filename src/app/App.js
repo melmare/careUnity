@@ -18,6 +18,8 @@ import NavButton from '../components/NavButton';
 import Icon from '../components/NavIcon';
 import UserPage from '../userpage/UserPage';
 import MedicalPage from '../medicalpage/MedicalPage';
+import LoginPage from '../loginpage/LoginPage';
+import RegistrationPage from '../loginpage/RegistrationPage';
 
 library.add(faHome, faList, faUser, faFirstAid);
 
@@ -29,8 +31,11 @@ const AppContainer = styled.div`
 function App() {
   const [newsList, setNewsList] = useState(getLocalData('news') || []);
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
-  const [user, setUser] = useState(getLocalData('user') || {});
-  const [userGroup, setUserGroup] = useState(getLocalData('userGroup') || []);
+  const [user, setUser] = useState(getLocalData('user'));
+  const [userGroup, setUserGroup] = useState(getLocalData('userGroup'));
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    getLocalData('isLoggedIn') || false
+  );
   const [location, setLocation] = useState(getLocalData('location') || {});
   const [medicationList, setMedicationList] = useState(
     getLocalData('medicationList') || []
@@ -38,6 +43,8 @@ function App() {
   const [medicalComments, setMedicalComments] = useState(
     getLocalData('medicalComments') || []
   );
+
+  // NEWSPAGE
 
   function handleSaveNewEntry(newEntry, history) {
     setNewsList([newEntry, ...newsList]);
@@ -60,6 +67,8 @@ function App() {
   useEffect(() => {
     setLocalData('news', newsList);
   }, [newsList]);
+
+  // TODOPAGE
 
   function handleToDoSubmit(newToDo) {
     setToDos([newToDo, ...toDos]);
@@ -90,14 +99,42 @@ function App() {
 
   useEffect(() => setLocalData('toDos', toDos), [toDos]);
 
-  function handleUserChange(newUser) {
-    setUser(newUser);
-    setUserGroup([...userGroup, newUser]);
+  // USER/LOGIN PAGE
+
+  function handleNewUserGroup(newUserGroup) {
+    setUserGroup(newUserGroup);
   }
+
+  function handleNewUser(newUser) {
+    setUser(newUser);
+    console.log(user);
+    setUserGroup({
+      name: userGroup.name,
+      password: userGroup.password,
+      users: [...userGroup.users, newUser]
+    });
+  }
+
+  function handleUserLogin(newUser, history) {
+    setUser(newUser);
+    handleLogin(history);
+  }
+
+  function handleLogin(history) {
+    setIsLoggedIn(true);
+    history.push('/news');
+  }
+  function handleLogout() {
+    setIsLoggedIn(false);
+  }
+
+  useEffect(() => setLocalData('isLoggedIn', isLoggedIn), [isLoggedIn]);
 
   useEffect(() => setLocalData('user', user), [user]);
 
   useEffect(() => setLocalData('userGroup', userGroup), [userGroup]);
+
+  // MEDICALPAGE
 
   function handleLocationChange(newAdress) {
     setLocation(newAdress);
@@ -145,73 +182,93 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalStyles />
+
       <AppContainer>
         <Switch>
-          <Route
-            path="/create"
-            render={props => (
-              <CreatePage
-                user={user}
-                onSaveNewEntry={handleSaveNewEntry}
-                history={props.history}
+          {!isLoggedIn ? (
+            <Route
+              path="/"
+              render={props => (
+                <LoginPage
+                  onNewUser={handleNewUser}
+                  onNewUserGroup={handleNewUserGroup}
+                  onLogin={handleLogin}
+                  onUserLogin={handleUserLogin}
+                  user={user}
+                  userGroup={userGroup}
+                  history={props.history}
+                />
+              )}
+            />
+          ) : (
+            <>
+              <Route
+                path="/create"
+                render={props => (
+                  <CreatePage
+                    user={user}
+                    onSaveNewEntry={handleSaveNewEntry}
+                    history={props.history}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path="/todo"
-            render={props => (
-              <ToDoPage
-                toDos={toDos}
-                user={user}
-                onToDoSubmit={handleToDoSubmit}
-                onToDoStatusChange={handleToDoStatusChange}
-                onToDoDelete={handleToDoDelete}
-                onToDoDistribution={handleToDoDistribution}
+              <Route
+                path="/todo"
+                render={props => (
+                  <ToDoPage
+                    toDos={toDos}
+                    user={user}
+                    onToDoSubmit={handleToDoSubmit}
+                    onToDoStatusChange={handleToDoStatusChange}
+                    onToDoDelete={handleToDoDelete}
+                    onToDoDistribution={handleToDoDistribution}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path="/user"
-            render={props => (
-              <UserPage
-                onUserChange={handleUserChange}
-                userGroup={userGroup}
-                user={user}
-                toDos={toDos}
-                newsList={newsList}
-                history={props.history}
+              <Route
+                path="/user"
+                render={props => (
+                  <UserPage
+                    onLogout={handleLogout}
+                    userGroup={userGroup}
+                    user={user}
+                    toDos={toDos}
+                    newsList={newsList}
+                    history={props.history}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path="/info"
-            render={() => (
-              <MedicalPage
-                location={location}
-                onLocationChange={handleLocationChange}
-                medicationList={medicationList}
-                onSingleMedicationSubmit={handleSingleMedicationSubmit}
-                onSingleMedicationDelete={handleSingleMedicationDelete}
-                onSingleMedicationChange={handleSingleMedicationChange}
-                onMedicalCommentSubmit={handleMedicalCommentSubmit}
-                medicalComments={medicalComments}
+              <Route
+                path="/info"
+                render={() => (
+                  <MedicalPage
+                    location={location}
+                    onLocationChange={handleLocationChange}
+                    medicationList={medicationList}
+                    onSingleMedicationSubmit={handleSingleMedicationSubmit}
+                    onSingleMedicationDelete={handleSingleMedicationDelete}
+                    onSingleMedicationChange={handleSingleMedicationChange}
+                    onMedicalCommentSubmit={handleMedicalCommentSubmit}
+                    medicalComments={medicalComments}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path="/"
-            render={() => (
-              <NewsPage
-                user={user}
-                newsList={newsList}
-                onNewsDelete={handleNewsDelete}
-                onSaveChangedNewsEntry={handleSaveChangedNewsEntry}
+              <Route
+                path="/news"
+                render={() => (
+                  <NewsPage
+                    user={user}
+                    newsList={newsList}
+                    onNewsDelete={handleNewsDelete}
+                    onSaveChangedNewsEntry={handleSaveChangedNewsEntry}
+                  />
+                )}
               />
-            )}
-          />
+            </>
+          )}
         </Switch>
         <Navigation>
-          <NavButton to="/">
+          <NavButton to="/news">
             <Icon icon="home" />
           </NavButton>
           <NavButton to="/todo">

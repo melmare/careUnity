@@ -32,7 +32,7 @@ function App() {
   const [newsList, setNewsList] = useState(getLocalData('news') || []);
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
   const [user, setUser] = useState(getLocalData('user'));
-  const [userGroup, setUserGroup] = useState(getLocalData('userGroup'));
+  const [userGroups, setUserGroups] = useState(getLocalData('userGroup') || []);
   const [isLoggedIn, setIsLoggedIn] = useState(
     getLocalData('isLoggedIn') || false
   );
@@ -102,17 +102,11 @@ function App() {
   // USER/LOGIN PAGE
 
   function handleNewUserGroup(newUserGroup) {
-    setUserGroup(newUserGroup);
+    setUserGroups([newUserGroup, ...userGroups]);
   }
 
   function handleNewUser(newUser) {
     setUser(newUser);
-    console.log(user);
-    setUserGroup({
-      name: userGroup.name,
-      password: userGroup.password,
-      users: [...userGroup.users, newUser]
-    });
   }
 
   function handleUserLogin(newUser, history) {
@@ -132,7 +126,7 @@ function App() {
 
   useEffect(() => setLocalData('user', user), [user]);
 
-  useEffect(() => setLocalData('userGroup', userGroup), [userGroup]);
+  useEffect(() => setLocalData('userGroups', userGroups), [userGroups]);
 
   // MEDICALPAGE
 
@@ -195,7 +189,7 @@ function App() {
                   onLogin={handleLogin}
                   onUserLogin={handleUserLogin}
                   user={user}
-                  userGroup={userGroup}
+                  userGroups={userGroups}
                   history={props.history}
                 />
               )}
@@ -230,7 +224,7 @@ function App() {
                 render={props => (
                   <UserPage
                     onLogout={handleLogout}
-                    userGroup={userGroup}
+                    userGroups={userGroups}
                     user={user}
                     toDos={toDos}
                     newsList={newsList}
@@ -264,23 +258,23 @@ function App() {
                   />
                 )}
               />
+              <Navigation>
+                <NavButton to="/news">
+                  <Icon icon="home" />
+                </NavButton>
+                <NavButton to="/todo">
+                  <Icon icon="list" />
+                </NavButton>
+                <NavButton to="/info">
+                  <Icon icon="first-aid" />
+                </NavButton>
+                <NavButton to="/user">
+                  <Icon icon="user" />
+                </NavButton>
+              </Navigation>
             </>
           )}
         </Switch>
-        <Navigation>
-          <NavButton to="/news">
-            <Icon icon="home" />
-          </NavButton>
-          <NavButton to="/todo">
-            <Icon icon="list" />
-          </NavButton>
-          <NavButton to="/info">
-            <Icon icon="first-aid" />
-          </NavButton>
-          <NavButton to="/user">
-            <Icon icon="user" />
-          </NavButton>
-        </Navigation>
       </AppContainer>
     </BrowserRouter>
   );

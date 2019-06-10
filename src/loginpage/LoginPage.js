@@ -9,9 +9,10 @@ const uid = require('uid');
 const LoginPageContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 40px;
 `;
 
-const UserGroupRegistrationForm = styled.form``;
+const RegistrationForm = styled.form``;
 
 const AdminRegistrationForm = styled.form``;
 
@@ -39,33 +40,36 @@ export default function LoginPage({
 }) {
   const [pageStatus, setPageStatus] = useState('welcome');
 
-  function handleUserGroupRegistrationSubmit(event, onNewUserGroup) {
-    event.preventDefault();
-    const newUserGroup = {
-      name: event.target.userGroupName.value,
-      password: event.target.userGroupPassword.value,
-      users: []
-    };
-    onNewUserGroup(newUserGroup);
-    setPageStatus('registration-step2');
-  }
-
-  function handleAdminUserRegistrationSubmit(event, onNewUser) {
+  function handleRegistration(event, onNewUserGroup, onNewUser) {
     event.preventDefault();
     const newAdminUser = {
       id: uid(),
       username: event.target.adminname.value,
+      userGroupname: event.target.userGroupName.value,
       usercolor: event.target.usercolor.value,
       role: 'admin'
     };
+    const newUserGroup = {
+      name: event.target.userGroupName.value,
+      password: event.target.userGroupPassword.value,
+      users: [newAdminUser]
+    };
+    onNewUserGroup(newUserGroup);
     onNewUser(newAdminUser);
-    setPageStatus('registration-step3');
+    setPageStatus('registration-step2');
   }
 
   function handleLoginFormSubmit(event, userGroup, onUserLogin, history) {
     event.preventDefault();
-    if (!userGroup) {
-      setPageStatus('errorWhileLoggingIn');
+
+    if (
+      !userGroup ||
+      userGroup.name !== event.target.loginusergroupname.value
+    ) {
+      setPageStatus('errorWrongUserGroupname');
+      return;
+    } else if (userGroup.password !== event.target.loginpassword.value) {
+      setPageStatus('errorWrongPassword');
       return;
     }
     const index = userGroup.users
@@ -86,33 +90,53 @@ export default function LoginPage({
     <LoginPageContainer>
       <h2>Willkommen bei careUnity!</h2>
 
-      {pageStatus === 'errorWhileLoggingIn' && (
+      {pageStatus === 'errorWrongUserGroupname' && (
         <div>
           Etwas ist schiefgelaufen. Versuche es noch einmal. Falls du noch nicht
           registriert bist, kannst du dies hier tun.
         </div>
       )}
-      <LoginForm
-        onSubmit={event =>
-          handleLoginFormSubmit(event, userGroup, onUserLogin, history)
-        }
-      >
-        <label>
-          Gib deinen Namen an:
-          <Input name="loginusername" />
-        </label>
-        <SubmitButton>Login</SubmitButton>
-      </LoginForm>
-      <p>Deine Familie ist noch nicht bei careUnity registriert? </p>
-      <SubmitButton onClick={() => setPageStatus('registration-step1')}>
-        Registrieren
-      </SubmitButton>
+      {pageStatus === 'errorWrongPassword' && (
+        <div>
+          Du hast den falschen Familiennamen oder ein falsches Kennwort
+          angegeben.Versuche es noch einmal.
+        </div>
+      )}
 
-      {pageStatus === 'registration-step1' && (
-        <UserGroupRegistrationForm
-          hidden={userGroup}
+      {pageStatus === 'welcome' && (
+        <LoginForm
           onSubmit={event =>
-            handleUserGroupRegistrationSubmit(event, onNewUserGroup)
+            handleLoginFormSubmit(event, userGroup, onUserLogin, history)
+          }
+        >
+          <label>
+            Gib deinen Namen an:
+            <Input name="loginusername" required />
+          </label>
+          <label>
+            Gib deinen Familiennamen an:
+            <Input name="loginusergroupname" required />
+          </label>
+          <label>
+            Gib dein Passwort an:
+            <Input name="loginpassword" required />
+          </label>
+          <SubmitButton>Login</SubmitButton>
+        </LoginForm>
+      )}
+
+      {pageStatus === 'welcome' && (
+        <>
+          <p>Deine Familie ist noch nicht bei careUnity registriert? </p>
+          <SubmitButton onClick={() => setPageStatus('registration-step1')}>
+            Registrieren
+          </SubmitButton>
+        </>
+      )}
+      {pageStatus === 'registration-step1' && (
+        <RegistrationForm
+          onSubmit={event =>
+            handleRegistration(event, onNewUserGroup, onNewUser)
           }
         >
           <label>
@@ -123,16 +147,7 @@ export default function LoginPage({
             Gib dein Familienkennwort an:
             <Input name="userGroupPassword" required />
           </label>
-          <SubmitButton>Neue Familie anlegen</SubmitButton>
-        </UserGroupRegistrationForm>
-      )}
 
-      {pageStatus === 'registration-step2' && (
-        <AdminRegistrationForm
-          onSubmit={event =>
-            handleAdminUserRegistrationSubmit(event, onNewUser)
-          }
-        >
           <Label htmlFor="adminname" label="Gib deinen Namen an:" />
           <Input name="adminname" />
           <Label htmlFor="usercolor" label="Wähle deine Farbe aus:" />
@@ -142,10 +157,11 @@ export default function LoginPage({
             defaultValue="#f6b73c"
             required
           />
-        </AdminRegistrationForm>
+          <SubmitButton>Neue Familie anlegen</SubmitButton>
+        </RegistrationForm>
       )}
 
-      {pageStatus === 'registration-step3' && (
+      {pageStatus === 'registration-step2' && (
         <div>
           <h3>Hallo {user.username}</h3>
           <p>

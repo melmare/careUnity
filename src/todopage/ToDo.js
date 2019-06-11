@@ -11,10 +11,14 @@ import {
 
 library.add(faTrash, faHourglassStart, faHourglassHalf, faHourglassEnd);
 
-const DeleteIcon = styled(FontAwesomeIcon)``;
+const DeleteIcon = styled(FontAwesomeIcon)`
+  font-size: 1rem;
+  color: black;
+`;
 
 const StatusIcon = styled(FontAwesomeIcon)`
   font-size: 1.3rem;
+  color: black;
 `;
 
 function getColor(status) {
@@ -40,11 +44,13 @@ function getNewStatus(status) {
 }
 
 const ToDoContainer = styled.div`
-  border: gray 1px solid;
+  border-radius: 3px;
   border-left: ${props => getColor(props.status)} 5px solid;
   display: grid;
   grid-template-columns: 40px 1fr 1fr 40px;
   grid-template-rows: 1fr 1fr;
+  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+  margin-bottom: 20px;
 `;
 
 const ToDoTitle = styled.p`
@@ -55,7 +61,10 @@ const ToDoTitle = styled.p`
 const ToDoAuthor = styled.small`
   grid-column: 2;
   grid-row: 2;
+  margin: 3px 0;
 `;
+
+const Author = styled.span``;
 
 const StatusButton = styled.button`
   grid-row: 1 / span 2;
@@ -63,6 +72,7 @@ const StatusButton = styled.button`
 
 const DeleteButton = styled.button`
   grid-column: 4;
+  grid-row: 1 / span 2;
 `;
 
 const DistributionButton = styled.button`
@@ -77,7 +87,12 @@ const ToDoPersonInChargeContainer = styled.div`
   align-self: center;
 `;
 
-const ToDoPersonInCharge = styled.div``;
+const ToDoPersonInCharge = styled.div`
+  background: ${props => props.color};
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+`;
 
 export default function ToDo({
   toDo,
@@ -86,7 +101,14 @@ export default function ToDo({
   user,
   onToDoDistribution
 }) {
-  const { title, author, status, isDistributed, personInCharge } = toDo;
+  const {
+    title,
+    author,
+    status,
+    isDistributed,
+    personInCharge,
+    personInChargeColor
+  } = toDo;
 
   function getStatusIcon(status) {
     switch (status) {
@@ -124,7 +146,8 @@ export default function ToDo({
       author,
       status,
       isDistributed: true,
-      personInCharge: user.username
+      personInCharge: user.username,
+      personInChargeColor: user.usercolor
     };
     onToDoDistribution(distributedToDo);
   }
@@ -132,10 +155,14 @@ export default function ToDo({
   return (
     <ToDoContainer status={status}>
       <ToDoTitle>{title}</ToDoTitle>
-      <ToDoAuthor>erstellt von {author}</ToDoAuthor>
+      <ToDoAuthor>
+        erstellt von <Author>{author}</Author>
+      </ToDoAuthor>
       <ToDoPersonInChargeContainer>
         {isDistributed ? (
-          <ToDoPersonInCharge>{personInCharge}</ToDoPersonInCharge>
+          <ToDoPersonInCharge color={personInChargeColor}>
+            {personInCharge}
+          </ToDoPersonInCharge>
         ) : (
           <DistributionButton
             onClick={event => onDistributionBtnClick(event, onToDoDistribution)}

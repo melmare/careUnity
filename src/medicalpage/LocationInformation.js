@@ -42,11 +42,13 @@ export default function LocationInformation({ location, onLocationChange }) {
     <LocationInformationContainer>
       <MedicalIcon icon="clinic-medical" />
 
-      <Label htmlFor="adress" label="Adresse" />
+      <Label htmlFor="address" label="Adresse" />
       {isAdressEditable ? (
         <Input
-          onChange={event => onAddressChange('adress', event, onLocationChange)}
-          name="adress"
+          onChange={event =>
+            onAddressChange('address', event, onLocationChange)
+          }
+          name="address"
           value={address}
         />
       ) : (

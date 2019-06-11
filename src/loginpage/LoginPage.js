@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Headline from '../components/Headline';
 import Input from '../components/Input';
 import Label from '../components/Label';
 import SubmitButton from '../components/SubmitButton';
@@ -14,20 +13,7 @@ const LoginPageContainer = styled.div`
 
 const RegistrationForm = styled.form``;
 
-const AdminRegistrationForm = styled.form``;
-
-const UserRegistrationForm = styled.form``;
-
 const LoginForm = styled.form``;
-
-const UserBox = styled.span`
-  background: skyblue;
-  border-radius: 5px;
-  display: inline-block;
-  list-style: none;
-  margin: 5px;
-  padding: 5px;
-`;
 
 export default function LoginPage({
   onNewUserGroup,

@@ -252,6 +252,7 @@ function App() {
                 )}
               />
               <Route
+                activeClassName="active"
                 path="/news"
                 render={() => (
                   <NewsPage

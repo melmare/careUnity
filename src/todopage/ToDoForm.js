@@ -26,6 +26,7 @@ const ToDoSubmitButton = styled.button`
 
 const SendToDoIcon = styled(FontAwesomeIcon)`
   font-size: 2em;
+  color: white;
 `;
 
 export default function ToDoForm({ onToDoSubmit, user }) {
@@ -49,5 +50,3 @@ export default function ToDoForm({ onToDoSubmit, user }) {
     </FormContainer>
   );
 }
-
-//      <ToDoSubmitButton />

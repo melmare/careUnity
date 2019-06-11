@@ -155,39 +155,6 @@
       ]
     },
     {
-      "key": "src/todopage/ToDo.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDo",
-          "methods": [],
-          "actualName": "ToDo"
-        }
-      ]
-    },
-    {
-      "key": "src/todopage/ToDoForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDoForm",
-          "methods": [],
-          "actualName": "ToDoForm"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/Entry.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Entry",
-          "methods": [],
-          "actualName": "Entry"
-        }
-      ]
-    },
-    {
       "key": "src/LoginPage/registrationpage.js",
       "value": [
         {
@@ -254,6 +221,17 @@
       ]
     },
     {
+      "key": "src/newspage/Entry.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Entry",
+          "methods": [],
+          "actualName": "Entry"
+        }
+      ]
+    },
+    {
       "key": "src/userpage/UserPage.js",
       "value": [
         {
@@ -261,6 +239,28 @@
           "displayName": "UserPage",
           "methods": [],
           "actualName": "UserPage"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDo.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDo",
+          "methods": [],
+          "actualName": "ToDo"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDoForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDoForm",
+          "methods": [],
+          "actualName": "ToDoForm"
         }
       ]
     }

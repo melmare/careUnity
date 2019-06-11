@@ -9,9 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewsForm from '../createpage/NewsForm';
 
 const EntryContainer = styled.article`
-  background: lightgray;
   border-radius: 3%;
   margin-bottom: 30px;
+  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 `;
 
 const DeleteIcon = styled(FontAwesomeIcon)`
@@ -23,8 +23,8 @@ const EditIcon = styled(FontAwesomeIcon)`
 `;
 const EntryHeader = styled.header`
   background: ${props => props.color};
-  border-top-right-radius: 5%;
-  border-top-left-radius: 5%;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
   display: flex;
   justify-content: space-around;
   align-items: center;

@@ -25,13 +25,36 @@ const UserBox = styled.span`
   list-style: none;
   margin: 5px;
   padding: 5px;
+  box-shadow: 0 0 5px 1px rgba(221, 221, 221, 1);
 
   :last-child {
     background: skyblue;
     color: white;
     padding: 5px 10px;
+    font-weight: bold;
   }
 `;
+
+const UserPageHeadline = styled.h3`
+  margin: 0 0 20px 0;
+  font-size: 22px;
+  font-weight: normal;
+`;
+
+const UserList = styled.ul`
+  margin: 15px 0 30px 0;
+`;
+
+const OwnToDoHeadline = styled.div`
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: normal;
+`;
+
+const OwnToDoContainer = styled.div`
+  margin: 15px 0 40px 0;
+`;
+
 export default function UserPage({
   user,
   toDos,
@@ -44,10 +67,6 @@ export default function UserPage({
   const [isFormHidden, setIsFormHidden] = useState(true);
   function onClick(history) {
     history.push('/todo');
-  }
-
-  function handleLogoutBtnClick({}) {
-    console.log('logout');
   }
 
   function handleCreateUserBtnClick(event, userGroup, onNewUserRegistration) {
@@ -64,16 +83,15 @@ export default function UserPage({
   }
   return (
     <>
-      <Header>User</Header>
+      <Header>careUnity</Header>
       <ContentContainer>
-        <p>Hallo {user.username}</p>
-        <div>Deine Familie besteht aus:</div>
-        <ul>
+        <UserPageHeadline>Deine Familie besteht aus:</UserPageHeadline>
+        <UserList>
           {userGroup.users.map(user => (
             <UserBox color={user.usercolor}>{user.username}</UserBox>
           ))}
           <UserBox onClick={() => setIsFormHidden(false)}>+</UserBox>
-        </ul>
+        </UserList>
         <form
           hidden={isFormHidden}
           onSubmit={event =>
@@ -91,15 +109,15 @@ export default function UserPage({
           <SubmitButton>Neuen User anlegen</SubmitButton>
         </form>
 
-        <p>Deine Aufgaben:</p>
+        <OwnToDoHeadline>Deine Aufgaben:</OwnToDoHeadline>
         {toDos
           .filter(toDo => toDo.personInCharge === user.username)
           .map(toDo => (
-            <div onClick={() => onClick(history)}>
+            <OwnToDoContainer onClick={() => onClick(history)}>
               <ToDo toDo={toDo} user={user} />
-            </div>
+            </OwnToDoContainer>
           ))}
-        <p>Deine letzten Einträge:</p>
+        <UserPageHeadline>Deine letzten Einträge:</UserPageHeadline>
         {newsList
           .filter(entry => entry.author === user.username)
           .map(entry => (

@@ -188,39 +188,6 @@
       ]
     },
     {
-      "key": "src/userpage/LoginPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "LoginPage",
-          "methods": [],
-          "actualName": "LoginPage"
-        }
-      ]
-    },
-    {
-      "key": "src/userpage/UserPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "UserPage",
-          "methods": [],
-          "actualName": "UserPage"
-        }
-      ]
-    },
-    {
-      "key": "src/loginpage/RegistrationPage.js/registrationpage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "RegistrationPage",
-          "methods": [],
-          "actualName": "RegistrationPage"
-        }
-      ]
-    },
-    {
       "key": "src/LoginPage/registrationpage.js",
       "value": [
         {
@@ -283,6 +250,17 @@
           "displayName": "App",
           "methods": [],
           "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/userpage/UserPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UserPage",
+          "methods": [],
+          "actualName": "UserPage"
         }
       ]
     }

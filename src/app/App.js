@@ -19,7 +19,6 @@ import Icon from '../components/NavIcon';
 import UserPage from '../userpage/UserPage';
 import MedicalPage from '../medicalpage/MedicalPage';
 import LoginPage from '../loginpage/LoginPage';
-import RegistrationPage from '../loginpage/RegistrationPage';
 
 library.add(faHome, faList, faUser, faFirstAid);
 
@@ -32,7 +31,7 @@ function App() {
   const [newsList, setNewsList] = useState(getLocalData('news') || []);
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
   const [user, setUser] = useState(getLocalData('user'));
-  const [userGroups, setUserGroups] = useState(getLocalData('userGroup') || []);
+  const [userGroup, setUserGroup] = useState(getLocalData('userGroup'));
   const [isLoggedIn, setIsLoggedIn] = useState(
     getLocalData('isLoggedIn') || false
   );
@@ -102,11 +101,16 @@ function App() {
   // USER/LOGIN PAGE
 
   function handleNewUserGroup(newUserGroup) {
-    setUserGroups([newUserGroup, ...userGroups]);
+    setUserGroup(newUserGroup);
   }
 
-  function handleNewUser(newUser) {
-    setUser(newUser);
+  function handleNewUserRegistration(newUser) {
+    const changedUserGroup = {
+      name: userGroup.name,
+      password: userGroup.password,
+      users: [...userGroup.users, newUser]
+    };
+    setUserGroup(changedUserGroup);
   }
 
   function handleUserLogin(newUser, history) {
@@ -126,7 +130,7 @@ function App() {
 
   useEffect(() => setLocalData('user', user), [user]);
 
-  useEffect(() => setLocalData('userGroups', userGroups), [userGroups]);
+  useEffect(() => setLocalData('userGroup', userGroup), [userGroup]);
 
   // MEDICALPAGE
 
@@ -184,12 +188,11 @@ function App() {
               path="/"
               render={props => (
                 <LoginPage
-                  onNewUser={handleNewUser}
                   onNewUserGroup={handleNewUserGroup}
                   onLogin={handleLogin}
                   onUserLogin={handleUserLogin}
                   user={user}
-                  userGroups={userGroups}
+                  userGroup={userGroup}
                   history={props.history}
                 />
               )}
@@ -223,8 +226,9 @@ function App() {
                 path="/user"
                 render={props => (
                   <UserPage
+                    onNewUserRegistration={handleNewUserRegistration}
                     onLogout={handleLogout}
-                    userGroups={userGroups}
+                    userGroup={userGroup}
                     user={user}
                     toDos={toDos}
                     newsList={newsList}
@@ -258,23 +262,23 @@ function App() {
                   />
                 )}
               />
-              <Navigation>
-                <NavButton to="/news">
-                  <Icon icon="home" />
-                </NavButton>
-                <NavButton to="/todo">
-                  <Icon icon="list" />
-                </NavButton>
-                <NavButton to="/info">
-                  <Icon icon="first-aid" />
-                </NavButton>
-                <NavButton to="/user">
-                  <Icon icon="user" />
-                </NavButton>
-              </Navigation>
             </>
           )}
         </Switch>
+        <Navigation>
+          <NavButton to="/news">
+            <Icon icon="home" />
+          </NavButton>
+          <NavButton to="/todo">
+            <Icon icon="list" />
+          </NavButton>
+          <NavButton to="/info">
+            <Icon icon="first-aid" />
+          </NavButton>
+          <NavButton to="/user">
+            <Icon icon="user" />
+          </NavButton>
+        </Navigation>
       </AppContainer>
     </BrowserRouter>
   );

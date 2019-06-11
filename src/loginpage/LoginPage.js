@@ -31,7 +31,6 @@ const UserBox = styled.span`
 
 export default function LoginPage({
   onNewUserGroup,
-  onNewUser,
   user,
   userGroup,
   onLogin,
@@ -40,7 +39,7 @@ export default function LoginPage({
 }) {
   const [pageStatus, setPageStatus] = useState('welcome');
 
-  function handleRegistration(event, onNewUserGroup, onNewUser) {
+  function handleRegistration(event, onNewUserGroup, onUserLogin, history) {
     event.preventDefault();
     const newAdminUser = {
       id: uid(),
@@ -55,8 +54,7 @@ export default function LoginPage({
       users: [newAdminUser]
     };
     onNewUserGroup(newUserGroup);
-    onNewUser(newAdminUser);
-    setPageStatus('registration-step2');
+    onUserLogin(newAdminUser, history);
   }
 
   function handleLoginFormSubmit(event, userGroup, onUserLogin, history) {
@@ -136,7 +134,7 @@ export default function LoginPage({
       {pageStatus === 'registration-step1' && (
         <RegistrationForm
           onSubmit={event =>
-            handleRegistration(event, onNewUserGroup, onNewUser)
+            handleRegistration(event, onNewUserGroup, onUserLogin, history)
           }
         >
           <label>

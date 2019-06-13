@@ -2,22 +2,14 @@ import React, { useState } from 'react';
 import Input from '../components/Input';
 import Header from '../components/Header';
 import ContentContainer from '../components/ContentContainer';
-import Label from '../components/Label';
 import ToDo from '../todopage/ToDo';
 import Entry from '../newspage/Entry';
 import styled from 'styled-components';
 import SubmitButton from '../components/SubmitButton';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faPlus);
+import ColorInput from '../components/ColorInput';
 
 const uid = require('uid');
 
-const AddUserBtn = styled(FontAwesomeIcon)`
-  background: skyblue;
-`;
 const UserBox = styled.span`
   background: ${props => props.color};
   border-radius: 5px;
@@ -34,6 +26,8 @@ const UserBox = styled.span`
     font-weight: bold;
   }
 `;
+
+const CreateUserForm = styled.form``;
 
 const UserPageHeadline = styled.h3`
   margin: 0 0 20px 0;
@@ -65,9 +59,6 @@ export default function UserPage({
   onNewUserRegistration
 }) {
   const [isFormHidden, setIsFormHidden] = useState(true);
-  function onClick(history) {
-    history.push('/todo');
-  }
 
   function handleCreateUserBtnClick(event, userGroup, onNewUserRegistration) {
     event.preventDefault();
@@ -75,6 +66,8 @@ export default function UserPage({
       id: uid(),
       username: event.target.username.value,
       userGroupname: userGroup.name,
+      userGroupId: userGroup.id,
+      email: event.target.email.value,
       usercolor: event.target.usercolor.value,
       role: 'member'
     };
@@ -88,11 +81,13 @@ export default function UserPage({
         <UserPageHeadline>Deine Familie besteht aus:</UserPageHeadline>
         <UserList>
           {userGroup.users.map(user => (
-            <UserBox color={user.usercolor}>{user.username}</UserBox>
+            <UserBox key={user.username} color={user.usercolor}>
+              {user.username}
+            </UserBox>
           ))}
           <UserBox onClick={() => setIsFormHidden(false)}>+</UserBox>
         </UserList>
-        <form
+        <CreateUserForm
           hidden={isFormHidden}
           onSubmit={event =>
             handleCreateUserBtnClick(event, userGroup, onNewUserRegistration)
@@ -103,17 +98,19 @@ export default function UserPage({
             <Input name="username" />
           </label>
           <label>
-            Farbe:
-            <input type="color" name="usercolor" />
+            Email:
+            <Input name="email" />
           </label>
+          <label>Farbe:</label>
+          <ColorInput userGroup={userGroup} name="usercolor" />
           <SubmitButton>Neuen User anlegen</SubmitButton>
-        </form>
+        </CreateUserForm>
 
         <OwnToDoHeadline>Deine Aufgaben:</OwnToDoHeadline>
         {toDos
           .filter(toDo => toDo.personInCharge === user.username)
           .map(toDo => (
-            <OwnToDoContainer onClick={() => onClick(history)}>
+            <OwnToDoContainer onClick={() => history.push('/todo')}>
               <ToDo toDo={toDo} user={user} />
             </OwnToDoContainer>
           ))}
@@ -128,12 +125,3 @@ export default function UserPage({
     </>
   );
 }
-
-/*
-
-        <div>Deine Familie besteht aus:</div>
-        {users.map(user => (
-          <UserBox color={user.usercolor}>{user.username}</UserBox>
-        ))}
-
-        */

@@ -199,28 +199,6 @@
       ]
     },
     {
-      "key": "src/loginpage/LoginPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "LoginPage",
-          "methods": [],
-          "actualName": "LoginPage"
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
       "key": "src/newspage/Entry.js",
       "value": [
         {
@@ -228,17 +206,6 @@
           "displayName": "Entry",
           "methods": [],
           "actualName": "Entry"
-        }
-      ]
-    },
-    {
-      "key": "src/userpage/UserPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "UserPage",
-          "methods": [],
-          "actualName": "UserPage"
         }
       ]
     },
@@ -261,6 +228,72 @@
           "displayName": "ToDoForm",
           "methods": [],
           "actualName": "ToDoForm"
+        }
+      ]
+    },
+    {
+      "key": "src/components/ColorInput.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ColorInput",
+          "methods": [],
+          "actualName": "ColorInput"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/LoginForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LoginForm",
+          "methods": [],
+          "actualName": "LoginForm"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/RegistrationForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RegistrationForm",
+          "methods": [],
+          "actualName": "RegistrationForm"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/LoginPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LoginPage",
+          "methods": [],
+          "actualName": "LoginPage"
+        }
+      ]
+    },
+    {
+      "key": "src/userpage/UserPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UserPage",
+          "methods": [],
+          "actualName": "UserPage"
         }
       ]
     }

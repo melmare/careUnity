@@ -32,6 +32,9 @@ function App() {
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
   const [user, setUser] = useState(getLocalData('user'));
   const [userGroup, setUserGroup] = useState(getLocalData('userGroup'));
+  const [userGroups, setUserGroups] = useState(
+    getLocalData('userGroups') || []
+  );
   const [isLoggedIn, setIsLoggedIn] = useState(
     getLocalData('isLoggedIn') || false
   );
@@ -102,28 +105,37 @@ function App() {
 
   function handleNewUserGroup(newUserGroup) {
     setUserGroup(newUserGroup);
+    setUserGroups([...userGroups, newUserGroup]);
   }
 
   function handleNewUserRegistration(newUser) {
     const changedUserGroup = {
       name: userGroup.name,
       password: userGroup.password,
+      id: userGroup.id,
       users: [...userGroup.users, newUser]
     };
+    const index = userGroups.findIndex(
+      userGroup => userGroup.id === changedUserGroup.id
+    );
     setUserGroup(changedUserGroup);
+    setUserGroups([
+      ...userGroups.slice(0, index),
+      changedUserGroup,
+      ...userGroups.slice(index + 1)
+    ]);
   }
 
-  function handleUserLogin(newUser, history) {
-    setUser(newUser);
-    handleLogin(history);
-  }
-
-  function handleLogin(history) {
+  function handleLogin(foundUser, foundUserGroup, history) {
     setIsLoggedIn(true);
+    setUser(foundUser);
+    setUserGroup(foundUserGroup);
     history.push('/news');
   }
   function handleLogout() {
     setIsLoggedIn(false);
+    setUser('');
+    setUserGroup('');
   }
 
   useEffect(() => setLocalData('isLoggedIn', isLoggedIn), [isLoggedIn]);
@@ -131,6 +143,8 @@ function App() {
   useEffect(() => setLocalData('user', user), [user]);
 
   useEffect(() => setLocalData('userGroup', userGroup), [userGroup]);
+
+  useEffect(() => setLocalData('userGroups', userGroups), [userGroups]);
 
   // MEDICALPAGE
 
@@ -190,9 +204,9 @@ function App() {
                 <LoginPage
                   onNewUserGroup={handleNewUserGroup}
                   onLogin={handleLogin}
-                  onUserLogin={handleUserLogin}
                   user={user}
                   userGroup={userGroup}
+                  userGroups={userGroups}
                   history={props.history}
                 />
               )}

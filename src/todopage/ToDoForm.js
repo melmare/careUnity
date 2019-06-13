@@ -1,45 +1,39 @@
 import React from 'react';
 import Input from '../components/Input';
 import styled from 'styled-components';
-import SubmitButton from '../components/SubmitButton';
 import Label from '../components/Label';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faPaperPlane);
 
 const FormContainer = styled.form`
+  align-items: center;
   display: grid;
-  grid-gap: 5px;
-  grid-template-rows: 30px 30px;
-  grid-template-columns: auto auto 25px;
+  grid-template-rows: 1fr;
+  grid-template-columns: 2fr 7fr 1fr;
+  grid-gap: 10px;
   margin-bottom: 40px;
 `;
-const ToDoInput = styled(Input)`
-  grid-row: 2;
-  grid-column: 1;
-`;
-const NameInput = styled(Input)`
-  grid-row: 2;
-  grid-column: 2;
-`;
-const ToDoLabel = styled(Label)`
-  grid-row: 1;
-  grid-column: 1;
-`;
-const NameLabel = styled(Label)`
-  grid-row: 2;
-  grid-column: 2;
-`;
-const ToDoSubmitButton = styled(SubmitButton)`
-  height: 100%;
-  width: 100%;
-  grid-row: 1 / span 2;
-  grid-column: 3;
+
+const ToDoSubmitButton = styled.button`
+  background: skyblue;
+  border-radius: 30%;
+  padding: 10px;
 `;
 
-export default function ToDoForm({ onToDoSubmit }) {
+const SendToDoIcon = styled(FontAwesomeIcon)`
+  color: white;
+  font-size: 2em;
+`;
+
+export default function ToDoForm({ onToDoSubmit, user }) {
   function handleSubmit(event, onToDoSubmit) {
     event.preventDefault();
     const newToDo = {
       title: event.target.title.value,
-      author: event.target.author.value,
+      author: user.username,
       status: 'active'
     };
     onToDoSubmit(newToDo);
@@ -47,13 +41,11 @@ export default function ToDoForm({ onToDoSubmit }) {
 
   return (
     <FormContainer onSubmit={event => handleSubmit(event, onToDoSubmit)}>
-      <ToDoLabel htmlFor="title" label="Aufgabe" />
-      <NameLabel htmlFor="author" label="Name" />
-      <ToDoInput name="title" required />
-      <NameInput name="author" required />
-      <ToDoSubmitButton />
+      <Label htmlFor="title" label="Aufgabe" />
+      <Input name="title" required />
+      <ToDoSubmitButton>
+        <SendToDoIcon icon="paper-plane" />
+      </ToDoSubmitButton>
     </FormContainer>
   );
 }
-
-//      <ToDoSubmitButton />

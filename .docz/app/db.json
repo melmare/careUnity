@@ -23,28 +23,6 @@
       ]
     },
     {
-      "key": "src/userpage/UserPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "UserPage",
-          "methods": [],
-          "actualName": "UserPage"
-        }
-      ]
-    },
-    {
-      "key": "src/medicalpage/LocationInformation.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "LocationInformation",
-          "methods": [],
-          "actualName": "LocationInformation"
-        }
-      ]
-    },
-    {
       "key": "src/medicalpage/MedicationForm.js",
       "value": [
         {
@@ -89,83 +67,6 @@
       ]
     },
     {
-      "key": "src/todopage/ToDo.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "ToDo",
-          "methods": [],
-          "actualName": "ToDo"
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/NewsForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form"
-        }
-      ]
-    },
-    {
-      "key": "src/createpage/CreatePage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "CreatePage",
-          "methods": [],
-          "actualName": "CreatePage"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/Entry.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Entry",
-          "methods": [],
-          "actualName": "Entry"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/NewsList.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsList",
-          "methods": [],
-          "actualName": "NewsList"
-        }
-      ]
-    },
-    {
-      "key": "src/newspage/NewsPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "NewsPage",
-          "methods": [],
-          "actualName": "NewsPage"
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
       "key": "src/components/Input.js",
       "value": [
         {
@@ -184,6 +85,215 @@
           "displayName": "SingleMedication",
           "methods": [],
           "actualName": "SingleMedication"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsPage",
+          "methods": [],
+          "actualName": "NewsPage"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/NewsList.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "NewsList",
+          "methods": [],
+          "actualName": "NewsList"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDoPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDoPage",
+          "methods": [],
+          "actualName": "ToDoPage"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Label.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Label",
+          "methods": [],
+          "actualName": "Label"
+        }
+      ]
+    },
+    {
+      "key": "src/createpage/CreatePage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CreatePage",
+          "methods": [],
+          "actualName": "CreatePage"
+        }
+      ]
+    },
+    {
+      "key": "src/LoginPage/registrationpage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RegistrationPage",
+          "methods": [],
+          "actualName": "RegistrationPage"
+        }
+      ]
+    },
+    {
+      "key": "src/LoginPage/RegistrationPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RegistrationPage",
+          "methods": [],
+          "actualName": "RegistrationPage"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/RegistrationPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RegistrationPage",
+          "methods": [],
+          "actualName": "RegistrationPage"
+        }
+      ]
+    },
+    {
+      "key": "src/medicalpage/LocationInformation.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LocationInformation",
+          "methods": [],
+          "actualName": "LocationInformation"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/LoginPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LoginPage",
+          "methods": [],
+          "actualName": "LoginPage"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/components/ColorInput.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ColorInput",
+          "methods": [],
+          "actualName": "ColorInput"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Navigation.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Navigation",
+          "methods": [],
+          "actualName": "Navigation"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/RegistrationForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RegistrationForm",
+          "methods": [],
+          "actualName": "RegistrationForm"
+        }
+      ]
+    },
+    {
+      "key": "src/newspage/Entry.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Entry",
+          "methods": [],
+          "actualName": "Entry"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDo.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDo",
+          "methods": [],
+          "actualName": "ToDo"
+        }
+      ]
+    },
+    {
+      "key": "src/todopage/ToDoForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ToDoForm",
+          "methods": [],
+          "actualName": "ToDoForm"
+        }
+      ]
+    },
+    {
+      "key": "src/userpage/UserPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UserPage",
+          "methods": [],
+          "actualName": "UserPage"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/LoginForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LoginForm",
+          "methods": [],
+          "actualName": "LoginForm"
         }
       ]
     }

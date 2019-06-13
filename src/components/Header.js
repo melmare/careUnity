@@ -6,8 +6,9 @@ const Header = styled.header`
   color: whitesmoke;
   display: flex;
   font-size: 30px;
-  height: 70px;
-  justify-content: space-between;
+  font-weight: bold;
+  height: 50px;
+  justify-content: space-evenly;
   padding: 5px 25px;
   position: fixed;
   width: 100vw;

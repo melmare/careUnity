@@ -16,14 +16,16 @@ export default function Form({
   entry,
   onNewsCreation,
   onSaveChangedNewsEntry,
-  hideForm
+  hideForm,
+  user
 }) {
   function handleSubmit({
     event,
     entry,
     onNewsCreation,
     onSaveChangedNewsEntry,
-    hideForm
+    hideForm,
+    user
   }) {
     event.preventDefault();
     const form = event.target;
@@ -31,7 +33,8 @@ export default function Form({
       const changedEntry = {
         id: entry.id,
         title: form.title.value,
-        author: form.author.value,
+        author: entry.author,
+        color: entry.color,
         activities: form.activities.value
           .split(',')
           .map(value => value.trim())
@@ -44,7 +47,8 @@ export default function Form({
       const newEntry = {
         id: uid(),
         title: form.title.value,
-        author: form.author.value,
+        author: user.username,
+        color: user.usercolor,
         activities: form.activities.value
           .split(',')
           .map(value => value.trim())
@@ -63,7 +67,8 @@ export default function Form({
           entry,
           onNewsCreation,
           onSaveChangedNewsEntry,
-          hideForm
+          hideForm,
+          user
         })
       }
     >
@@ -74,13 +79,7 @@ export default function Form({
         placeholder="Donnerstag, 09.05.2019"
         defaultValue={entry && entry.title}
       />
-      <Label htmlFor="author" label="Autor" />
-      <Input
-        name="author"
-        required
-        placeholder="Anna"
-        defaultValue={entry && entry.author}
-      />
+
       <Label htmlFor="activities" label="Aktivitäten" />
       <Input
         name="activities"

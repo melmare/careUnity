@@ -12,13 +12,7 @@ export default function LoginForm({
   history,
   onIncorrectLoginData
 }) {
-  function handleLoginFormSubmit(
-    event,
-    userGroups,
-    onLogin,
-    history,
-    onIncorrectLoginData
-  ) {
+  function handleLoginFormSubmit(event) {
     event.preventDefault();
     const loginemail = event.target.loginemail.value;
     const loginpassword = event.target.loginpassword.value;
@@ -42,17 +36,7 @@ export default function LoginForm({
   }
 
   return (
-    <StyledLoginForm
-      onSubmit={event =>
-        handleLoginFormSubmit(
-          event,
-          userGroups,
-          onLogin,
-          history,
-          onIncorrectLoginData
-        )
-      }
-    >
+    <StyledLoginForm onSubmit={event => handleLoginFormSubmit(event)}>
       <Label htmlFor="loginemail" label="Gib deine Email-Adresse an:" />
       <Input name="loginemail" required />
 

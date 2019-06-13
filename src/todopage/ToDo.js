@@ -12,13 +12,13 @@ import {
 library.add(faTrash, faHourglassStart, faHourglassHalf, faHourglassEnd);
 
 const DeleteIcon = styled(FontAwesomeIcon)`
-  font-size: 1rem;
   color: black;
+  font-size: 1rem;
 `;
 
 const StatusIcon = styled(FontAwesomeIcon)`
-  font-size: 1.3rem;
   color: black;
+  font-size: 1.3rem;
 `;
 
 function getColor(status) {

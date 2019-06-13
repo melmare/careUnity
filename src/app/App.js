@@ -31,7 +31,9 @@ function App() {
   const [newsList, setNewsList] = useState(getLocalData('news') || []);
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
   const [user, setUser] = useState(getLocalData('user'));
-  const [userGroup, setUserGroup] = useState(getLocalData('userGroup'));
+  const [currentUserGroup, setCurrentUserGroup] = useState(
+    getLocalData('currentUserGroup')
+  );
   const [userGroups, setUserGroups] = useState(
     getLocalData('userGroups') || []
   );
@@ -104,21 +106,21 @@ function App() {
   // USER/LOGIN PAGE
 
   function handleNewUserGroup(newUserGroup) {
-    setUserGroup(newUserGroup);
+    setCurrentUserGroup(newUserGroup);
     setUserGroups([...userGroups, newUserGroup]);
   }
 
   function handleNewUserRegistration(newUser) {
     const changedUserGroup = {
-      name: userGroup.name,
-      password: userGroup.password,
-      id: userGroup.id,
-      users: [...userGroup.users, newUser]
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      id: currentUserGroup.id,
+      users: [...currentUserGroup.users, newUser]
     };
     const index = userGroups.findIndex(
       userGroup => userGroup.id === changedUserGroup.id
     );
-    setUserGroup(changedUserGroup);
+    setCurrentUserGroup(changedUserGroup);
     setUserGroups([
       ...userGroups.slice(0, index),
       changedUserGroup,
@@ -129,20 +131,22 @@ function App() {
   function handleLogin(foundUser, foundUserGroup, history) {
     setIsLoggedIn(true);
     setUser(foundUser);
-    setUserGroup(foundUserGroup);
+    setCurrentUserGroup(foundUserGroup);
     history.push('/news');
   }
   function handleLogout() {
     setIsLoggedIn(false);
     setUser('');
-    setUserGroup('');
+    setCurrentUserGroup('');
   }
 
   useEffect(() => setLocalData('isLoggedIn', isLoggedIn), [isLoggedIn]);
 
   useEffect(() => setLocalData('user', user), [user]);
 
-  useEffect(() => setLocalData('userGroup', userGroup), [userGroup]);
+  useEffect(() => setLocalData('currentUserGroup', currentUserGroup), [
+    currentUserGroup
+  ]);
 
   useEffect(() => setLocalData('userGroups', userGroups), [userGroups]);
 
@@ -197,21 +201,7 @@ function App() {
 
       <AppContainer>
         <Switch>
-          {!isLoggedIn ? (
-            <Route
-              path="/"
-              render={props => (
-                <LoginPage
-                  onNewUserGroup={handleNewUserGroup}
-                  onLogin={handleLogin}
-                  user={user}
-                  userGroup={userGroup}
-                  userGroups={userGroups}
-                  history={props.history}
-                />
-              )}
-            />
-          ) : (
+          {isLoggedIn ? (
             <>
               <Route
                 path="/create"
@@ -242,7 +232,7 @@ function App() {
                   <UserPage
                     onNewUserRegistration={handleNewUserRegistration}
                     onLogout={handleLogout}
-                    userGroup={userGroup}
+                    currentUserGroup={currentUserGroup}
                     user={user}
                     toDos={toDos}
                     newsList={newsList}
@@ -278,22 +268,23 @@ function App() {
                 )}
               />
             </>
+          ) : (
+            <Route
+              path="/"
+              render={props => (
+                <LoginPage
+                  onNewUserGroup={handleNewUserGroup}
+                  onLogin={handleLogin}
+                  user={user}
+                  currentUserGroup={currentUserGroup}
+                  userGroups={userGroups}
+                  history={props.history}
+                />
+              )}
+            />
           )}
         </Switch>
-        <Navigation>
-          <NavButton to="/news">
-            <Icon icon="home" />
-          </NavButton>
-          <NavButton to="/todo">
-            <Icon icon="list" />
-          </NavButton>
-          <NavButton to="/info">
-            <Icon icon="first-aid" />
-          </NavButton>
-          <NavButton to="/user">
-            <Icon icon="user" />
-          </NavButton>
-        </Navigation>
+        {isLoggedIn && <Navigation />}
       </AppContainer>
     </BrowserRouter>
   );

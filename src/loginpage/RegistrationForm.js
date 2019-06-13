@@ -13,9 +13,9 @@ export default function RegistrationForm({
   onNewUserGroup,
   onLogin,
   history,
-  userGroup
+  currentUserGroup
 }) {
-  function handleRegistration(event, onNewUserGroup, onLogin, history) {
+  function handleRegistration(event) {
     event.preventDefault();
     const userGroupId = uid();
     const newAdminUser = {
@@ -38,17 +38,13 @@ export default function RegistrationForm({
   }
 
   return (
-    <StyledRegistrationForm
-      onSubmit={event =>
-        handleRegistration(event, onNewUserGroup, onLogin, history)
-      }
-    >
+    <StyledRegistrationForm onSubmit={event => handleRegistration(event)}>
       <Label htmlFor="adminname" label="Gib deinen Namen an:" />
       <Input name="adminname" required />
       <Label htmlFor="email" label="Gib deine Email-Adresse an:" />
       <Input name="email" required />
       <Label htmlFor="usercolor" label="Wähle deine Farbe aus:" />
-      <ColorInput name="usercolor" userGroup={userGroup} />
+      <ColorInput name="usercolor" currentUserGroup={currentUserGroup} />
       <Label htmlFor="userGroupName" label="Gib deinen Familiennamen an:" />
       <Input name="userGroupName" required />
       <Label

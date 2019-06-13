@@ -7,19 +7,19 @@ const NavButton = styled(NavLink)`
   background: white;
   border: 3px solid skyblue;
   border-radius: 50%;
+  color: skyblue;
   display: flex;
   height: 70px;
   justify-content: center;
   margin-bottom: 15px;
   padding: 5px;
   width: 70px;
-  color: skyblue;
 
   &.active  {
     background: skyblue;
-    width: 80px;
-    height: 80px;
     color: white;
+    height: 80px;
+    width: 80px;
   }
 `;
 

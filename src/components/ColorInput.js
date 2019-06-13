@@ -5,7 +5,7 @@ const ColorContainer = styled.div`
   display: flex;
 `;
 
-const Color = styled.div`
+const ColorInputBackground = styled.div`
   height: 100%;
   width: 50px;
   background-color: ${props => props.color};
@@ -21,8 +21,8 @@ const StyledColorInput = styled.input`
   width: 20px;
 `;
 
-export default function ColorInput({ userGroup }) {
-  function getAvailableColors(userGroup) {
+export default function ColorInput({ currentUserGroup }) {
+  function getAvailableColors() {
     const colorOptions = [
       '#b2efc0',
       '#9eacb8',
@@ -33,8 +33,8 @@ export default function ColorInput({ userGroup }) {
       '#72bda9',
       '#f6b73c'
     ];
-    if (userGroup) {
-      const userColors = userGroup.users.map(user => user.usercolor);
+    if (currentUserGroup) {
+      const userColors = currentUserGroup.users.map(user => user.usercolor);
       return colorOptions.filter(color => !userColors.includes(color));
     } else {
       return colorOptions;
@@ -43,15 +43,15 @@ export default function ColorInput({ userGroup }) {
 
   return (
     <ColorContainer>
-      {getAvailableColors(userGroup).map(color => (
-        <Color color={color}>
+      {getAvailableColors(currentUserGroup).map(color => (
+        <ColorInputBackground color={color}>
           <StyledColorInput
             type="radio"
             name="usercolor"
             value={color}
             required
           />
-        </Color>
+        </ColorInputBackground>
       ))}
     </ColorContainer>
   );

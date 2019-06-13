@@ -144,17 +144,6 @@
       ]
     },
     {
-      "key": "src/createpage/NewsForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Form",
-          "methods": [],
-          "actualName": "Form"
-        }
-      ]
-    },
-    {
       "key": "src/LoginPage/registrationpage.js",
       "value": [
         {
@@ -199,6 +188,61 @@
       ]
     },
     {
+      "key": "src/loginpage/LoginPage.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LoginPage",
+          "methods": [],
+          "actualName": "LoginPage"
+        }
+      ]
+    },
+    {
+      "key": "src/app/App.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "App",
+          "methods": [],
+          "actualName": "App"
+        }
+      ]
+    },
+    {
+      "key": "src/components/ColorInput.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ColorInput",
+          "methods": [],
+          "actualName": "ColorInput"
+        }
+      ]
+    },
+    {
+      "key": "src/components/Navigation.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Navigation",
+          "methods": [],
+          "actualName": "Navigation"
+        }
+      ]
+    },
+    {
+      "key": "src/loginpage/RegistrationForm.js",
+      "value": [
+        {
+          "description": "",
+          "displayName": "RegistrationForm",
+          "methods": [],
+          "actualName": "RegistrationForm"
+        }
+      ]
+    },
+    {
       "key": "src/newspage/Entry.js",
       "value": [
         {
@@ -232,13 +276,13 @@
       ]
     },
     {
-      "key": "src/components/ColorInput.js",
+      "key": "src/userpage/UserPage.js",
       "value": [
         {
           "description": "",
-          "displayName": "ColorInput",
+          "displayName": "UserPage",
           "methods": [],
-          "actualName": "ColorInput"
+          "actualName": "UserPage"
         }
       ]
     },
@@ -250,50 +294,6 @@
           "displayName": "LoginForm",
           "methods": [],
           "actualName": "LoginForm"
-        }
-      ]
-    },
-    {
-      "key": "src/app/App.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "App",
-          "methods": [],
-          "actualName": "App"
-        }
-      ]
-    },
-    {
-      "key": "src/loginpage/RegistrationForm.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "RegistrationForm",
-          "methods": [],
-          "actualName": "RegistrationForm"
-        }
-      ]
-    },
-    {
-      "key": "src/loginpage/LoginPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "LoginPage",
-          "methods": [],
-          "actualName": "LoginPage"
-        }
-      ]
-    },
-    {
-      "key": "src/userpage/UserPage.js",
-      "value": [
-        {
-          "description": "",
-          "displayName": "UserPage",
-          "methods": [],
-          "actualName": "UserPage"
         }
       ]
     }

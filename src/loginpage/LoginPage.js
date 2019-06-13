@@ -12,7 +12,7 @@ const LoginPageContainer = styled.div`
 
 export default function LoginPage({
   onNewUserGroup,
-  userGroup,
+  currentUserGroup,
   userGroups,
   onLogin,
   history
@@ -75,7 +75,7 @@ export default function LoginPage({
           onNewUserGroup={onNewUserGroup}
           onLogin={onLogin}
           history={history}
-          userGroup={userGroup}
+          currentUserGroup={currentUserGroup}
         />
       )}
     </LoginPageContainer>

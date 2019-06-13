@@ -10,8 +10,8 @@ import NewsForm from '../createpage/NewsForm';
 
 const EntryContainer = styled.article`
   border-radius: 3%;
+  box-shadow: 0 0 10px 5px rgb(221, 221, 221);
   margin-bottom: 30px;
-  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 `;
 
 const DeleteIcon = styled(FontAwesomeIcon)`
@@ -22,13 +22,13 @@ const EditIcon = styled(FontAwesomeIcon)`
   font-size: 1rem;
 `;
 const EntryHeader = styled.header`
+  align-items: center;
   background: ${props => props.color};
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  padding: 5px 20px 5px 20px;
+  padding: 5px 20px;
   width: 100%;
 `;
 

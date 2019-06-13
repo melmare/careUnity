@@ -9,24 +9,23 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 library.add(faPaperPlane);
 
 const FormContainer = styled.form`
+  align-items: center;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 2fr 7fr 1fr;
   grid-gap: 10px;
-  align-items: center;
   margin-bottom: 40px;
 `;
 
 const ToDoSubmitButton = styled.button`
   background: skyblue;
-
-  padding: 10px;
   border-radius: 30%;
+  padding: 10px;
 `;
 
 const SendToDoIcon = styled(FontAwesomeIcon)`
-  font-size: 2em;
   color: white;
+  font-size: 2em;
 `;
 
 export default function ToDoForm({ onToDoSubmit, user }) {

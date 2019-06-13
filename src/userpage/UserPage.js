@@ -13,40 +13,40 @@ const uid = require('uid');
 const UserBox = styled.span`
   background: ${props => props.color};
   border-radius: 5px;
+  box-shadow: 0 0 5px 1px rgb(221, 221, 221);
   display: inline-block;
   list-style: none;
   margin: 5px;
   padding: 5px;
-  box-shadow: 0 0 5px 1px rgba(221, 221, 221, 1);
 
   :last-child {
     background: skyblue;
     color: white;
-    padding: 5px 10px;
     font-weight: bold;
+    padding: 5px 10px;
   }
 `;
 
 const CreateUserForm = styled.form``;
 
 const UserPageHeadline = styled.h3`
-  margin: 0 0 20px 0;
   font-size: 22px;
   font-weight: normal;
+  margin: 0 0 20px 0;
 `;
 
 const UserList = styled.ul`
-  margin: 15px 0 30px 0;
+  margin: 15px 0 30px;
 `;
 
-const OwnToDoHeadline = styled.div`
-  margin: 20px 0;
+const OwnToDoHeadline = styled.h3`
   font-size: 22px;
   font-weight: normal;
+  margin: 20px 0;
 `;
 
 const OwnToDoContainer = styled.div`
-  margin: 15px 0 40px 0;
+  margin: 15px 0 40px;
 `;
 
 export default function UserPage({
@@ -54,19 +54,19 @@ export default function UserPage({
   toDos,
   newsList,
   history,
-  userGroup,
+  currentUserGroup,
   onLogout,
   onNewUserRegistration
 }) {
   const [isFormHidden, setIsFormHidden] = useState(true);
 
-  function handleCreateUserBtnClick(event, userGroup, onNewUserRegistration) {
+  function handleCreateUserBtnClick(event) {
     event.preventDefault();
     const newUser = {
       id: uid(),
       username: event.target.username.value,
-      userGroupname: userGroup.name,
-      userGroupId: userGroup.id,
+      userGroupname: currentUserGroup.name,
+      userGroupId: currentUserGroup.id,
       email: event.target.email.value,
       usercolor: event.target.usercolor.value,
       role: 'member'
@@ -80,7 +80,7 @@ export default function UserPage({
       <ContentContainer>
         <UserPageHeadline>Deine Familie besteht aus:</UserPageHeadline>
         <UserList>
-          {userGroup.users.map(user => (
+          {currentUserGroup.users.map(user => (
             <UserBox key={user.username} color={user.usercolor}>
               {user.username}
             </UserBox>
@@ -89,9 +89,7 @@ export default function UserPage({
         </UserList>
         <CreateUserForm
           hidden={isFormHidden}
-          onSubmit={event =>
-            handleCreateUserBtnClick(event, userGroup, onNewUserRegistration)
-          }
+          onSubmit={event => handleCreateUserBtnClick(event)}
         >
           <label>
             Name:
@@ -102,7 +100,7 @@ export default function UserPage({
             <Input name="email" />
           </label>
           <label>Farbe:</label>
-          <ColorInput userGroup={userGroup} name="usercolor" />
+          <ColorInput currentUserGroup={currentUserGroup} name="usercolor" />
           <SubmitButton>Neuen User anlegen</SubmitButton>
         </CreateUserForm>
 

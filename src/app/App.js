@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { setLocalData, getLocalData } from '../services';
+import {
+  setLocalData,
+  getLocalData,
+  createUserGroup,
+  patchUserGroup
+} from '../services';
 import styled from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -30,9 +35,9 @@ const AppContainer = styled.div`
 function App() {
   const [newsList, setNewsList] = useState(getLocalData('news') || []);
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
-  const [user, setUser] = useState(getLocalData('user'));
+  const [user, setUser] = useState();
   const [currentUserGroup, setCurrentUserGroup] = useState(
-    getLocalData('currentUserGroup')
+    getLocalData('usergroup')
   );
   const [userGroups, setUserGroups] = useState(
     getLocalData('userGroups') || []
@@ -105,27 +110,22 @@ function App() {
 
   // USER/LOGIN PAGE
 
-  function handleNewUserGroup(newUserGroup) {
-    setCurrentUserGroup(newUserGroup);
-    setUserGroups([...userGroups, newUserGroup]);
+  async function handleNewUserGroup(newUserGroup) {
+    const createdUserGroup = await createUserGroup(newUserGroup);
+    setCurrentUserGroup(createdUserGroup);
   }
 
-  function handleNewUserRegistration(newUser) {
+  async function handleNewUserRegistration(newUser) {
+    const id = currentUserGroup._id;
     const changedUserGroup = {
       name: currentUserGroup.name,
       password: currentUserGroup.password,
-      id: currentUserGroup.id,
-      users: [...currentUserGroup.users, newUser]
+      _id: currentUserGroup._id,
+      users: [...currentUserGroup.users, newUser],
+      news: [...currentUserGroup.news]
     };
-    const index = userGroups.findIndex(
-      userGroup => userGroup.id === changedUserGroup.id
-    );
-    setCurrentUserGroup(changedUserGroup);
-    setUserGroups([
-      ...userGroups.slice(0, index),
-      changedUserGroup,
-      ...userGroups.slice(index + 1)
-    ]);
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
   }
 
   function handleLogin(foundUser, foundUserGroup, history) {
@@ -134,21 +134,16 @@ function App() {
     setCurrentUserGroup(foundUserGroup);
     history.push('/news');
   }
+
   function handleLogout() {
     setIsLoggedIn(false);
     setUser('');
     setCurrentUserGroup('');
   }
-
+  useEffect(() => {
+    setLocalData('usergroup', currentUserGroup);
+  }, [currentUserGroup]);
   useEffect(() => setLocalData('isLoggedIn', isLoggedIn), [isLoggedIn]);
-
-  useEffect(() => setLocalData('user', user), [user]);
-
-  useEffect(() => setLocalData('currentUserGroup', currentUserGroup), [
-    currentUserGroup
-  ]);
-
-  useEffect(() => setLocalData('userGroups', userGroups), [userGroups]);
 
   // MEDICALPAGE
 
@@ -274,6 +269,7 @@ function App() {
               render={props => (
                 <LoginPage
                   onNewUserGroup={handleNewUserGroup}
+                  onNewUserRegistration={handleNewUserRegistration}
                   onLogin={handleLogin}
                   user={user}
                   currentUserGroup={currentUserGroup}

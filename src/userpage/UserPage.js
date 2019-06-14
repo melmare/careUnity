@@ -66,7 +66,7 @@ export default function UserPage({
       id: uid(),
       username: event.target.username.value,
       userGroupname: currentUserGroup.name,
-      userGroupId: currentUserGroup.id,
+      userGroupId: currentUserGroup._id,
       email: event.target.email.value,
       usercolor: event.target.usercolor.value,
       role: 'member'

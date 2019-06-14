@@ -15,14 +15,14 @@ export default function LoginPage({
   currentUserGroup,
   userGroups,
   onLogin,
-  history
+  history,
+  onNewUserRegistration
 }) {
   const [pageStatus, setPageStatus] = useState('welcome');
 
   return (
     <LoginPageContainer>
       <h2>Willkommen bei careUnity!</h2>
-
       {pageStatus === 'errorWrongPassword' && (
         <>
           <div>
@@ -36,7 +36,6 @@ export default function LoginPage({
           />
         </>
       )}
-
       {pageStatus === 'errorWrongEmail' && (
         <div>
           Du hast eine falsche Email-Adresse angegeben. Versuche es noch einmal.
@@ -52,7 +51,6 @@ export default function LoginPage({
           </SubmitButton>
         </div>
       )}
-
       {pageStatus === 'welcome' && (
         <LoginForm
           onIncorrectLoginData={errortype => setPageStatus(errortype)}
@@ -61,7 +59,6 @@ export default function LoginPage({
           history={history}
         />
       )}
-
       {pageStatus === 'welcome' && (
         <>
           <p>Deine Familie ist noch nicht bei careUnity registriert? </p>
@@ -70,14 +67,13 @@ export default function LoginPage({
           </SubmitButton>
         </>
       )}
-      {pageStatus === 'registration-step1' && (
-        <RegistrationForm
-          onNewUserGroup={onNewUserGroup}
-          onLogin={onLogin}
-          history={history}
-          currentUserGroup={currentUserGroup}
-        />
-      )}
+      <RegistrationForm
+        onNewUserRegistration={onNewUserRegistration}
+        onNewUserGroup={onNewUserGroup}
+        onLogin={onLogin}
+        history={history}
+        currentUserGroup={currentUserGroup}
+      />
     </LoginPageContainer>
   );
 }

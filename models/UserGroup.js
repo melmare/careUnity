@@ -16,6 +16,18 @@ const userGroupSchema = new mongoose.Schema({
   },
   news: {
     type: Array
+  },
+  toDos: {
+    type: Array
+  },
+  location: {
+    type: Object
+  },
+  medicationList: {
+    type: Array
+  },
+  medicalComments: {
+    type: Array
   }
 });
 

@@ -8,9 +8,8 @@ export default function ToDoPage({
   toDos,
   user,
   onToDoSubmit,
-  onToDoStatusChange,
-  onToDoDelete,
-  onToDoDistribution
+  onToDoChange,
+  onToDoDelete
 }) {
   return (
     <>
@@ -22,9 +21,8 @@ export default function ToDoPage({
         <ToDoList
           toDos={toDos}
           user={user}
-          onToDoStatusChange={onToDoStatusChange}
+          onToDoChange={onToDoChange}
           onToDoDelete={onToDoDelete}
-          onToDoDistribution={onToDoDistribution}
         />
       </ContentContainer>
     </>

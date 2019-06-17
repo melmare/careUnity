@@ -25,7 +25,16 @@ export function createUserGroup(userGroup) {
 }
 
 export function patchUserGroup(userGroup, id) {
-  const { name, password, users, news } = userGroup;
+  const {
+    name,
+    password,
+    users,
+    news,
+    toDos,
+    location,
+    medicationList,
+    medicalComments
+  } = userGroup;
   return fetch('/usergroups/' + id, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
@@ -33,7 +42,11 @@ export function patchUserGroup(userGroup, id) {
       name,
       password,
       users,
-      news
+      news,
+      toDos,
+      location,
+      medicationList,
+      medicalComments
     })
   }).then(res => res.json());
 }

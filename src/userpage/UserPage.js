@@ -105,19 +105,19 @@ export default function UserPage({
         </CreateUserForm>
 
         <OwnToDoHeadline>Deine Aufgaben:</OwnToDoHeadline>
-        {toDos
-          .filter(toDo => toDo.personInCharge === user.username)
-          .map(toDo => (
-            <OwnToDoContainer onClick={() => history.push('/todo')}>
-              <ToDo toDo={toDo} user={user} />
-            </OwnToDoContainer>
-          ))}
+        {toDos &&
+          toDos
+            .filter(toDo => toDo.personInCharge === user.username)
+            .map(toDo => (
+              <OwnToDoContainer onClick={() => history.push('/todo')}>
+                <ToDo toDo={toDo} user={user} />
+              </OwnToDoContainer>
+            ))}
         <UserPageHeadline>Deine letzten Einträge:</UserPageHeadline>
-        {newsList
-          .filter(entry => entry.author === user.username)
-          .map(entry => (
-            <Entry key={entry.id} user={user} entry={entry} />
-          ))}
+        {newsList &&
+          newsList
+            .filter(entry => entry.author === user.username)
+            .map(entry => <Entry key={entry.id} user={user} entry={entry} />)}
         <SubmitButton onClick={() => onLogout()}>Logout</SubmitButton>
       </ContentContainer>
     </>

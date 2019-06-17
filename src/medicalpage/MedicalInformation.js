@@ -41,13 +41,14 @@ export default function MedicalInformation({
     <MedicalInformationContainer>
       <MedicalIcon icon="prescription-bottle" />
       <MedicationListContainer>
-        {medicationList.map(singleMedication => (
-          <SingleMedication
-            singleMedication={singleMedication}
-            onSingleMedicationDelete={onSingleMedicationDelete}
-            onSingleMedicationChange={onSingleMedicationChange}
-          />
-        ))}
+        {medicationList &&
+          medicationList.map(singleMedication => (
+            <SingleMedication
+              singleMedication={singleMedication}
+              onSingleMedicationDelete={onSingleMedicationDelete}
+              onSingleMedicationChange={onSingleMedicationChange}
+            />
+          ))}
       </MedicationListContainer>
       <MedicationForm onSingleMedicationSubmit={onSingleMedicationSubmit} />
     </MedicalInformationContainer>

@@ -24,7 +24,11 @@ export default function RegistrationForm({
       name: event.target.userGroupName.value,
       password: event.target.userGroupPassword.value,
       users: [],
-      news: []
+      news: [],
+      toDos: [],
+      location: {},
+      medicationList: [],
+      medicalComments: []
     };
     onNewUserGroup(newUserGroup);
   }

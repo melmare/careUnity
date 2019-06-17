@@ -8,6 +8,8 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faPaperPlane);
 
+const uid = require('uid');
+
 const FormContainer = styled.form`
   align-items: center;
   display: grid;
@@ -34,7 +36,8 @@ export default function ToDoForm({ onToDoSubmit, user }) {
     const newToDo = {
       title: event.target.title.value,
       author: user.username,
-      status: 'active'
+      status: 'active',
+      id: uid()
     };
     onToDoSubmit(newToDo);
   }

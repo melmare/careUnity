@@ -65,12 +65,13 @@ export default function Entry({
         <>
           <Author>Erstellt von {author}</Author>
           <Activities>
-            {activities.map(activity => (
-              <Activity
-                activity={activity}
-                key={activities.indexOf(activity)}
-              />
-            ))}
+            {activities &&
+              activities.map(activity => (
+                <Activity
+                  activity={activity}
+                  key={activities.indexOf(activity)}
+                />
+              ))}
           </Activities>
 
           <Description>{description}</Description>

@@ -32,22 +32,21 @@ const AppContainer = styled.div`
 `;
 
 function App() {
-  const [toDos, setToDos] = useState(getLocalData('toDos') || []);
-  const [user, setUser] = useState(getLocalData('user'));
   const [currentUserGroup, setCurrentUserGroup] = useState(
     getLocalData('usergroup')
   );
-  const [newsList, setNewsList] = useState(getLocalData('news'));
-  const [userGroups, setUserGroups] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    getLocalData('isLoggedIn') || false
-  );
-  const [location, setLocation] = useState(getLocalData('location') || {});
+  const [newsList, setNewsList] = useState(getLocalData('newsList'));
+  const [toDos, setToDos] = useState(getLocalData('toDos'));
+  const [user, setUser] = useState(getLocalData('user'));
+  const [location, setLocation] = useState(getLocalData('location') || '');
   const [medicationList, setMedicationList] = useState(
-    getLocalData('medicationList') || []
+    getLocalData('medicationList')
   );
   const [medicalComments, setMedicalComments] = useState(
-    getLocalData('medicalComments') || []
+    getLocalData('medicalComments')
+  );
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    getLocalData('isLoggedIn') || false
   );
 
   // NEWSPAGE
@@ -59,11 +58,15 @@ function App() {
       password: currentUserGroup.password,
       _id: currentUserGroup._id,
       users: currentUserGroup.users,
-      news: [newEntry, ...currentUserGroup.news]
+      news: [newEntry, ...currentUserGroup.news],
+      toDos: currentUserGroup.toDos,
+      location: currentUserGroup.location,
+      medicationList: currentUserGroup.medicationList,
+      medicalComments: currentUserGroup.medicalComments
     };
     const createdUserGroup = await patchUserGroup(changedUserGroup, id);
     setCurrentUserGroup(createdUserGroup);
-    setNewsList(changedUserGroup.news);
+    setNewsList(createdUserGroup.news);
     history.push('/news');
   }
 
@@ -75,11 +78,15 @@ function App() {
       password: currentUserGroup.password,
       _id: currentUserGroup._id,
       users: currentUserGroup.users,
-      news: [...newsList.slice(0, index), ...newsList.slice(index + 1)]
+      news: [...newsList.slice(0, index), ...newsList.slice(index + 1)],
+      toDos: currentUserGroup.toDos,
+      location: currentUserGroup.location,
+      medicationList: currentUserGroup.medicationList,
+      medicalComments: currentUserGroup.medicalComments
     };
     const createdUserGroup = await patchUserGroup(changedUserGroup, id);
     setCurrentUserGroup(createdUserGroup);
-    setNewsList(changedUserGroup.news);
+    setNewsList(createdUserGroup.news);
   }
 
   async function handleSaveChangedNewsEntry(changedEntry) {
@@ -94,47 +101,82 @@ function App() {
         ...newsList.slice(0, index),
         changedEntry,
         ...newsList.slice(index + 1)
-      ]
+      ],
+      toDos: currentUserGroup.toDos,
+      location: currentUserGroup.location,
+      medicationList: currentUserGroup.medicationList,
+      medicalComments: currentUserGroup.medicalComments
     };
     const createdUserGroup = await patchUserGroup(changedUserGroup, id);
     setCurrentUserGroup(createdUserGroup);
-    setNewsList(changedUserGroup.news);
+    setNewsList(createdUserGroup.news);
   }
+
   useEffect(() => {
-    setLocalData('news', newsList);
+    setLocalData('newsList', newsList);
   }, [newsList]);
 
   // TODOPAGE
 
-  function handleToDoSubmit(newToDo) {
-    setToDos([newToDo, ...toDos]);
+  async function handleToDoSubmit(newToDo) {
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: currentUserGroup.news,
+      toDos: [newToDo, ...currentUserGroup.toDos],
+      location: currentUserGroup.location,
+      medicationList: currentUserGroup.medicationList,
+      medicalComments: currentUserGroup.medicalComments
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setToDos(changedUserGroup.toDos);
   }
 
-  function handleToDoStatusChange(changedToDo) {
-    const index = toDos.findIndex(toDo => toDo.title === changedToDo.title);
-    setToDos([
-      ...toDos.slice(0, index),
-      changedToDo,
-      ...toDos.slice(index + 1)
-    ]);
+  async function handleToDoChange(changedToDo) {
+    const index = toDos.findIndex(toDo => toDo.id === changedToDo.id);
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: currentUserGroup.news,
+      toDos: [...toDos.slice(0, index), changedToDo, ...toDos.slice(index + 1)],
+      location: currentUserGroup.location,
+      medicationList: currentUserGroup.medicationList,
+      medicalComments: currentUserGroup.medicalComments
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setToDos(createdUserGroup.toDos);
   }
 
-  function handleToDoDistribution(distribuedToDo) {
-    const index = toDos.findIndex(toDo => toDo.title === distribuedToDo.title);
-    setToDos([
-      ...toDos.slice(0, index),
-      distribuedToDo,
-      ...toDos.slice(index + 1)
-    ]);
+  async function handleToDoDelete(deletedToDo) {
+    const index = toDos.findIndex(toDo => toDo.id === deletedToDo.id);
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: currentUserGroup.news,
+      toDos: [...toDos.slice(0, index), ...toDos.slice(index + 1)],
+      location: currentUserGroup.location,
+      medicationList: currentUserGroup.medicationList,
+      medicalComments: currentUserGroup.medicalComments
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setToDos(createdUserGroup.toDos);
   }
 
-  function handleToDoDelete(deletedToDo) {
-    const index = toDos.findIndex(toDo => toDo.title === deletedToDo.title);
-    setToDos([...toDos.slice(0, index), ...toDos.slice(index + 1)]);
-  }
-
-  useEffect(() => setLocalData('toDos', toDos), [toDos]);
-
+  useEffect(() => {
+    setLocalData('toDos', toDos);
+  }, [toDos]);
   // USER/LOGIN PAGE
 
   async function handleNewUserGroup(newUserGroup) {
@@ -149,7 +191,11 @@ function App() {
       password: currentUserGroup.password,
       _id: currentUserGroup._id,
       users: [...currentUserGroup.users, newUser],
-      news: [...currentUserGroup.news]
+      news: currentUserGroup.news,
+      toDos: currentUserGroup.toDos,
+      location: currentUserGroup.location,
+      medicationList: currentUserGroup.medicationList,
+      medicalComments: currentUserGroup.medicalComments
     };
     const createdUserGroup = await patchUserGroup(changedUserGroup, id);
     setCurrentUserGroup(createdUserGroup);
@@ -158,7 +204,11 @@ function App() {
   function handleLogin(foundUser, foundUserGroup, history) {
     setUser(foundUser);
     setNewsList(foundUserGroup.news);
+    setToDos(foundUserGroup.toDos);
     setCurrentUserGroup(foundUserGroup);
+    setLocation(foundUserGroup.location);
+    setMedicationList(foundUserGroup.medicationList);
+    setMedicalComments(foundUserGroup.medicalComments);
     setIsLoggedIn(true);
     history.push('/news');
   }
@@ -167,6 +217,11 @@ function App() {
     setIsLoggedIn(false);
     setUser('');
     setCurrentUserGroup('');
+    setNewsList('');
+    setToDos('');
+    setMedicalComments('');
+    setMedicationList('');
+    setLocation('');
   }
   useEffect(() => {
     setLocalData('usergroup', currentUserGroup);
@@ -174,53 +229,116 @@ function App() {
 
   useEffect(() => setLocalData('isLoggedIn', isLoggedIn), [isLoggedIn]);
 
-  /*useEffect(() => {
-    async function fetchUserGroups() {
-      await getTotalUserGroups().then(data => setUserGroups(data));
-    }
-    fetchUserGroups();
-  }, []);*/
-
   useEffect(() => setLocalData('user', user), [user]);
   // MEDICALPAGE
 
-  function handleLocationChange(newAdress) {
-    setLocation(newAdress);
+  async function handleLocationChange(name, newLocation) {
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: currentUserGroup.news,
+      toDos: currentUserGroup.toDos,
+      location: { ...currentUserGroup.location, [name]: newLocation },
+      medicationList: currentUserGroup.medicationList,
+      medicalComments: currentUserGroup.medicalComments
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setLocation(createdUserGroup.location);
   }
 
   useEffect(() => setLocalData('location', location), [location]);
 
-  function handleSingleMedicationSubmit(newSingleMedication) {
-    setMedicationList([...medicationList, newSingleMedication]);
-    console.log(newSingleMedication);
+  async function handleSingleMedicationSubmit(newSingleMedication) {
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: currentUserGroup.news,
+      toDos: currentUserGroup.toDos,
+      location: currentUserGroup.location,
+      medicationList: [...medicationList, newSingleMedication],
+      medicalComments: currentUserGroup.medicalComments
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setMedicationList(createdUserGroup.medicationList);
   }
+
   useEffect(() => setLocalData('medicationList', medicationList), [
     medicationList
   ]);
 
-  function handleSingleMedicationDelete(deletedSingleMedication) {
+  async function handleSingleMedicationDelete(deletedSingleMedication) {
     const index = medicationList.findIndex(
-      singleMedication => singleMedication.id === deletedSingleMedication.id
+      medication => medication.id === deletedSingleMedication.id
     );
-    setMedicationList([
-      ...medicationList.slice(0, index),
-      ...medicationList.slice(index + 1)
-    ]);
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: currentUserGroup.news,
+      toDos: currentUserGroup.toDos,
+      location: currentUserGroup.location,
+      medicationList: [
+        ...medicationList.slice(0, index),
+        ...medicationList.slice(index + 1)
+      ],
+      medicalComments: currentUserGroup.medicalComments
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setMedicationList(createdUserGroup.medicationList);
   }
 
-  function handleSingleMedicationChange(changedSingleMedication) {
+  async function handleSingleMedicationChange(changedSingleMedication) {
     const index = medicationList.findIndex(
-      singleMedication => singleMedication.id === changedSingleMedication.id
+      medication => medication.id === changedSingleMedication.id
     );
-    setMedicationList([
-      ...medicationList.slice(0, index),
-      changedSingleMedication,
-      ...medicationList.slice(index + 1)
-    ]);
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: currentUserGroup.news,
+      toDos: currentUserGroup.toDos,
+      location: currentUserGroup.location,
+      medicationList: [
+        ...medicationList.slice(0, index),
+        changedSingleMedication,
+        ...medicationList.slice(index + 1)
+      ],
+      medicalComments: currentUserGroup.medicalComments
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setMedicationList(createdUserGroup.medicationList);
   }
 
-  function handleMedicalCommentSubmit(newMedicalComment) {
-    setMedicalComments([newMedicalComment, ...medicalComments]);
+  async function handleMedicalCommentSubmit(newMedicalComment) {
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: currentUserGroup.news,
+      toDos: currentUserGroup.toDos,
+      location: currentUserGroup.location,
+      medicationList: currentUserGroup.medicationList,
+      medicalComments: [newMedicalComment, ...medicalComments]
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setMedicalComments(createdUserGroup.medicalComments);
   }
 
   useEffect(() => setLocalData('medicalComments', medicalComments), [
@@ -252,9 +370,8 @@ function App() {
                     toDos={toDos}
                     user={user}
                     onToDoSubmit={handleToDoSubmit}
-                    onToDoStatusChange={handleToDoStatusChange}
+                    onToDoChange={handleToDoChange}
                     onToDoDelete={handleToDoDelete}
-                    onToDoDistribution={handleToDoDistribution}
                   />
                 )}
               />
@@ -311,7 +428,6 @@ function App() {
                   onLogin={handleLogin}
                   user={user}
                   currentUserGroup={currentUserGroup}
-                  userGroups={userGroups}
                   history={props.history}
                 />
               )}

@@ -28,14 +28,12 @@ const LocationInformationContainer = styled.section`
 const Output = styled.div``;
 
 export default function LocationInformation({ location, onLocationChange }) {
-  const { address, phonenum, room } = location;
   const [isAdressEditable, setIsAdressEditable] = useState(false);
   const [isPhonenumEditable, setIsPhonenumEditable] = useState(false);
   const [isRoomEditable, setIsRoomEditable] = useState(false);
 
   function onAddressChange(name, event, onLocationChange) {
-    const newLocation = { ...location, [name]: event.target.value };
-    onLocationChange(newLocation);
+    onLocationChange(name, event.target.value);
   }
 
   return (
@@ -49,10 +47,10 @@ export default function LocationInformation({ location, onLocationChange }) {
             onAddressChange('address', event, onLocationChange)
           }
           name="address"
-          value={address}
+          value={location && location.address}
         />
       ) : (
-        <Output>{address}</Output>
+        <Output>{location && location.address}</Output>
       )}
       {isAdressEditable ? (
         <EditStatusIcon
@@ -73,10 +71,10 @@ export default function LocationInformation({ location, onLocationChange }) {
             onAddressChange('phonenum', event, onLocationChange)
           }
           name="phonenum"
-          value={phonenum}
+          value={location && location.phonenum}
         />
       ) : (
-        <Output>{phonenum}</Output>
+        <Output>{location && location.phonenum}</Output>
       )}
       {isPhonenumEditable ? (
         <EditStatusIcon
@@ -95,10 +93,10 @@ export default function LocationInformation({ location, onLocationChange }) {
         <Input
           onChange={event => onAddressChange('room', event, onLocationChange)}
           name="room"
-          value={room}
+          value={location && location.room}
         />
       ) : (
-        <Output>{room}</Output>
+        <Output>{location && location.room}</Output>
       )}
       {isRoomEditable ? (
         <EditStatusIcon

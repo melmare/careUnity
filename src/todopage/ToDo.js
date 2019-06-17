@@ -94,17 +94,12 @@ const ToDoPersonInCharge = styled.div`
   border-radius: 5px;
 `;
 
-export default function ToDo({
-  toDo,
-  onToDoStatusChange,
-  onToDoDelete,
-  user,
-  onToDoDistribution
-}) {
+export default function ToDo({ toDo, onToDoChange, onToDoDelete, user }) {
   const {
     title,
     author,
     status,
+    id,
     isDistributed,
     personInCharge,
     personInChargeColor
@@ -121,15 +116,16 @@ export default function ToDo({
     }
   }
 
-  function onStatusBtnClick(event, onToDoStatusChange) {
+  function onStatusBtnClick(event) {
     const changedToDo = {
       title,
       author,
       status: getNewStatus(status),
+      id,
       isDistributed,
       personInCharge
     };
-    onToDoStatusChange(changedToDo);
+    onToDoChange(changedToDo);
   }
 
   function onDeleteBtnClick(event, onToDoDelete) {
@@ -139,17 +135,18 @@ export default function ToDo({
     onToDoDelete(deletedToDo);
   }
 
-  function onDistributionBtnClick(event, onToDoDistribution) {
+  function onDistributionBtnClick(event) {
     event.preventDefault();
     const distributedToDo = {
       title,
       author,
       status,
+      id,
       isDistributed: true,
       personInCharge: user.username,
       personInChargeColor: user.usercolor
     };
-    onToDoDistribution(distributedToDo);
+    onToDoChange(distributedToDo);
   }
 
   return (
@@ -164,17 +161,15 @@ export default function ToDo({
             {personInCharge}
           </ToDoPersonInCharge>
         ) : (
-          <DistributionButton
-            onClick={event => onDistributionBtnClick(event, onToDoDistribution)}
-          >
+          <DistributionButton onClick={event => onDistributionBtnClick(event)}>
             Aufgabe übernehmen
           </DistributionButton>
         )}
       </ToDoPersonInChargeContainer>
 
       <StatusButton
-        onClick={event => onStatusBtnClick(event, onToDoStatusChange)}
-        disabled={!onToDoStatusChange}
+        onClick={event => onStatusBtnClick(event)}
+        disabled={!onToDoChange}
       >
         {getStatusIcon(status)}
       </StatusButton>

@@ -68,12 +68,13 @@ export default function MedicalComment({
   return (
     <MedicalCommentsContainer>
       <MedicalIcon icon="comment-medical" />
-      {medicalComments.map(comment => (
-        <CommentContainer>
-          <DateContainer>{comment.date}</DateContainer>
-          {comment.description}
-        </CommentContainer>
-      ))}
+      {medicalComments &&
+        medicalComments.map(comment => (
+          <CommentContainer>
+            <DateContainer>{comment.date}</DateContainer>
+            {comment.description}
+          </CommentContainer>
+        ))}
 
       {isFormVisible ? (
         <MedicalCommentForm

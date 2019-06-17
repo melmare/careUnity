@@ -7,23 +7,22 @@ import SubmitButton from '../components/SubmitButton';
 const StyledLoginForm = styled.form``;
 
 export default function LoginForm({
-  userGroups,
   onLogin,
   history,
-  onIncorrectLoginData
+  onIncorrectLoginData,
+  userGroups
 }) {
   function handleLoginFormSubmit(event) {
     event.preventDefault();
     const loginemail = event.target.loginemail.value;
     const loginpassword = event.target.loginpassword.value;
-
     const totalUsers = userGroups.map(userGroup => userGroup.users);
     const totalUsersList = new Array().concat(...totalUsers);
 
     try {
       const foundUser = totalUsersList.find(user => user.email === loginemail);
       const foundUserGroup = userGroups.find(
-        userGroup => userGroup.id === foundUser.userGroupId
+        userGroup => userGroup._id === foundUser.userGroupId
       );
       if (foundUserGroup.password === loginpassword) {
         onLogin(foundUser, foundUserGroup, history);

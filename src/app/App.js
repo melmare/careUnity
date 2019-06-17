@@ -4,7 +4,8 @@ import {
   setLocalData,
   getLocalData,
   createUserGroup,
-  patchUserGroup
+  patchUserGroup,
+  getTotalUserGroups
 } from '../services';
 import styled from 'styled-components';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -19,8 +20,6 @@ import Navigation from '../components/Navigation';
 import CreatePage from '../createpage/CreatePage';
 import ToDoPage from '../todopage/ToDoPage';
 import NewsPage from '../newspage/NewsPage';
-import NavButton from '../components/NavButton';
-import Icon from '../components/NavIcon';
 import UserPage from '../userpage/UserPage';
 import MedicalPage from '../medicalpage/MedicalPage';
 import LoginPage from '../loginpage/LoginPage';
@@ -54,6 +53,10 @@ function App() {
   );
 
   // NEWSPAGE
+
+  useEffect(() => {
+    getTotalUserGroups().then(data => setUserGroups(data));
+  });
 
   function handleSaveNewEntry(newEntry, history) {
     setNewsList([newEntry, ...newsList]);

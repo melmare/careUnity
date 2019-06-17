@@ -46,7 +46,7 @@ export default function LoginPage({
             history={history}
           />
           Deine Familie ist noch nicht bei careUnity registriert?
-          <SubmitButton onClick={() => setPageStatus('registration-step1')}>
+          <SubmitButton onClick={() => setPageStatus('registration')}>
             Registrieren
           </SubmitButton>
         </div>
@@ -62,18 +62,20 @@ export default function LoginPage({
       {pageStatus === 'welcome' && (
         <>
           <p>Deine Familie ist noch nicht bei careUnity registriert? </p>
-          <SubmitButton onClick={() => setPageStatus('registration-step1')}>
+          <SubmitButton onClick={() => setPageStatus('registration')}>
             Registrieren
           </SubmitButton>
         </>
       )}
-      <RegistrationForm
-        onNewUserRegistration={onNewUserRegistration}
-        onNewUserGroup={onNewUserGroup}
-        onLogin={onLogin}
-        history={history}
-        currentUserGroup={currentUserGroup}
-      />
+      {pageStatus === 'registration' && (
+        <RegistrationForm
+          onNewUserRegistration={onNewUserRegistration}
+          onNewUserGroup={onNewUserGroup}
+          onLogin={onLogin}
+          history={history}
+          currentUserGroup={currentUserGroup}
+        />
+      )}
     </LoginPageContainer>
   );
 }

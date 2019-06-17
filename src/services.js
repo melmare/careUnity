@@ -37,3 +37,7 @@ export function patchUserGroup(userGroup, id) {
     })
   }).then(res => res.json());
 }
+
+export function getTotalUserGroups() {
+  return fetch('/usergroups').then(res => res.json());
+}

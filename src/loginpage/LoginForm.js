@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Label from '../components/Label';
 import Input from '../components/Input';
 import SubmitButton from '../components/SubmitButton';
+import { getTotalUserGroups } from '../services';
 
 const StyledLoginForm = styled.form``;
 
@@ -12,16 +13,17 @@ export default function LoginForm({
   onIncorrectLoginData,
   userGroups
 }) {
-  function handleLoginFormSubmit(event) {
+  async function handleLoginFormSubmit(event) {
     event.preventDefault();
     const loginemail = event.target.loginemail.value;
     const loginpassword = event.target.loginpassword.value;
-    const totalUsers = userGroups.map(userGroup => userGroup.users);
+    const allUserGroups = await getTotalUserGroups();
+    const totalUsers = allUserGroups.map(userGroup => userGroup.users);
     const totalUsersList = new Array().concat(...totalUsers);
 
     try {
       const foundUser = totalUsersList.find(user => user.email === loginemail);
-      const foundUserGroup = userGroups.find(
+      const foundUserGroup = allUserGroups.find(
         userGroup => userGroup._id === foundUser.userGroupId
       );
       if (foundUserGroup.password === loginpassword) {

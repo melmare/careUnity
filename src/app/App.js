@@ -32,15 +32,13 @@ const AppContainer = styled.div`
 `;
 
 function App() {
-  const [newsList, setNewsList] = useState(getLocalData('news') || []);
   const [toDos, setToDos] = useState(getLocalData('toDos') || []);
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(getLocalData('user'));
   const [currentUserGroup, setCurrentUserGroup] = useState(
     getLocalData('usergroup')
   );
-  const [userGroups, setUserGroups] = useState(
-    getLocalData('userGroups') || []
-  );
+  const [newsList, setNewsList] = useState(getLocalData('news'));
+  const [userGroups, setUserGroups] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(
     getLocalData('isLoggedIn') || false
   );
@@ -54,27 +52,53 @@ function App() {
 
   // NEWSPAGE
 
-  useEffect(() => {
-    getTotalUserGroups().then(data => setUserGroups(data));
-  });
-
-  function handleSaveNewEntry(newEntry, history) {
-    setNewsList([newEntry, ...newsList]);
+  async function handleSaveNewEntry(newEntry, history) {
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: [newEntry, ...currentUserGroup.news]
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setNewsList(changedUserGroup.news);
     history.push('/news');
   }
 
-  function handleNewsDelete(deletedEntry) {
+  async function handleNewsDelete(deletedEntry) {
     const index = newsList.findIndex(entry => entry.id === deletedEntry.id);
-    setNewsList([...newsList.slice(0, index), ...newsList.slice(index + 1)]);
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: [...newsList.slice(0, index), ...newsList.slice(index + 1)]
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setNewsList(changedUserGroup.news);
   }
 
-  function handleSaveChangedNewsEntry(changedEntry) {
+  async function handleSaveChangedNewsEntry(changedEntry) {
     const index = newsList.findIndex(entry => entry.id === changedEntry.id);
-    setNewsList([
-      ...newsList.slice(0, index),
-      changedEntry,
-      ...newsList.slice(index + 1)
-    ]);
+    const id = currentUserGroup._id;
+    const changedUserGroup = {
+      name: currentUserGroup.name,
+      password: currentUserGroup.password,
+      _id: currentUserGroup._id,
+      users: currentUserGroup.users,
+      news: [
+        ...newsList.slice(0, index),
+        changedEntry,
+        ...newsList.slice(index + 1)
+      ]
+    };
+    const createdUserGroup = await patchUserGroup(changedUserGroup, id);
+    setCurrentUserGroup(createdUserGroup);
+    setNewsList(changedUserGroup.news);
   }
   useEffect(() => {
     setLocalData('news', newsList);
@@ -132,9 +156,10 @@ function App() {
   }
 
   function handleLogin(foundUser, foundUserGroup, history) {
-    setIsLoggedIn(true);
     setUser(foundUser);
+    setNewsList(foundUserGroup.news);
     setCurrentUserGroup(foundUserGroup);
+    setIsLoggedIn(true);
     history.push('/news');
   }
 
@@ -146,8 +171,17 @@ function App() {
   useEffect(() => {
     setLocalData('usergroup', currentUserGroup);
   }, [currentUserGroup]);
+
   useEffect(() => setLocalData('isLoggedIn', isLoggedIn), [isLoggedIn]);
 
+  /*useEffect(() => {
+    async function fetchUserGroups() {
+      await getTotalUserGroups().then(data => setUserGroups(data));
+    }
+    fetchUserGroups();
+  }, []);*/
+
+  useEffect(() => setLocalData('user', user), [user]);
   // MEDICALPAGE
 
   function handleLocationChange(newAdress) {
@@ -259,8 +293,9 @@ function App() {
                 render={() => (
                   <NewsPage
                     user={user}
-                    newsList={newsList}
+                    currentUserGroup={currentUserGroup}
                     onNewsDelete={handleNewsDelete}
+                    newsList={newsList}
                     onSaveChangedNewsEntry={handleSaveChangedNewsEntry}
                   />
                 )}

@@ -9,15 +9,19 @@ export default function NewsList({
 }) {
   return (
     <>
-      {newsList.map(entry => (
-        <Entry
-          key={entry.id}
-          user={user}
-          entry={entry}
-          onNewsDelete={onNewsDelete}
-          onSaveChangedNewsEntry={onSaveChangedNewsEntry}
-        />
-      ))}
+      {newsList ? (
+        newsList.map(entry => (
+          <Entry
+            key={entry.id}
+            user={user}
+            entry={entry}
+            onNewsDelete={onNewsDelete}
+            onSaveChangedNewsEntry={onSaveChangedNewsEntry}
+          />
+        ))
+      ) : (
+        <p>Es wurden noch keine Einträge angelegt.</p>
+      )}
     </>
   );
 }

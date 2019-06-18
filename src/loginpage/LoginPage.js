@@ -10,6 +10,13 @@ const LoginPageContainer = styled.div`
   margin: 40px;
 `;
 
+const RegistrationBtnContainer = styled.div`
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 20px;
+`;
+
 export default function LoginPage({
   onNewUserGroup,
   currentUserGroup,
@@ -60,12 +67,12 @@ export default function LoginPage({
         />
       )}
       {pageStatus === 'welcome' && (
-        <>
-          <p>Deine Familie ist noch nicht bei careUnity registriert? </p>
+        <RegistrationBtnContainer>
+          Deine Familie ist noch nicht bei careUnity registriert?
           <Button onClick={() => setPageStatus('registration')}>
             Registrieren
           </Button>
-        </>
+        </RegistrationBtnContainer>
       )}
       {pageStatus === 'registration' && (
         <RegistrationForm

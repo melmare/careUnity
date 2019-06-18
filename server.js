@@ -2,8 +2,6 @@ const setupServer = require('./setup-server');
 const app = setupServer();
 
 const UserGroup = require('./models/UserGroup');
-const User = require('./models/User');
-const News = require('./models/News');
 
 app.get('/news', (req, res) => {
   News.find()

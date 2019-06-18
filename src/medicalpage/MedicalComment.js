@@ -61,18 +61,10 @@ export default function MedicalComment({ medicalComments, onNewData }) {
     };
     onNewData('medicalComments', newMedicalComment);
     event.target.description.value = '';
+    setIsFormVisible(!isFormVisible);
   }
   return (
     <MedicalCommentsContainer>
-      <MedicalIcon icon="comment-medical" />
-      {medicalComments &&
-        medicalComments.map(comment => (
-          <CommentContainer>
-            <DateContainer>{comment.date}</DateContainer>
-            {comment.description}
-          </CommentContainer>
-        ))}
-
       {isFormVisible ? (
         <MedicalCommentForm onSubmit={event => onSubmit(event)}>
           <Label label="Gib hier deinen Kommentar an" />
@@ -83,9 +75,19 @@ export default function MedicalComment({ medicalComments, onNewData }) {
           </Button>
         </MedicalCommentForm>
       ) : (
-        <CreateCommentBtn onClick={() => setIsFormVisible(!isFormVisible)}>
-          Neuen Kommentar anlegen
-        </CreateCommentBtn>
+        <>
+          <MedicalIcon icon="comment-medical" />
+          {medicalComments &&
+            medicalComments.map(comment => (
+              <CommentContainer>
+                <DateContainer>{comment.date}</DateContainer>
+                {comment.description}
+              </CommentContainer>
+            ))}
+          <CreateCommentBtn onClick={() => setIsFormVisible(!isFormVisible)}>
+            Neuen Kommentar anlegen
+          </CreateCommentBtn>
+        </>
       )}
     </MedicalCommentsContainer>
   );

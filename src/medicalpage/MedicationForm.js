@@ -12,6 +12,7 @@ const CreateMedicationEntryButton = styled.button`
   grid-row: -1;
   grid-column: 2 / span 4;
   background: skyblue;
+  font-size: inherit;
 `;
 
 export default function MedicationForm({ onNewData }) {

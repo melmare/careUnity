@@ -8,11 +8,12 @@ import {
   faEdit,
   faCheckSquare
 } from '@fortawesome/free-solid-svg-icons';
+import Input from '../components/Input';
 
 library.add(faTrash, faEdit, faCheckSquare);
 
-const StyledInput = styled.input`
-  width: 100%;
+const StyledInput = styled(Input)`
+  font-size: 18px;
 `;
 
 const SingleMedicationContainer = styled.li`
@@ -20,6 +21,7 @@ const SingleMedicationContainer = styled.li`
   grid-template-rows: auto;
   grid-template-columns: 1fr 3fr 2fr 1fr 1fr;
   list-style: none;
+  font-size: 18px;
 `;
 
 const TimeContainer = styled.div`
@@ -48,6 +50,9 @@ const StyledEditStatusIcon = styled(EditStatusIcon)`
   grid-column: 5;
 `;
 
+const SingleMedicationFormContainer = styled.div`
+  grid-column: 1 / span 3;
+`;
 export default function SingleMedication({
   singleMedication,
   onDataDelete,
@@ -77,7 +82,7 @@ export default function SingleMedication({
   return (
     <SingleMedicationContainer>
       {isEditable ? (
-        <>
+        <SingleMedicationFormContainer>
           <TimeContainer>
             <select
               name="time"
@@ -103,7 +108,7 @@ export default function SingleMedication({
               onChange={event => handleSingleMedicationEdit('dosage', event)}
             />
           </DosageContainer>
-        </>
+        </SingleMedicationFormContainer>
       ) : (
         <>
           <TimeContainer>{getTimeIcon(time)}</TimeContainer>

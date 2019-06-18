@@ -7,9 +7,20 @@ import Button from '../components/Button';
 
 const uid = require('uid');
 
-const UserGroupRegistrationForm = styled.form``;
+const UserGroupRegistrationForm = styled.form`
+  margin-top: 50px;
+  display: grid;
+  grid-gap: 20px;
+`;
 
-const AdminUserRegistrationForm = styled.form``;
+const AdminUserRegistrationForm = styled.form`
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 20px;
+`;
+
+const RegistrationButton = styled(Button)``;
 
 export default function RegistrationForm({
   onNewUserGroup,
@@ -73,7 +84,7 @@ export default function RegistrationForm({
             label="Gib dein Familienkennwort an:"
           />
           <Input name="userGroupPassword" required />
-          <Button>Neue Familie anlegen</Button>
+          <RegistrationButton>Neue Familie anlegen</RegistrationButton>
         </UserGroupRegistrationForm>
       )}
     </>

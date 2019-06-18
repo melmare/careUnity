@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const User = require('./User');
-const News = require('./News');
 
 const userGroupSchema = new mongoose.Schema({
   name: {

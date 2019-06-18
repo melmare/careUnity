@@ -215,7 +215,6 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalStyles />
-
       <AppContainer>
         <Switch>
           {isLoggedIn ? (
@@ -224,6 +223,7 @@ function App() {
                 path="/create"
                 render={props => (
                   <CreatePage
+                    newsList={newsList}
                     onNewData={handleNewData}
                     user={user}
                     history={props.history}

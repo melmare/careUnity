@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '../components/Input';
 import Label from '../components/Label';
 import styled from 'styled-components';
@@ -17,8 +17,11 @@ export default function Form({
   onNewsCreation,
   onDataChange,
   hideForm,
-  user
+  user,
+  newsList
 }) {
+  const [checkedActivities, setCheckedActivites] = useState([]);
+
   function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
@@ -52,6 +55,25 @@ export default function Form({
     }
   }
 
+  function handleActivitySuggestionClick(activity) {
+    if (checkedActivities.includes(activity)) {
+      const index = checkedActivities.findIndex(
+        checkedActivtiy => checkedActivtiy === activity
+      );
+      setCheckedActivites([
+        ...checkedActivities.slice(0, index),
+        ...checkedActivities.slice(index + 1)
+      ]);
+    } else {
+      setCheckedActivites([activity, ...checkedActivities]);
+    }
+  }
+
+  function getActivitiesList() {
+    const singleActivitiesList = newsList.map(newsObj => newsObj.activities);
+    const totalActivitiesList = new Array().concat(...singleActivitiesList);
+    return totalActivitiesList;
+  }
   return (
     <StyledForm onSubmit={event => handleSubmit(event)}>
       <Label htmlFor="title" label="Datum" />
@@ -61,7 +83,6 @@ export default function Form({
         placeholder="Donnerstag, 09.05.2019"
         defaultValue={entry && entry.title}
       />
-
       <Label htmlFor="activities" label="Aktivitäten" />
       <Input
         name="activities"

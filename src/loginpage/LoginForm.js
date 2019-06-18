@@ -5,7 +5,12 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import { getTotalUserGroups } from '../services';
 
-const StyledLoginForm = styled.form``;
+const StyledLoginForm = styled.form`
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 20px;
+`;
 
 export default function LoginForm({ onLogin, history, onIncorrectLoginData }) {
   async function handleLoginFormSubmit(event) {

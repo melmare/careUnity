@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Input from '../components/Input';
 import Label from '../components/Label';
 import ColorInput from '../components/ColorInput';
-import SubmitButton from '../components/SubmitButton';
+import Button from '../components/Button';
 
 const uid = require('uid');
 
@@ -16,7 +16,7 @@ export default function RegistrationForm({
   onLogin,
   history,
   currentUserGroup,
-  onNewUserRegistration
+  onNewData
 }) {
   async function handleRegistration(event) {
     event.preventDefault();
@@ -44,7 +44,7 @@ export default function RegistrationForm({
       usercolor: event.target.usercolor.value,
       role: 'admin'
     };
-    onNewUserRegistration(newAdminUser);
+    onNewData('users', newAdminUser);
     onLogin(newAdminUser, currentUserGroup, history);
   }
 
@@ -60,7 +60,7 @@ export default function RegistrationForm({
           <Input name="email" required />
           <Label htmlFor="usercolor" label="Wähle deine Farbe aus:" />
           <ColorInput name="usercolor" currentUserGroup={currentUserGroup} />
-          <SubmitButton>Neuen User registrieren</SubmitButton>
+          <Button>Neuen User registrieren</Button>
         </AdminUserRegistrationForm>
       ) : (
         <UserGroupRegistrationForm
@@ -73,7 +73,7 @@ export default function RegistrationForm({
             label="Gib dein Familienkennwort an:"
           />
           <Input name="userGroupPassword" required />
-          <SubmitButton>Neue Familie anlegen</SubmitButton>
+          <Button>Neue Familie anlegen</Button>
         </UserGroupRegistrationForm>
       )}
     </>

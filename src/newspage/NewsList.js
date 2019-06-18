@@ -4,8 +4,8 @@ import Entry from './Entry';
 export default function NewsList({
   user,
   newsList,
-  onNewsDelete,
-  onSaveChangedNewsEntry
+  onDataDelete,
+  onDataChange
 }) {
   return (
     <>
@@ -15,8 +15,8 @@ export default function NewsList({
             key={entry.id}
             user={user}
             entry={entry}
-            onNewsDelete={onNewsDelete}
-            onSaveChangedNewsEntry={onSaveChangedNewsEntry}
+            onDataDelete={onDataDelete}
+            onDataChange={onDataChange}
           />
         ))
       ) : (

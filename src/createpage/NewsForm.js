@@ -2,7 +2,7 @@ import React from 'react';
 import Input from '../components/Input';
 import Label from '../components/Label';
 import styled from 'styled-components';
-import SubmitButton from '../components/SubmitButton';
+import Button from '../components/Button';
 
 const uid = require('uid');
 
@@ -15,18 +15,11 @@ const StyledForm = styled.form`
 export default function Form({
   entry,
   onNewsCreation,
-  onSaveChangedNewsEntry,
+  onDataChange,
   hideForm,
   user
 }) {
-  function handleSubmit({
-    event,
-    entry,
-    onNewsCreation,
-    onSaveChangedNewsEntry,
-    hideForm,
-    user
-  }) {
+  function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
     if (entry) {
@@ -41,7 +34,7 @@ export default function Form({
           .filter(value => Boolean(value)),
         description: form.description.value
       };
-      onSaveChangedNewsEntry(changedEntry);
+      onDataChange('newsList', changedEntry);
       hideForm();
     } else {
       const newEntry = {
@@ -60,18 +53,7 @@ export default function Form({
   }
 
   return (
-    <StyledForm
-      onSubmit={event =>
-        handleSubmit({
-          event,
-          entry,
-          onNewsCreation,
-          onSaveChangedNewsEntry,
-          hideForm,
-          user
-        })
-      }
-    >
+    <StyledForm onSubmit={event => handleSubmit(event)}>
       <Label htmlFor="title" label="Datum" />
       <Input
         name="title"
@@ -89,7 +71,7 @@ export default function Form({
       />
       <Label htmlFor="description" label="Was hast Du von heute zu erzählen?" />
       <Input name="description" defaultValue={entry && entry.description} />
-      <SubmitButton>Eintrag abschicken</SubmitButton>
+      <Button>Eintrag abschicken</Button>
     </StyledForm>
   );
 }

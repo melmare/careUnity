@@ -14,7 +14,7 @@ const userGroupSchema = new mongoose.Schema({
   users: {
     type: Array
   },
-  news: {
+  newsList: {
     type: Array
   },
   toDos: {

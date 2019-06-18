@@ -7,9 +7,9 @@ import ToDoList from './ToDoList';
 export default function ToDoPage({
   toDos,
   user,
-  onToDoSubmit,
-  onToDoChange,
-  onToDoDelete
+  onNewData,
+  onDataChange,
+  onDataDelete
 }) {
   return (
     <>
@@ -17,12 +17,12 @@ export default function ToDoPage({
         <Headline>Aufgaben</Headline>
       </Header>
       <ContentContainer>
-        <ToDoForm user={user} onToDoSubmit={onToDoSubmit} />
+        <ToDoForm user={user} onNewData={onNewData} />
         <ToDoList
           toDos={toDos}
           user={user}
-          onToDoChange={onToDoChange}
-          onToDoDelete={onToDoDelete}
+          onDataChange={onDataChange}
+          onDataDelete={onDataDelete}
         />
       </ContentContainer>
     </>

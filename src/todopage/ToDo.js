@@ -94,7 +94,7 @@ const ToDoPersonInCharge = styled.div`
   border-radius: 5px;
 `;
 
-export default function ToDo({ toDo, onToDoChange, onToDoDelete, user }) {
+export default function ToDo({ toDo, onDataChange, onDataDelete, user }) {
   const {
     title,
     author,
@@ -116,26 +116,20 @@ export default function ToDo({ toDo, onToDoChange, onToDoDelete, user }) {
     }
   }
 
-  function onStatusBtnClick(event) {
+  function handleStatusBtnClick() {
     const changedToDo = {
       title,
       author,
       status: getNewStatus(status),
       id,
       isDistributed,
-      personInCharge
+      personInCharge,
+      personInChargeColor
     };
-    onToDoChange(changedToDo);
+    onDataChange('toDos', changedToDo);
   }
 
-  function onDeleteBtnClick(event, onToDoDelete) {
-    const deletedToDo = {
-      ...toDo
-    };
-    onToDoDelete(deletedToDo);
-  }
-
-  function onDistributionBtnClick(event) {
+  function handleDistributionBtnClick(event) {
     event.preventDefault();
     const distributedToDo = {
       title,
@@ -146,7 +140,7 @@ export default function ToDo({ toDo, onToDoChange, onToDoDelete, user }) {
       personInCharge: user.username,
       personInChargeColor: user.usercolor
     };
-    onToDoChange(distributedToDo);
+    onDataChange('toDos', distributedToDo);
   }
 
   return (
@@ -161,22 +155,24 @@ export default function ToDo({ toDo, onToDoChange, onToDoDelete, user }) {
             {personInCharge}
           </ToDoPersonInCharge>
         ) : (
-          <DistributionButton onClick={event => onDistributionBtnClick(event)}>
+          <DistributionButton
+            onClick={event => handleDistributionBtnClick(event)}
+          >
             Aufgabe übernehmen
           </DistributionButton>
         )}
       </ToDoPersonInChargeContainer>
 
       <StatusButton
-        onClick={event => onStatusBtnClick(event)}
-        disabled={!onToDoChange}
+        onClick={() => handleStatusBtnClick()}
+        disabled={!onDataChange}
       >
         {getStatusIcon(status)}
       </StatusButton>
       {(user.username === author || user.username === personInCharge) && (
         <DeleteButton
-          onClick={event => onDeleteBtnClick(event, onToDoDelete)}
-          disabled={!onToDoDelete}
+          onClick={() => onDataDelete('toDos', toDo)}
+          disabled={!onDataDelete}
         >
           <DeleteIcon icon="trash" />
         </DeleteButton>

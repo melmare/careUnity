@@ -2,17 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Label from '../components/Label';
 import Input from '../components/Input';
-import SubmitButton from '../components/SubmitButton';
+import Button from '../components/Button';
 import { getTotalUserGroups } from '../services';
 
 const StyledLoginForm = styled.form``;
 
-export default function LoginForm({
-  onLogin,
-  history,
-  onIncorrectLoginData,
-  userGroups
-}) {
+export default function LoginForm({ onLogin, history, onIncorrectLoginData }) {
   async function handleLoginFormSubmit(event) {
     event.preventDefault();
     const loginemail = event.target.loginemail.value;
@@ -44,7 +39,7 @@ export default function LoginForm({
       <Label htmlFor="loginpassword" label="Gib dein Familienpasswort an:" />
       <Input name="loginpassword" required />
 
-      <SubmitButton>Login</SubmitButton>
+      <Button>Login</Button>
     </StyledLoginForm>
   );
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MedicalIcon from './MedicalIcon';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCommentMedical } from '@fortawesome/free-solid-svg-icons';
-import SubmitButton from '../components/SubmitButton';
+import Button from '../components/Button';
 import Input from '../components/Input';
 import Label from '../components/Label';
 
@@ -40,16 +40,13 @@ const DateContainer = styled.div`
   font-style: italic;
 `;
 
-const CreateCommentBtn = styled(SubmitButton)`
+const CreateCommentBtn = styled(Button)`
   grid-column: 2;
   width: 95%;
 `;
-export default function MedicalComment({
-  medicalComments,
-  onMedicalCommentSubmit
-}) {
+export default function MedicalComment({ medicalComments, onNewData }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
-  function onSubmit(event, onMedicalCommentSubmit) {
+  function onSubmit(event) {
     event.preventDefault();
     const dateNow = new Date();
     const options = {
@@ -62,7 +59,7 @@ export default function MedicalComment({
       description: event.target.description.value,
       date: dateNow.toLocaleDateString('DE', options)
     };
-    onMedicalCommentSubmit(newMedicalComment);
+    onNewData('medicalComments', newMedicalComment);
     event.target.description.value = '';
   }
   return (
@@ -77,15 +74,13 @@ export default function MedicalComment({
         ))}
 
       {isFormVisible ? (
-        <MedicalCommentForm
-          onSubmit={event => onSubmit(event, onMedicalCommentSubmit)}
-        >
+        <MedicalCommentForm onSubmit={event => onSubmit(event)}>
           <Label label="Gib hier deinen Kommentar an" />
           <Input name="description" />
-          <SubmitButton>Kommentar abschicken</SubmitButton>
-          <SubmitButton onClick={() => setIsFormVisible(!isFormVisible)}>
+          <Button>Kommentar abschicken</Button>
+          <Button onClick={() => setIsFormVisible(!isFormVisible)}>
             Abbrechen
-          </SubmitButton>
+          </Button>
         </MedicalCommentForm>
       ) : (
         <CreateCommentBtn onClick={() => setIsFormVisible(!isFormVisible)}>

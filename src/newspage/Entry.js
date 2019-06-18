@@ -32,23 +32,21 @@ const EntryHeader = styled.header`
   width: 100%;
 `;
 
-export default function Entry({
-  entry,
-  onNewsDelete,
-  onSaveChangedNewsEntry,
-  user
-}) {
+export default function Entry({ entry, onDataDelete, onDataChange, user }) {
   const [isEditFormVisible, setEditFormVisible] = useState(false);
   const { title, author, activities, description } = entry;
 
   return (
     <EntryContainer>
       <EntryHeader color={entry.color}>
-        {user.username === entry.author && onNewsDelete && (
-          <DeleteIcon icon="trash" onClick={() => onNewsDelete(entry)} />
+        {user.username === entry.author && onDataDelete && (
+          <DeleteIcon
+            icon="trash"
+            onClick={() => onDataDelete('newsList', entry)}
+          />
         )}
         <Title>{title}</Title>
-        {user.username === entry.author && onSaveChangedNewsEntry && (
+        {user.username === entry.author && onDataChange && (
           <EditIcon
             icon="edit"
             onClick={() => setEditFormVisible(!isEditFormVisible)}
@@ -58,7 +56,7 @@ export default function Entry({
       {isEditFormVisible ? (
         <NewsForm
           entry={entry}
-          onSaveChangedNewsEntry={onSaveChangedNewsEntry}
+          onDataChange={onDataChange}
           hideForm={() => setEditFormVisible(!isEditFormVisible)}
         />
       ) : (

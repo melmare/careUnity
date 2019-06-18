@@ -9,10 +9,9 @@ export default function MedicalPage({
   location,
   onLocationChange,
   medicationList,
-  onSingleMedicationSubmit,
-  onSingleMedicationDelete,
-  onSingleMedicationChange,
-  onMedicalCommentSubmit,
+  onNewData,
+  onDataDelete,
+  onDataChange,
   medicalComments
 }) {
   return (
@@ -25,12 +24,12 @@ export default function MedicalPage({
         />
         <MedicalInformation
           medicationList={medicationList}
-          onSingleMedicationSubmit={onSingleMedicationSubmit}
-          onSingleMedicationDelete={onSingleMedicationDelete}
-          onSingleMedicationChange={onSingleMedicationChange}
+          onNewData={onNewData}
+          onDataDelete={onDataDelete}
+          onDataChange={onDataChange}
         />
         <MedicalComment
-          onMedicalCommentSubmit={onMedicalCommentSubmit}
+          onNewData={onNewData}
           medicalComments={medicalComments}
         />
       </ContentContainer>

@@ -5,7 +5,7 @@ import ContentContainer from '../components/ContentContainer';
 import ToDo from '../todopage/ToDo';
 import Entry from '../newspage/Entry';
 import styled from 'styled-components';
-import SubmitButton from '../components/SubmitButton';
+import Button from '../components/Button';
 import ColorInput from '../components/ColorInput';
 
 const uid = require('uid');
@@ -28,6 +28,10 @@ const UserBox = styled.span`
 `;
 
 const CreateUserForm = styled.form``;
+
+const FormLabel = styled.label`
+  margin-bottom: 5px;
+`;
 
 const UserPageHeadline = styled.h3`
   font-size: 22px;
@@ -56,7 +60,7 @@ export default function UserPage({
   history,
   currentUserGroup,
   onLogout,
-  onNewUserRegistration
+  onNewData
 }) {
   const [isFormHidden, setIsFormHidden] = useState(true);
 
@@ -71,7 +75,10 @@ export default function UserPage({
       usercolor: event.target.usercolor.value,
       role: 'member'
     };
-    onNewUserRegistration(newUser);
+    onNewData('users', newUser);
+    event.target.username.value = '';
+    event.target.email.value = '';
+    event.target.usercolor.value = null;
     setIsFormHidden(true);
   }
   return (
@@ -91,19 +98,19 @@ export default function UserPage({
           hidden={isFormHidden}
           onSubmit={event => handleCreateUserBtnClick(event)}
         >
-          <label>
+          <FormLabel>
             Name:
             <Input name="username" />
-          </label>
-          <label>
+          </FormLabel>
+          <FormLabel>
             Email:
             <Input name="email" />
-          </label>
-          <label>Farbe:</label>
+          </FormLabel>
+          <labFormLabelel>Farbe:</labFormLabelel>
           <ColorInput currentUserGroup={currentUserGroup} name="usercolor" />
-          <SubmitButton>Neuen User anlegen</SubmitButton>
+          <Button>Neuen User anlegen</Button>
+          <Button onClick={() => setIsFormHidden(true)}>Abbrechen</Button>
         </CreateUserForm>
-
         <OwnToDoHeadline>Deine Aufgaben:</OwnToDoHeadline>
         {toDos &&
           toDos
@@ -118,7 +125,7 @@ export default function UserPage({
           newsList
             .filter(entry => entry.author === user.username)
             .map(entry => <Entry key={entry.id} user={user} entry={entry} />)}
-        <SubmitButton onClick={() => onLogout()}>Logout</SubmitButton>
+        <Button onClick={() => onLogout()}>Logout</Button>
       </ContentContainer>
     </>
   );

@@ -13,8 +13,8 @@ library.add(faPlus);
 export default function NewsPage({
   user,
   newsList,
-  onNewsDelete,
-  onSaveChangedNewsEntry
+  onDataDelete,
+  onDataChange
 }) {
   return (
     <>
@@ -28,8 +28,8 @@ export default function NewsPage({
         <NewsList
           user={user}
           newsList={newsList}
-          onNewsDelete={onNewsDelete}
-          onSaveChangedNewsEntry={onSaveChangedNewsEntry}
+          onDataDelete={onDataDelete}
+          onDataChange={onDataChange}
         />
       </ContentContainer>
     </>

@@ -30,8 +30,8 @@ const SendToDoIcon = styled(FontAwesomeIcon)`
   font-size: 2em;
 `;
 
-export default function ToDoForm({ onToDoSubmit, user }) {
-  function handleSubmit(event, onToDoSubmit) {
+export default function ToDoForm({ user, onNewData }) {
+  function handleSubmit(event) {
     event.preventDefault();
     const newToDo = {
       title: event.target.title.value,
@@ -39,11 +39,11 @@ export default function ToDoForm({ onToDoSubmit, user }) {
       status: 'active',
       id: uid()
     };
-    onToDoSubmit(newToDo);
+    onNewData('toDos', newToDo);
   }
 
   return (
-    <FormContainer onSubmit={event => handleSubmit(event, onToDoSubmit)}>
+    <FormContainer onSubmit={event => handleSubmit(event)}>
       <Label htmlFor="title" label="Aufgabe" />
       <Input name="title" required />
       <ToDoSubmitButton>

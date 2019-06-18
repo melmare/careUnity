@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import SubmitButton from '../components/SubmitButton';
+import Button from '../components/Button';
 import Input from '../components/Input';
 
 const uid = require('uid');
@@ -14,10 +14,10 @@ const CreateMedicationEntryButton = styled.button`
   background: skyblue;
 `;
 
-export default function MedicationForm({ onSingleMedicationSubmit }) {
+export default function MedicationForm({ onNewData }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
 
-  function onSubmit(event, onSingleMedicationSubmit) {
+  function onSubmit(event) {
     event.preventDefault();
     const newSingleMedication = {
       id: uid(),
@@ -25,16 +25,14 @@ export default function MedicationForm({ onSingleMedicationSubmit }) {
       medicine: event.target.medicine.value,
       dosage: event.target.dosage.value
     };
-    onSingleMedicationSubmit(newSingleMedication);
+    onNewData('medicationList', newSingleMedication);
     setIsFormVisible(!isFormVisible);
   }
 
   return (
     <>
       {isFormVisible ? (
-        <MedicationFormContainer
-          onSubmit={event => onSubmit(event, onSingleMedicationSubmit)}
-        >
+        <MedicationFormContainer onSubmit={event => onSubmit(event)}>
           <label>
             Tageszeit
             <select name="time">
@@ -54,10 +52,10 @@ export default function MedicationForm({ onSingleMedicationSubmit }) {
             Dosierung
             <Input name="dosage" required />
           </label>
-          <SubmitButton>Abschicken</SubmitButton>
-          <SubmitButton onClick={() => setIsFormVisible(!isFormVisible)}>
+          <Button>Abschicken</Button>
+          <Button onClick={() => setIsFormVisible(!isFormVisible)}>
             Abbrechen
-          </SubmitButton>
+          </Button>
         </MedicationFormContainer>
       ) : (
         <CreateMedicationEntryButton

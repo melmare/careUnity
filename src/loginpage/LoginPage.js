@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import SubmitButton from '../components/SubmitButton';
+import Button from '../components/Button';
 import RegistrationForm from './RegistrationForm';
 import LoginForm from './LoginForm';
 
@@ -16,7 +16,7 @@ export default function LoginPage({
   userGroups,
   onLogin,
   history,
-  onNewUserRegistration
+  onNewData
 }) {
   const [pageStatus, setPageStatus] = useState('welcome');
 
@@ -46,9 +46,9 @@ export default function LoginPage({
             history={history}
           />
           Deine Familie ist noch nicht bei careUnity registriert?
-          <SubmitButton onClick={() => setPageStatus('registration')}>
+          <Button onClick={() => setPageStatus('registration')}>
             Registrieren
-          </SubmitButton>
+          </Button>
         </div>
       )}
       {pageStatus === 'welcome' && (
@@ -62,14 +62,14 @@ export default function LoginPage({
       {pageStatus === 'welcome' && (
         <>
           <p>Deine Familie ist noch nicht bei careUnity registriert? </p>
-          <SubmitButton onClick={() => setPageStatus('registration')}>
+          <Button onClick={() => setPageStatus('registration')}>
             Registrieren
-          </SubmitButton>
+          </Button>
         </>
       )}
       {pageStatus === 'registration' && (
         <RegistrationForm
-          onNewUserRegistration={onNewUserRegistration}
+          onNewData={onNewData}
           onNewUserGroup={onNewUserGroup}
           onLogin={onLogin}
           history={history}

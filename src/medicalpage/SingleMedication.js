@@ -50,8 +50,8 @@ const StyledEditStatusIcon = styled(EditStatusIcon)`
 
 export default function SingleMedication({
   singleMedication,
-  onSingleMedicationDelete,
-  onSingleMedicationChange
+  onDataDelete,
+  onDataChange
 }) {
   const [isEditable, setIsEditable] = useState(false);
   const { id, time, medicine, dosage } = singleMedication;
@@ -68,13 +68,10 @@ export default function SingleMedication({
         return '💊';
     }
   }
-  function onDeleteBtnClick(event, onSingleMedicationDelete) {
-    const deletedSingleMedication = { id, time, medicine, dosage };
-    onSingleMedicationDelete(deletedSingleMedication);
-  }
-  function onSingleMedicationEdit(name, event, onSingleMedicationChange) {
+
+  function handleSingleMedicationEdit(name, event) {
     const newMedication = { ...singleMedication, [name]: event.target.value };
-    onSingleMedicationChange(newMedication);
+    onDataChange('medicationList', newMedication);
     console.log('edit');
   }
   return (
@@ -84,9 +81,7 @@ export default function SingleMedication({
           <TimeContainer>
             <select
               name="time"
-              onChange={event =>
-                onSingleMedicationEdit('time', event, onSingleMedicationChange)
-              }
+              onChange={event => handleSingleMedicationEdit('time', event)}
             >
               <option value="morning">Morgens</option>
               <option value="midday">Mittags</option>
@@ -98,26 +93,14 @@ export default function SingleMedication({
             <StyledInput
               value={medicine}
               name="medicine"
-              onChange={event =>
-                onSingleMedicationEdit(
-                  'medicine',
-                  event,
-                  onSingleMedicationChange
-                )
-              }
+              onChange={event => handleSingleMedicationEdit('medicine', event)}
             />
           </MedicineContainer>
           <DosageContainer>
             <StyledInput
               value={dosage}
               name="dosage"
-              onChange={event =>
-                onSingleMedicationEdit(
-                  'dosage',
-                  event,
-                  onSingleMedicationChange
-                )
-              }
+              onChange={event => handleSingleMedicationEdit('dosage', event)}
             />
           </DosageContainer>
         </>
@@ -129,7 +112,7 @@ export default function SingleMedication({
         </>
       )}
       <DeleteButton
-        onClick={event => onDeleteBtnClick(event, onSingleMedicationDelete)}
+        onClick={() => onDataDelete('medicationList', singleMedication)}
       >
         <DeleteIcon icon="trash" />
       </DeleteButton>

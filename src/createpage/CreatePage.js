@@ -4,9 +4,9 @@ import Header from '../components/Header';
 import ContentContainer from '../components/ContentContainer';
 import Headline from '../components/Headline';
 
-export default function CreatePage({ onSaveNewEntry, history, user }) {
+export default function CreatePage({ history, user, onNewData }) {
   function handleEntrySubmit(newEntry) {
-    onSaveNewEntry(newEntry, history);
+    onNewData('newsList', newEntry, history);
   }
   return (
     <>

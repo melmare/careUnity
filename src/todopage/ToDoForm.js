@@ -40,6 +40,7 @@ export default function ToDoForm({ user, onNewData }) {
       id: uid()
     };
     onNewData('toDos', newToDo);
+    event.target.title.value = '';
   }
 
   return (

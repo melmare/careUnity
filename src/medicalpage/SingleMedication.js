@@ -37,6 +37,7 @@ const MedicineContainer = styled.div`
 const DosageContainer = styled.div`
   width: 100%;
   grid-column: 3;
+  margin-left: 10px;
 `;
 
 const DeleteIcon = styled(FontAwesomeIcon)`
@@ -59,7 +60,7 @@ export default function SingleMedication({
   onDataChange
 }) {
   const [isEditable, setIsEditable] = useState(false);
-  const { id, time, medicine, dosage } = singleMedication;
+  const { time, medicine, dosage } = singleMedication;
 
   function getTimeIcon(time) {
     switch (time) {
@@ -77,7 +78,6 @@ export default function SingleMedication({
   function handleSingleMedicationEdit(name, event) {
     const newMedication = { ...singleMedication, [name]: event.target.value };
     onDataChange('medicationList', newMedication);
-    console.log('edit');
   }
   return (
     <SingleMedicationContainer>

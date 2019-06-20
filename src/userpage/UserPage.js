@@ -83,7 +83,7 @@ export default function UserPage({
   }
   return (
     <>
-      <Header>careUnity</Header>
+      <Header>{user.username}</Header>
       <ContentContainer>
         <UserPageHeadline>Deine Familie besteht aus:</UserPageHeadline>
         <UserList>
@@ -106,7 +106,7 @@ export default function UserPage({
             Email:
             <Input name="email" />
           </FormLabel>
-          <labFormLabelel>Farbe:</labFormLabelel>
+          <FormLabel>Farbe:</FormLabel>
           <ColorInput currentUserGroup={currentUserGroup} name="usercolor" />
           <Button>Neuen User anlegen</Button>
           <Button onClick={() => setIsFormHidden(true)}>Abbrechen</Button>
@@ -116,7 +116,10 @@ export default function UserPage({
           toDos
             .filter(toDo => toDo.personInCharge === user.username)
             .map(toDo => (
-              <OwnToDoContainer onClick={() => history.push('/todo')}>
+              <OwnToDoContainer
+                key={toDo.title}
+                onClick={() => history.push('/todo')}
+              >
                 <ToDo toDo={toDo} user={user} />
               </OwnToDoContainer>
             ))}

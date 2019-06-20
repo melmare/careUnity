@@ -44,7 +44,7 @@ export default function ColorInput({ currentUserGroup }) {
   return (
     <ColorContainer>
       {getAvailableColors(currentUserGroup).map(color => (
-        <ColorInputBackground color={color}>
+        <ColorInputBackground key={color} color={color}>
           <StyledColorInput
             type="radio"
             name="usercolor"

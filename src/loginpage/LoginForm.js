@@ -42,7 +42,7 @@ export default function LoginForm({ onLogin, history, onIncorrectLoginData }) {
       <Input name="loginemail" required />
 
       <Label htmlFor="loginpassword" label="Gib dein Familienpasswort an:" />
-      <Input name="loginpassword" required />
+      <Input type="password" name="loginpassword" required />
 
       <Button>Login</Button>
     </StyledLoginForm>

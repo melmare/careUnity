@@ -19,7 +19,7 @@ export default function NewsPage({
   return (
     <>
       <Header>
-        <Headline>Klarcare</Headline>
+        <Headline>Neuigkeiten</Headline>
         <HeaderButton to="/create">
           <Icon icon="plus" />
         </HeaderButton>

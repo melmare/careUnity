@@ -1,39 +1,47 @@
 import React from 'react';
 import ToDo from './ToDo';
+import styled from 'styled-components';
+
+const StatusCategory = styled.div`
+  margin: 20px 0;
+`;
 
 export default function ToDoList({ toDos, onDataChange, onDataDelete, user }) {
   return (
     <>
-      <div>Offene Aufgaben</div>
+      <StatusCategory>Offene Aufgaben</StatusCategory>
       {toDos &&
         toDos
           .filter(toDo => toDo.status === 'active')
           .map(toDo => (
             <ToDo
+              key={toDo.title}
               toDo={toDo}
               user={user}
               onDataChange={onDataChange}
               onDataDelete={onDataDelete}
             />
           ))}
-      <div>In Bearbeitung</div>
+      <StatusCategory>In Bearbeitung</StatusCategory>
       {toDos &&
         toDos
           .filter(toDo => toDo.status === 'inProgress')
           .map(toDo => (
             <ToDo
+              key={toDo.title}
               toDo={toDo}
               user={user}
               onDataChange={onDataChange}
               onDataDelete={onDataDelete}
             />
           ))}
-      <div>Abgeschlossene Aufgaben</div>
+      <StatusCategory>Abgeschlossene Aufgaben</StatusCategory>
       {toDos &&
         toDos
           .filter(toDo => toDo.status === 'complete')
           .map(toDo => (
             <ToDo
+              key={toDo.title}
               toDo={toDo}
               user={user}
               onDataChange={onDataChange}

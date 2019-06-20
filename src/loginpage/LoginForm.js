@@ -19,6 +19,7 @@ export default function LoginForm({ onLogin, history, onIncorrectLoginData }) {
     const loginpassword = event.target.loginpassword.value;
     const allUserGroups = await getTotalUserGroups();
     const totalUsers = allUserGroups.map(userGroup => userGroup.users);
+    // eslint-disable-next-line
     const totalUsersList = new Array().concat(...totalUsers);
 
     try {

@@ -79,7 +79,7 @@ export default function MedicalComment({ medicalComments, onNewData }) {
           <MedicalIcon icon="comment-medical" />
           {medicalComments &&
             medicalComments.map(comment => (
-              <CommentContainer>
+              <CommentContainer key={comment.description}>
                 <DateContainer>{comment.date}</DateContainer>
                 {comment.description}
               </CommentContainer>

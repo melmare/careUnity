@@ -44,6 +44,7 @@ export default function MedicalInformation({
         {medicationList &&
           medicationList.map(singleMedication => (
             <SingleMedication
+              key={singleMedication.medicine}
               singleMedication={singleMedication}
               onDataDelete={onDataDelete}
               onDataChange={onDataChange}
